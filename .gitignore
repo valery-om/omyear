@@ -8,6 +8,9 @@ node_modules/
 web/node_modules/
 web/dist/
 web/.astro/
+worker/.dev.vars
+.vercel/
 .env
 .env.*
 !.env.example
+.vercel

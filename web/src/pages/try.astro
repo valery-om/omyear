@@ -1,0 +1,216 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { cities } from "../data/cities.js";
+
+const cityData = JSON.stringify(cities).replaceAll("<", "\\u003c");
+---
+
+<Layout
+  title="Create your Omyear — personal year book"
+  description="A bilingual questionnaire that turns confirmed facts and deterministic calculations into a source-linked personal year book."
+  music={false}
+  language="en"
+>
+  <main class="maker">
+    <nav class="maker-nav">
+      <a href="/">omyear</a>
+      <div><a href="/0811" data-copy="demo">Maya’s demo</a><a href="/pipeline" data-copy="pipeline">the pipeline</a></div>
+    </nav>
+
+    <header class="maker-head">
+      <div class="maker-head__copy">
+        <p class="eyebrow" data-copy="eyebrow">your material · your language</p>
+        <h1 data-copy="title">Make the year<br /><em>legible.</em></h1>
+        <p data-copy="intro">Tell Omyear only what it may use. Code calculates the symbolic systems; GPT‑5.4 mini writes inside those boundaries; the verifier checks every linked claim.</p>
+      </div>
+      <aside class="language-card" aria-label="Language">
+        <span data-copy="languageLabel">Book language</span>
+        <div class="language-switch"><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="ru" aria-pressed="false">Русский</button></div>
+      </aside>
+    </header>
+
+    <form id="year-form" class="year-form">
+      <div class="progress-rail" aria-label="Questionnaire sections">
+        <span>01 <b data-copy="railYou">you</b></span><span>02 <b data-copy="railYear">year</b></span><span>03 <b data-copy="railContext">context</b></span><span>04 <b data-copy="railPlaces">places</b></span>
+      </div>
+
+      <section class="form-section">
+        <div class="section-number">01</div>
+        <div class="section-intro"><p class="eyebrow" data-copy="sectionYouEyebrow">the known person</p><h2 data-copy="sectionYouTitle">Start with facts,<br />not inference.</h2><p data-copy="sectionYouIntro">Names are used for address and numerology. Birth data drives the deterministic calculation.</p></div>
+        <div class="fields">
+          <label><span data-copy="name">What should the book call you?</span><input name="name" autocomplete="given-name" maxlength="70" required placeholder="Maya" data-placeholder="namePlaceholder" /></label>
+          <label><span data-copy="birthName">Full name at birth</span><input name="birthName" autocomplete="name" maxlength="120" required placeholder="Maya Sol Bennett" data-placeholder="birthNamePlaceholder" /></label>
+          <label><span data-copy="birthDate">Date of birth</span><input name="birthDate" type="date" min="1920-01-01" max="2010-12-31" required /></label>
+          <label><span data-copy="birthTime">Time of birth</span><input name="birthTime" type="time" required /></label>
+          <label class="field-wide"><span data-copy="birthCity">City of birth</span><select name="birthCity" required></select></label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-number">02</div>
+        <div class="section-intro"><p class="eyebrow" data-copy="sectionYearEyebrow">the solar year</p><h2 data-copy="sectionYearTitle">Choose the birthday<br />that opens the book.</h2><p data-copy="sectionYearIntro">The book runs from that birthday to the next one. The return location changes the house calculation.</p></div>
+        <div class="fields">
+          <label><span data-copy="targetYear">Birthday year</span><input name="targetYear" type="number" min="2026" max="2032" value="2026" required /></label>
+          <label><span data-copy="solarCity">Where will you spend that birthday?</span><select name="solarCity" required></select></label>
+          <label class="field-wide"><span data-copy="giftMessage">Opening note to yourself</span><textarea name="giftMessage" maxlength="700" rows="4" required data-placeholder="giftPlaceholder" placeholder="Meet this year with curiosity, not certainty."></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-number">03</div>
+        <div class="section-intro"><p class="eyebrow" data-copy="sectionContextEyebrow">the permitted context</p><h2 data-copy="sectionContextTitle">Give the model<br />a small true world.</h2><p data-copy="sectionContextIntro">One item per line. These are the only biographical details the editorial stage may use.</p></div>
+        <div class="fields">
+          <label class="field-wide"><span data-copy="goals">Goals for this year</span><textarea name="goals" maxlength="1200" rows="5" required data-placeholder="goalsPlaceholder" placeholder="Build a sustainable creative practice&#10;Learn in public&#10;Make more room for rest"></textarea></label>
+          <label class="field-wide"><span data-copy="facts">Confirmed facts about you</span><textarea name="facts" maxlength="1200" rows="5" required data-placeholder="factsPlaceholder" placeholder="I work in product design&#10;I recently moved to a new city&#10;I prefer small, consistent experiments"></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-number">04</div>
+        <div class="section-intro"><p class="eyebrow" data-copy="sectionPlacesEyebrow">symbolic geography</p><h2 data-copy="sectionPlacesTitle">Pick four places<br />to question.</h2><p data-copy="sectionPlacesIntro">Omyear calculates the nearest angular lines. It does not recommend travel or promise outcomes.</p></div>
+        <div class="fields places-grid">
+          {[0, 1, 2, 3].map((index) => <label><span><span data-copy="place">Place</span> {index + 1}</span><select name={`place${index + 1}`} required></select></label>)}
+        </div>
+      </section>
+
+      <section class="submit-card">
+        <div><p class="eyebrow" data-copy="beforeGenerate">before generation</p><h2 data-copy="consentTitle">Nothing is published.</h2><p data-copy="consentText">Your questionnaire is processed for this request and the result stays in this browser tab. Omyear does not save the form or the generated book.</p></div>
+        <div class="submit-card__action">
+          <label class="consent"><input name="consent" type="checkbox" required /><span data-copy="consentLabel">I have permission to use this data and understand the book is symbolic reflection, not professional advice or prediction.</span></label>
+          <button class="generate" type="submit"><span data-copy="generate">Generate my book</span><b>↗</b></button>
+          <button class="prefill" type="button" id="prefill"><span data-copy="prefill">Use synthetic Maya data</span></button>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </div>
+      </section>
+    </form>
+
+    <section id="generation" class="generation" hidden aria-live="polite">
+      <div class="generation-orbit"><span></span></div>
+      <p class="eyebrow" data-copy="workingEyebrow">source-linked generation</p>
+      <h2 id="generation-title">Checking your material…</h2>
+      <p id="generation-note" data-copy="workingNote">Keep this tab open. A full book usually takes about 2–3 minutes.</p>
+      <div class="meter"><i id="meter-fill"></i></div>
+      <ol id="stage-list">
+        <li data-stage="validating" data-copy="stageValidating">Validate the permitted facts</li>
+        <li data-stage="calculating" data-copy="stageCalculating">Calculate five symbolic systems</li>
+        <li data-stage="writing" data-copy="stageWriting">Write with GPT‑5.4 mini Structured Outputs</li>
+        <li data-stage="verifying" data-copy="stageVerifying">Verify sources, dates and safety language</li>
+      </ol>
+    </section>
+  </main>
+
+  <script id="city-data" type="application/json" set:html={cityData}></script>
+  <script>
+    const API_URL = "https://omyear-api.om777-ai.workers.dev/generate";
+    const CITIES = JSON.parse(document.getElementById("city-data").textContent);
+    const COPY = {
+      en: {
+        demo:"Maya’s demo",pipeline:"the pipeline",eyebrow:"your material · your language",title:"Make the year legible.",intro:"Tell Omyear only what it may use. Code calculates the symbolic systems; GPT‑5.4 mini writes inside those boundaries; the verifier checks every linked claim.",languageLabel:"Book language",railYou:"you",railYear:"year",railContext:"context",railPlaces:"places",sectionYouEyebrow:"the known person",sectionYouTitle:"Start with facts, not inference.",sectionYouIntro:"Names are used for address and numerology. Birth data drives the deterministic calculation.",name:"What should the book call you?",birthName:"Full name at birth",birthDate:"Date of birth",birthTime:"Time of birth",birthCity:"City of birth",sectionYearEyebrow:"the solar year",sectionYearTitle:"Choose the birthday that opens the book.",sectionYearIntro:"The book runs from that birthday to the next one. The return location changes the house calculation.",targetYear:"Birthday year",solarCity:"Where will you spend that birthday?",giftMessage:"Opening note to yourself",sectionContextEyebrow:"the permitted context",sectionContextTitle:"Give the model a small true world.",sectionContextIntro:"One item per line. These are the only biographical details the editorial stage may use.",goals:"Goals for this year",facts:"Confirmed facts about you",sectionPlacesEyebrow:"symbolic geography",sectionPlacesTitle:"Pick four places to question.",sectionPlacesIntro:"Omyear calculates the nearest angular lines. It does not recommend travel or promise outcomes.",place:"Place",beforeGenerate:"before generation",consentTitle:"Nothing is published.",consentText:"Your questionnaire is processed for this request and the result stays in this browser tab. Omyear does not save the form or the generated book.",consentLabel:"I have permission to use this data and understand the book is symbolic reflection, not professional advice or prediction.",generate:"Generate my book",prefill:"Use synthetic Maya data",workingEyebrow:"source-linked generation",workingNote:"Keep this tab open. A full book usually takes about 1–2 minutes.",stageValidating:"Validate the permitted facts",stageCalculating:"Calculate five symbolic systems",stageWriting:"Write with GPT‑5.4 mini Structured Outputs",stageVerifying:"Verify sources, dates and safety language",namePlaceholder:"Maya",birthNamePlaceholder:"Maya Sol Bennett",giftPlaceholder:"Meet this year with curiosity, not certainty.",goalsPlaceholder:"Build a sustainable creative practice\nLearn in public\nMake more room for rest",factsPlaceholder:"I work in product design\nI recently moved to a new city\nI prefer small, consistent experiments",cityPrompt:"Choose a city",titles:{validating:"Checking your material…",calculating:"Calculating the symbolic layers…",writing:"GPT‑5.4 mini is shaping the chapters…",verifying:"Checking every source link…"},errors:{rate_limited:"One book is already being made from this connection. Try again in a minute.",model_rate_limited:"The writing service is busy. Please try again shortly.",quota_exceeded:"Generation is temporarily unavailable while the API balance is restored.",generation_failed:"The draft did not pass generation or verification. Please try again.",default:"We could not finish this book. Please check the form and try again."}
+      },
+      ru: {
+        demo:"пример Майи",pipeline:"как это устроено",eyebrow:"твой материал · твой язык",title:"Сделай год понятным.",intro:"Расскажи Omyear только то, что можно использовать. Код рассчитывает символические системы, GPT‑5.4 mini пишет в заданных границах, а верификатор проверяет каждое утверждение.",languageLabel:"Язык книги",railYou:"ты",railYear:"год",railContext:"контекст",railPlaces:"места",sectionYouEyebrow:"известный человек",sectionYouTitle:"Начнём с фактов, а не догадок.",sectionYouIntro:"Имена нужны для обращения и нумерологии. Данные рождения запускают детерминированный расчёт.",name:"Как к тебе обращаться в книге?",birthName:"Полное имя при рождении",birthDate:"Дата рождения",birthTime:"Время рождения",birthCity:"Город рождения",sectionYearEyebrow:"солярный год",sectionYearTitle:"Выбери день рождения, который откроет книгу.",sectionYearIntro:"Книга идёт от этого дня рождения до следующего. Место соляра меняет расчёт домов.",targetYear:"Год дня рождения",solarCity:"Где ты проведёшь этот день рождения?",giftMessage:"Вступительное послание себе",sectionContextEyebrow:"разрешённый контекст",sectionContextTitle:"Дай модели маленький правдивый мир.",sectionContextIntro:"Один пункт в строке. Это единственные биографические детали, которые редакторский этап может использовать.",goals:"Цели на этот год",facts:"Подтверждённые факты о тебе",sectionPlacesEyebrow:"символическая география",sectionPlacesTitle:"Выбери четыре места для вопросов.",sectionPlacesIntro:"Omyear рассчитает ближайшие угловые линии. Это не рекомендация поездки и не обещание результата.",place:"Место",beforeGenerate:"перед генерацией",consentTitle:"Ничего не публикуется.",consentText:"Анкета обрабатывается только для этого запроса, а результат остаётся в этой вкладке браузера. Omyear не сохраняет форму или книгу.",consentLabel:"У меня есть право использовать эти данные, и я понимаю, что книга — инструмент символической рефлексии, а не профессиональный совет или прогноз.",generate:"Создать мою книгу",prefill:"Заполнить выдуманной Майей",workingEyebrow:"генерация со ссылками на источники",workingNote:"Не закрывай вкладку. Полная книга обычно создаётся 1–2 минуты.",stageValidating:"Проверяем разрешённые факты",stageCalculating:"Рассчитываем пять символических систем",stageWriting:"GPT‑5.4 mini пишет по строгой структуре",stageVerifying:"Проверяем источники, даты и безопасный язык",namePlaceholder:"Майя",birthNamePlaceholder:"Майя Солнце Беннетт",giftPlaceholder:"Встреть этот год с любопытством, а не с уверенностью.",goalsPlaceholder:"Выстроить устойчивую творческую практику\nУчиться публично\nОставлять больше места для отдыха",factsPlaceholder:"Я работаю в продуктовом дизайне\nЯ недавно переехала в новый город\nМне подходят небольшие регулярные эксперименты",cityPrompt:"Выбери город",titles:{validating:"Проверяем твой материал…",calculating:"Рассчитываем символические слои…",writing:"GPT‑5.4 mini собирает главы…",verifying:"Проверяем каждую ссылку…"},errors:{rate_limited:"С этого подключения уже создаётся книга. Попробуй снова через минуту.",model_rate_limited:"Сервис генерации занят. Попробуй ещё раз чуть позже.",quota_exceeded:"Генерация временно недоступна, пока восстанавливается баланс API.",generation_failed:"Черновик не прошёл генерацию или проверку. Попробуй ещё раз.",default:"Не удалось закончить книгу. Проверь анкету и попробуй снова."}
+      }
+    };
+    COPY.en.errors.duplicate_places = "Choose four different places.";
+    COPY.ru.errors.duplicate_places = "Выбери четыре разных места.";
+
+    const form = document.getElementById("year-form");
+    const generation = document.getElementById("generation");
+    const formError = document.getElementById("form-error");
+    let language = new URLSearchParams(location.search).get("lang") === "ru" ? "ru" : (localStorage.getItem("omyear:language") || "en");
+    if (!COPY[language]) language = "en";
+
+    function cityLabel(city) { return language === "ru" ? `${city.ru}, ${city.countryRu}` : `${city.en}, ${city.countryEn}`; }
+    function refreshCities() {
+      const previous = [...form.querySelectorAll("select")].map((select) => select.value);
+      form.querySelectorAll("select").forEach((select, index) => {
+        select.replaceChildren(new Option(COPY[language].cityPrompt, ""), ...CITIES.map((city) => new Option(cityLabel(city), city.id)));
+        select.value = previous[index] || "";
+      });
+    }
+    function applyLanguage(next) {
+      language = next; localStorage.setItem("omyear:language", language); document.documentElement.lang = language;
+      document.querySelectorAll("[data-copy]").forEach((node) => { const value = COPY[language][node.dataset.copy]; if (value) node.textContent = value; });
+      document.querySelectorAll("[data-placeholder]").forEach((node) => { node.placeholder = COPY[language][node.dataset.placeholder] || ""; });
+      document.querySelectorAll("[data-lang]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
+      refreshCities();
+    }
+    document.querySelectorAll("[data-lang]").forEach((button) => button.addEventListener("click", () => applyLanguage(button.dataset.lang)));
+    applyLanguage(language);
+
+    function offsetFor(date, time, timeZone) {
+      const reference = new Date(`${date}T${time}:00Z`);
+      const parts = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone, year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23" }).formatToParts(reference).filter((p) => p.type !== "literal").map((p) => [p.type, p.value]));
+      const localAsUtc = Date.UTC(Number(parts.year), Number(parts.month)-1, Number(parts.day), Number(parts.hour), Number(parts.minute));
+      const minutes = Math.round((localAsUtc - reference.getTime()) / 60000);
+      const sign = minutes >= 0 ? "+" : "-"; const absolute = Math.abs(minutes);
+      return `${sign}${String(Math.floor(absolute/60)).padStart(2,"0")}:${String(absolute%60).padStart(2,"0")}`;
+    }
+    function city(id) { return CITIES.find((item) => item.id === id); }
+    function items(value, prefix) { return value.split("\n").map((text) => text.trim()).filter(Boolean).map((text, index) => ({ id:`${prefix}-${index+1}`, text })); }
+    function locationValue(selected, date, time) { return { place:cityLabel(selected), latitude:selected.lat, longitude:selected.lon, utcOffset:offsetFor(date,time,selected.tz) }; }
+    function birthdayInYear(birthDate, targetYear) {
+      const monthDay = birthDate.slice(5);
+      if (monthDay === "02-29" && !new Date(Date.UTC(targetYear, 1, 29)).toISOString().startsWith(`${targetYear}-02-29`)) return `${targetYear}-02-28`;
+      return `${targetYear}-${monthDay}`;
+    }
+    function buildInput(data) {
+      const birth = city(data.get("birthCity")); const solar = city(data.get("solarCity"));
+      const candidates = [1,2,3,4].map((index) => city(data.get(`place${index}`)));
+      if (new Set(candidates.map((item) => item.id)).size !== 4) throw new Error("duplicate_places");
+      const birthDate = data.get("birthDate"); const birthTime = data.get("birthTime"); const targetYear = Number(data.get("targetYear"));
+      const solarDate = birthdayInYear(birthDate, targetYear);
+      return {
+        project:{ language, targetYear, style:"warm editorial atlas", experience:"private browser result", publicDemo:false },
+        person:{ id:`person-${crypto.randomUUID().slice(0,8)}`, name:data.get("name").trim(), fullNameAtBirth:data.get("birthName").trim(), birth:{...locationValue(birth,birthDate,birthTime),date:birthDate,time:birthTime}, solarReturnLocation:locationValue(solar,solarDate,birthTime), goals:items(data.get("goals"),"goal"), facts:items(data.get("facts"),"fact"), giftMessage:data.get("giftMessage").trim() },
+        candidateLocations:candidates.map((item) => ({id:item.id,name:language === "ru" ? item.ru : item.en,country:language === "ru" ? item.countryRu : item.countryEn,latitude:item.lat,longitude:item.lon}))
+      };
+    }
+
+    function setStage(stage, progress) {
+      document.getElementById("meter-fill").style.width = `${progress}%`;
+      document.getElementById("generation-title").textContent = COPY[language].titles[stage] || COPY[language].titles.validating;
+      document.querySelectorAll("#stage-list li").forEach((item) => { item.classList.toggle("active", item.dataset.stage === stage); if (["validating","calculating","writing","verifying"].indexOf(item.dataset.stage) < ["validating","calculating","writing","verifying"].indexOf(stage)) item.classList.add("done"); });
+    }
+    async function readEvents(response) {
+      const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = "";
+      while (true) {
+        const {value,done} = await reader.read(); buffer += decoder.decode(value || new Uint8Array(), {stream:!done});
+        const blocks = buffer.split("\n\n"); buffer = blocks.pop() || "";
+        for (const block of blocks) {
+          const type = block.match(/^event: (.+)$/m)?.[1]; const raw = block.match(/^data: (.+)$/m)?.[1]; if (!type || !raw) continue;
+          const payload = JSON.parse(raw);
+          if (type === "progress") setStage(payload.stage,payload.progress);
+          if (type === "failure") throw new Error(payload.error || "generation_failed");
+          if (type === "result") { sessionStorage.setItem("omyear:book", JSON.stringify(payload.book)); location.href = `/result?lang=${language}`; return; }
+        }
+        if (done) break;
+      }
+      throw new Error("generation_failed");
+    }
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); if (!form.reportValidity()) return;
+      try {
+        formError.hidden = true; formError.textContent = "";
+        const input = buildInput(new FormData(form));
+        form.hidden = true; generation.hidden = false; generation.scrollIntoView({behavior:"smooth",block:"start"}); setStage("validating",8);
+        const response = await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(input)});
+        if (!response.ok) { const payload = await response.json().catch(() => ({})); throw new Error(payload.error || "default"); }
+        await readEvents(response);
+      } catch (error) {
+        form.hidden = false; generation.hidden = true;
+        formError.textContent = COPY[language].errors[error.message] || COPY[language].errors.default;
+        formError.hidden = false; formError.scrollIntoView({behavior:"smooth",block:"center"});
+      }
+    });
+    document.getElementById("prefill").addEventListener("click", () => {
+      const values={name:language === "ru"?"Майя":"Maya",birthName:language === "ru"?"Майя Солнце Беннетт":"Maya Sol Bennett",birthDate:"1992-11-08",birthTime:"08:40",birthCity:"lisbon",targetYear:"2026",solarCity:"da-nang",giftMessage:language === "ru"?"Пусть этот год будет исследованием внимания, смелости и устойчивого темпа.":"Let this year be an inquiry into attention, courage, and a sustainable pace.",goals:language === "ru"?"Выстроить устойчивую творческую практику\nУчиться публично\nОставлять больше места для отдыха":"Build a sustainable creative practice\nLearn in public\nMake more room for rest",facts:language === "ru"?"Я работаю в продуктовом дизайне\nЯ недавно переехала в новый город\nМне подходят небольшие регулярные эксперименты":"I work in product design\nI recently moved to a new city\nI prefer small, consistent experiments",place1:"lisbon",place2:"edinburgh",place3:"montreal",place4:"tokyo"};
+      Object.entries(values).forEach(([name,value]) => { form.elements[name].value=value; }); form.elements.consent.checked=true; form.scrollIntoView({behavior:"smooth"});
+    });
+  </script>
+
+  <style>
+    .maker{max-width:78rem;margin:0 auto;padding:0 1.4rem 5rem}.maker-nav{display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;border-bottom:1px solid var(--line)}.maker-nav>a{font:600 1.05rem/1 var(--font-display);color:var(--ink);text-decoration:none}.maker-nav div{display:flex;gap:1.2rem}.maker-nav div a{color:var(--sienna);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}.maker-head{min-height:70svh;display:grid;grid-template-columns:1fr 18rem;gap:3rem;align-items:center;padding:6rem 0}.eyebrow{margin:0 0 .9rem;color:var(--terracotta-deep);font-size:.63rem;letter-spacing:.22em;text-transform:uppercase}.maker-head h1{margin:0;font:500 clamp(3.8rem,9vw,7.6rem)/.9 var(--font-display);letter-spacing:-.05em}.maker-head h1 em{color:var(--terracotta);font-weight:400}.maker-head__copy>p:last-child{max-width:40rem;margin:1.8rem 0 0;color:var(--ink-soft);font-size:1.05rem;line-height:1.7}.language-card{padding:1.2rem;border:1px solid var(--line);border-radius:18px;background:rgba(251,244,230,.7)}.language-card>span{display:block;margin-bottom:.8rem;color:var(--sienna);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}.language-switch{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}.language-switch button{padding:.65rem;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}.language-switch button[aria-pressed=true]{border-color:var(--terracotta);background:var(--terracotta);color:var(--paper)}.year-form{border-top:1px solid var(--line)}.progress-rail{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(246,237,219,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.progress-rail span{padding:.85rem 1rem;border-right:1px solid var(--line);color:var(--gold);font:600 .65rem/1 var(--font-display)}.progress-rail span:last-child{border:0}.progress-rail b{margin-left:.4rem;color:var(--sienna);font:500 .58rem/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase}.form-section{display:grid;grid-template-columns:4rem minmax(14rem,.75fr) minmax(20rem,1.25fr);gap:2.5rem;padding:6rem 0;border-bottom:1px solid var(--line)}.section-number{color:var(--gold);font:500 2.1rem/1 var(--font-display)}.section-intro h2,.submit-card h2,.generation h2{margin:0;font:500 clamp(2rem,4vw,3.3rem)/1.02 var(--font-display);letter-spacing:-.025em}.section-intro>p:last-child{max-width:25rem;margin:1.4rem 0 0;color:var(--ink-soft);font-size:.9rem;line-height:1.65}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}.fields label{display:flex;flex-direction:column;gap:.55rem;color:var(--sienna);font-size:.65rem;letter-spacing:.09em;text-transform:uppercase}.field-wide{grid-column:1/-1}.fields input,.fields textarea,.fields select{width:100%;box-sizing:border-box;border:1px solid var(--line-strong);border-radius:12px;background:rgba(251,244,230,.72);padding:.88rem .95rem;color:var(--ink);font:400 .95rem/1.35 var(--font-body);letter-spacing:0;text-transform:none;outline:none}.fields textarea{resize:vertical}.fields input:focus,.fields textarea:focus,.fields select:focus{border-color:var(--terracotta);box-shadow:0 0 0 3px rgba(194,107,67,.1)}.submit-card{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin:5rem 0;padding:clamp(1.5rem,5vw,4rem);border:1px solid var(--line);border-radius:24px;background:var(--paper)}.submit-card>div>p:last-child{max-width:30rem;margin-top:1.2rem;color:var(--ink-soft);line-height:1.65}.submit-card__action{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem}.consent{display:grid;grid-template-columns:auto 1fr;gap:.7rem;color:var(--ink-soft);font-size:.78rem;line-height:1.5}.consent input{margin-top:.2rem;accent-color:var(--terracotta)}.generate{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;border:0;border-radius:999px;background:var(--terracotta);color:var(--paper);font:500 .9rem/1 var(--font-body);cursor:pointer}.generate:hover{background:var(--terracotta-deep)}.prefill{border:0;background:transparent;color:var(--terracotta-deep);font-size:.72rem;text-decoration:underline;cursor:pointer}.form-error{margin:0;padding:.85rem 1rem;border:1px solid rgba(194,107,67,.45);border-radius:12px;background:rgba(194,107,67,.08);color:var(--terracotta-deep);font-size:.76rem;line-height:1.5}.generation{position:relative;min-height:72svh;padding:7rem 0 5rem;text-align:center;overflow:hidden}.generation-orbit{position:absolute;left:50%;top:35%;width:min(30rem,75vw);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid var(--line);border-radius:50%;z-index:-1;animation:turn 18s linear infinite}.generation-orbit:after{content:"";position:absolute;top:9%;left:17%;width:1rem;height:1rem;border-radius:50%;background:var(--terracotta)}.generation-orbit span{position:absolute;inset:35%;border-radius:50%;background:var(--sun);box-shadow:0 0 7rem 4rem var(--sun-glow)}@keyframes turn{to{transform:translate(-50%,-50%) rotate(360deg)}}.generation>p{max-width:35rem;margin:1rem auto;color:var(--ink-soft)}.meter{max-width:35rem;height:3px;margin:3rem auto 2rem;background:var(--line)}.meter i{display:block;width:8%;height:100%;background:var(--terracotta);transition:width .7s ease}.generation ol{display:grid;grid-template-columns:repeat(4,1fr);max-width:58rem;margin:0 auto;padding:0;list-style:none;text-align:left}.generation li{padding:.9rem;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.7rem;line-height:1.4}.generation li.active{border-color:var(--terracotta);color:var(--terracotta-deep)}.generation li.done{color:var(--sienna)}
+    @media(max-width:800px){.maker-head{grid-template-columns:1fr;gap:2rem;padding:5rem 0}.language-card{width:min(100%,18rem);box-sizing:border-box}.form-section{grid-template-columns:2.5rem 1fr;gap:1.2rem}.fields{grid-column:1/-1}.submit-card{grid-template-columns:1fr;gap:2rem}.generation ol{grid-template-columns:1fr 1fr}}@media(max-width:520px){.maker{padding-inline:1rem}.maker-nav div{gap:.6rem}.maker-nav div a{font-size:.5rem}.progress-rail b{display:none}.form-section{padding:4rem 0}.fields{grid-template-columns:1fr}.field-wide{grid-column:auto}.generation ol{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.generation-orbit{animation:none}}
+  </style>
+</Layout>

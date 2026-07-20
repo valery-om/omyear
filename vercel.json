@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node --version",
+  "functions": {
+    "api/generate.mjs": {
+      "maxDuration": 300
+    },
+    "api/calculate.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{web/**,docs/**,evidence/**,pipeline/tests/**,pipeline/examples/**}"
+    }
+  }
+}

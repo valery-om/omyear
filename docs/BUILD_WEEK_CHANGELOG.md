@@ -17,5 +17,7 @@ not included here and are not presented as Build Week work.
 6. Mandatory human-review boundary and compiler into the Astro book format.
 7. Public pipeline page, in-book provenance ledger and GPT response evidence.
 8. Self-contained E2E, responsive QA and sanitized submission repository.
+9. Bilingual consent-first questionnaire, streamed generation and private result renderer.
+10. Protected Cloudflare gateway, Vercel Node/Python backend and parallel live Structured Outputs.
 
 Evidence: [`../evidence/gpt-5.6-run.json`](../evidence/gpt-5.6-run.json).

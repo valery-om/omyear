@@ -23,7 +23,7 @@ const layers = [
     <header class="home-hero">
       <nav class="home-nav" aria-label="Primary navigation">
         <a href="/" aria-current="page">omyear</a>
-        <div><a href="/pipeline">the pipeline</a><a href="/0811">Maya’s demo</a></div>
+        <div><a href="/try">create yours</a><a href="/pipeline">the pipeline</a><a href="/0811">Maya’s demo</a><button id="language-toggle" type="button">RU</button></div>
       </nav>
       <div class="home-orbit" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
       <div class="home-hero__copy">
@@ -31,8 +31,8 @@ const layers = [
         <h1>A year of your own,<br /><em>with receipts.</em></h1>
         <p class="home-lede">A personal birthday-to-birthday book where every generated interpretation can lead back to a confirmed fact or deterministic calculation.</p>
         <div class="home-actions">
-          <a class="home-button home-button--solid" href="/0811">Read Maya’s book <span>↗</span></a>
-          <a class="home-button" href="/pipeline">See how it works <span>→</span></a>
+          <a class="home-button home-button--solid" href="/try">Create your book <span>↗</span></a>
+          <a class="home-button" href="/0811">Read Maya’s book <span>→</span></a>
         </div>
       </div>
       <p class="home-side home-side--left">confirmed · calculated</p>
@@ -73,13 +73,45 @@ const layers = [
     <footer class="home-footer"><span>OMYEAR / CODEX + GPT‑5.6</span><a href="/pipeline">Trace all seven stages →</a></footer>
   </main>
 
+  <script>
+    const translations = new Map([
+      ["create yours","создать свою"],["the pipeline","как это устроено"],["Maya’s demo","пример Майи"],
+      ["OpenAI Build Week · Apps for Your Life","OpenAI Build Week · Apps for Your Life"],
+      ["A year of your own,","Твой собственный год,"],["with receipts.","с источниками."],
+      ["A personal birthday-to-birthday book where every generated interpretation can lead back to a confirmed fact or deterministic calculation.","Персональная книга от дня рождения до дня рождения, где каждую интерпретацию можно проследить до подтверждённого факта или детерминированного расчёта."],
+      ["Create your book","Создать свою книгу"],["Read Maya’s book","Открыть книгу Майи"],
+      ["confirmed · calculated","подтверждено · рассчитано"],["interpreted · approved","интерпретировано · проверено"],
+      ["source records","источника"],["sources cited","источника процитировано"],["source-link errors","ошибок связей"],["human review flag","флаг для редактора"],
+      ["the trust problem","проблема доверия"],["Personal enough to matter.","Достаточно лично, чтобы иметь значение."],["Bounded enough to inspect.","Достаточно строго, чтобы проверить."],
+      ["Generic AI can write a beautiful reading and quietly invent the person inside it. Omyear separates four layers so warmth never has to hide where it came from.","Обычный ИИ может написать красивый разбор и незаметно выдумать человека внутри него. Omyear разделяет четыре слоя, чтобы тёплый текст не скрывал своё происхождение."],
+      ["Symbolic systems remain reflection prompts—not scientific claims, professional advice or event predictions.","Символические системы остаются приглашением к рефлексии — не научным утверждением, профессиональным советом или прогнозом событий."],
+      ["Confirmed","Подтверждено"],["Facts and goals supplied by the person.","Факты и цели, которые сообщил сам человек."],["Calculated","Рассчитано"],["Repeatable values produced by code.","Воспроизводимые значения, полученные кодом."],["Interpreted","Интерпретировано"],["Source-linked prose written by GPT‑5.6.","Текст GPT‑5.6 со ссылками на источники."],["Approved","Проверено"],["The final decision kept by a human editor.","Финальное решение остаётся за человеком-редактором."],
+      ["one inspectable line","одна проверяемая цепочка"],["questionnaire","анкета"],["calculate","расчёт"],["verify","проверка"],["human review","редактор"],["book","книга"],
+      ["Meet Maya.","Познакомься с Майей."],["She is entirely invented.","Она полностью выдумана."],["The public demo contains no recipient data, photos, music or private history. Open the book, then expand its source ledger.","В публичном примере нет данных реального получателя, фотографий, музыки или частной истории. Открой книгу, затем разверни реестр источников."],["Open the source-linked demo","Открыть пример с источниками"],["Trace all seven stages →","Проследить все семь этапов →"]
+    ]);
+    const requested = new URLSearchParams(location.search).get("lang");
+    const language = requested === "ru" || (!requested && localStorage.getItem("omyear:language") === "ru") ? "ru" : "en";
+    if (language === "ru") {
+      document.documentElement.lang = "ru";
+      const walker = document.createTreeWalker(document.querySelector(".home"), NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode; const key = node.nodeValue.trim();
+        if (translations.has(key)) node.nodeValue = node.nodeValue.replace(key, translations.get(key));
+      }
+    }
+    const toggle = document.getElementById("language-toggle");
+    toggle.textContent = language === "ru" ? "EN" : "RU";
+    toggle.addEventListener("click", () => { const next = language === "ru" ? "en" : "ru"; localStorage.setItem("omyear:language", next); location.href = `/?lang=${next}`; });
+  </script>
+
   <style>
     .home { overflow: hidden; }
     .home-hero { position: relative; min-height: 94svh; display: grid; place-items: center; padding: 6rem 1.4rem 4rem; isolation: isolate; }
     .home-nav { position: absolute; z-index: 4; inset: 1.2rem clamp(1.3rem,5vw,4.5rem) auto; display: flex; justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
     .home-nav > a { color: var(--ink); font: 600 1.05rem/1 var(--font-display); text-decoration: none; }
     .home-nav div { display: flex; gap: 1.4rem; }
-    .home-nav div a { color: var(--sienna); font-size: .62rem; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+    .home-nav div a,.home-nav div button { color: var(--sienna); font-size: .62rem; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+    .home-nav div button { padding:0;border:0;background:transparent;cursor:pointer; }
     .home-hero__copy { position: relative; z-index: 2; width: min(53rem,88vw); text-align: center; }
     .home-kicker { margin: 0 0 .9rem; color: var(--terracotta-deep); font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; }
     .home-hero h1 { margin: 0; font: 500 clamp(3.4rem,9vw,7.6rem)/.91 var(--font-display); letter-spacing: -.045em; }
@@ -126,7 +158,7 @@ const layers = [
     .home-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.3rem,5vw,4.5rem); border-top: 1px solid var(--line); color: var(--sienna); font-size: .58rem; letter-spacing: .13em; }
     .home-footer a { color: var(--terracotta-deep); }
     @media (max-width:720px) {
-      .home-nav div { gap: .7rem; } .home-nav div a { font-size: .52rem; } .home-side { display:none; } .home-hero h1 br { display:none; }
+      .home-nav div { gap: .7rem; } .home-nav div a { font-size: .52rem; } .home-side { display:none; } .home-hero__copy { width:100%; } .home-hero h1 { font-size:clamp(2.7rem,11.5vw,3.3rem); } .home-hero h1 br { display:none; }
       .home-metrics { grid-template-columns:repeat(2,1fr); }
       .home-metrics div,.home-metrics div:first-child,.home-metrics div:last-child { min-height:6.5rem; border:1px solid var(--line); border-radius:0; }
       .home-metrics div:first-child { border-radius:15px 0 0 0; } .home-metrics div:nth-child(2) { border-radius:0 15px 0 0; } .home-metrics div:nth-child(3) { border-radius:0 0 0 15px; } .home-metrics div:last-child { border-radius:0 0 15px 0; }

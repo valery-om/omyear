@@ -2,8 +2,8 @@ function textItems(items = []) {
   return items.map((item) => item.text);
 }
 
-function formatDate(value, options = { day: "numeric", month: "long", year: "numeric" }) {
-  return new Intl.DateTimeFormat("en-GB", { ...options, timeZone: "UTC" }).format(new Date(`${value}T12:00:00Z`));
+function formatDate(value, locale, options = { day: "numeric", month: "long", year: "numeric" }) {
+  return new Intl.DateTimeFormat(locale, { ...options, timeZone: "UTC" }).format(new Date(`${value}T12:00:00Z`));
 }
 
 function addDays(value, days) {
@@ -12,8 +12,46 @@ function addDays(value, days) {
   return date.toISOString().slice(0, 10);
 }
 
+const ARCANA_RU = {
+  1:"Маг",2:"Верховная Жрица",3:"Императрица",4:"Император",5:"Иерофант",6:"Влюблённые",7:"Колесница",8:"Правосудие",9:"Отшельник",10:"Колесо Фортуны",11:"Сила",12:"Повешенный",13:"Трансформация",14:"Умеренность",15:"Дьявол",16:"Башня",17:"Звезда",18:"Луна",19:"Солнце",20:"Суд",21:"Мир",22:"Шут",
+};
+
+const PLANETS_RU = {
+  "North Node":"Северный узел",Sun:"Солнце",Moon:"Луна",Mercury:"Меркурий",Venus:"Венера",Mars:"Марс",Jupiter:"Юпитер",Saturn:"Сатурн",Uranus:"Уран",Neptune:"Нептун",Pluto:"Плутон",
+};
+
+function localizeLine(value, isRussian) {
+  if (!isRussian) return value;
+  return Object.entries(PLANETS_RU).reduce((text, [english, russian]) => text.replaceAll(english, russian), value);
+}
+
 export function compileBook({ input, calculation, draft, verification, model, modelResponse = null }) {
   const { person, project } = input;
+  const isRussian = project.language === "ru";
+  const locale = isRussian ? "ru-RU" : "en-GB";
+  const copy = isRussian ? {
+    yearLabel: (year) => `твой личный ${year} год`,
+    yearSpan: (start, end) => `с ${start} по ${end}`,
+    heroKicker: "Книга личного года",
+    monthsHeading: "Двенадцать глав твоего года",
+    monthsIntro: "Двенадцать редакционных глав ведут от дня рождения к следующему дню рождения. Их границы — приглашения к рефлексии, а не прогноз событий.",
+    placesEyebrow: "символическая география",
+    placesMoment: "Используй место как вопрос о контексте, но не как обещание того, что там произойдёт.",
+    citiesHeading: "Четыре места для символического исследования",
+    placesMethod: "Расстояния рассчитаны по позициям Swiss Ephemeris до ближайшей натальной угловой линии. Значения остаются символическими.",
+    signoff: "Создано как черновик со ссылками на источники. Перед передачей человеку требуется редакторская проверка.",
+  } : {
+    yearLabel: (year) => `your ${year} year`,
+    yearSpan: (start, end) => `from ${start} to ${end}`,
+    heroKicker: "A personal year book",
+    monthsHeading: "Your twelve chapters",
+    monthsIntro: "Twelve editorial chapters follow the year from birthday to birthday. Their boundaries are reflection prompts, not event predictions.",
+    placesEyebrow: "a symbolic geography",
+    placesMoment: "Use place as a question about context, never as a promise of what will happen there.",
+    citiesHeading: "Four places to explore symbolically",
+    placesMethod: "Distances are calculated from Swiss Ephemeris planetary positions to the nearest natal angular line. Meanings remain symbolic.",
+    signoff: "Generated as a source-linked draft. Human editorial approval is required before delivery.",
+  };
   const targetYear = project.targetYear;
   const birthYear = person.birth.date.slice(0, 4);
   const startDate = calculation.periods[0].start;
@@ -30,10 +68,10 @@ export function compileBook({ input, calculation, draft, verification, model, mo
       publicDemo: project.publicDemo === true,
       slug: `${person.birth.date.slice(8, 10)}${person.birth.date.slice(5, 7)}`,
       password: birthYear,
-      birthDate: formatDate(person.birth.date),
+      birthDate: formatDate(person.birth.date, locale),
       birthPlace: person.birth.place,
-      yearLabel: `your ${targetYear} year`,
-      yearSpan: `from ${formatDate(startDate)} to ${formatDate(endDate)}`,
+      yearLabel: copy.yearLabel(targetYear),
+      yearSpan: copy.yearSpan(formatDate(startDate, locale), formatDate(endDate, locale)),
       startDate,
       signalDate,
       og: "/og.png",
@@ -43,9 +81,9 @@ export function compileBook({ input, calculation, draft, verification, model, mo
       address: person.name,
     },
     hero: {
-      kicker: "A personal year book",
+      kicker: copy.heroKicker,
       title: person.name,
-      subtitle: `your ${targetYear} year`,
+      subtitle: copy.yearLabel(targetYear),
       note: draft.meta.tagline,
       photos: [],
     },
@@ -62,7 +100,7 @@ export function compileBook({ input, calculation, draft, verification, model, mo
     matrix: {
       heading: draft.matrix.heading,
       intro: draft.matrix.intro,
-      items: draft.matrix.items.map(({ arcana, name, role, text }) => ({ arcana, name, role, text })),
+      items: draft.matrix.items.map(({ arcana, name, role, text }) => ({ arcana, name:isRussian ? ARCANA_RU[Number(arcana)] || name : name, role, text })),
       synthesis: draft.matrix.synthesis.text,
     },
     nature: {
@@ -78,12 +116,12 @@ export function compileBook({ input, calculation, draft, verification, model, mo
       paragraphs: textItems(draft.yearTheme.paragraphs),
     },
     months: {
-      heading: "Your twelve chapters",
-      intro: "Twelve editorial chapters follow the year from birthday to birthday. Their boundaries are reflection prompts, not event predictions.",
+      heading: copy.monthsHeading,
+      intro: copy.monthsIntro,
       photos: [],
       items: draft.months.map((month) => ({
-        month: formatDate(calculation.periods[month.index - 1].start, { month: "long" }),
-        period: month.period,
+        month: formatDate(calculation.periods[month.index - 1].start, locale, { month: "long" }),
+        period: `${formatDate(calculation.periods[month.index - 1].start, locale, { day: "numeric", month: "long" })} – ${formatDate(addDays(calculation.periods[month.index - 1].endExclusive, -1), locale, { day: "numeric", month: "long" })}`,
         topic: month.topic,
         house: month.house,
         note: month.note,
@@ -96,23 +134,23 @@ export function compileBook({ input, calculation, draft, verification, model, mo
       paragraphs: textItems(draft.synergy.paragraphs),
     },
     places: {
-      eyebrow: "a symbolic geography",
+      eyebrow: copy.placesEyebrow,
       heading: draft.places.heading,
       intro: draft.places.intro,
       compass: draft.places.locations.slice(0, 3).map((location) => ({
         label: location.name,
-        text: location.line,
+        text: localizeLine(location.line, isRussian),
       })),
-      moment: "Use place as a question about context, never as a promise of what will happen there.",
+      moment: copy.placesMoment,
       paragraphs: textItems(draft.places.paragraphs),
-      citiesHeading: "Four places to explore symbolically",
+      citiesHeading: copy.citiesHeading,
       cities: draft.places.locations.map((location, index) => ({
         name: location.name,
-        line: location.line,
+        line: localizeLine(location.line, isRussian),
         text: location.text,
         color: colors[index % colors.length],
       })),
-      method: "Distances are calculated from Swiss Ephemeris planetary positions to the nearest natal angular line. Meanings remain symbolic.",
+      method: copy.placesMethod,
       note: draft.places.note.text,
     },
     traps: {
@@ -126,7 +164,7 @@ export function compileBook({ input, calculation, draft, verification, model, mo
       intro: draft.twelveDays.intro,
       items: draft.twelveDays.items.map(({ day, date, title, text }, index) => ({
         day,
-        date: date || formatDate(addDays(startDate, index), { day: "numeric", month: "long" }),
+        date: formatDate(addDays(startDate, index), locale, { day: "numeric", month: "long" }),
         title,
         text,
       })),
@@ -143,12 +181,13 @@ export function compileBook({ input, calculation, draft, verification, model, mo
     },
     footer: {
       disclaimer: draft.disclaimer,
-      signoff: "Generated as a source-linked draft. Human editorial approval is required before delivery.",
+      signoff: copy.signoff,
     },
     provenance: {
       schemaVersion: "1.0.0",
       generationModel: model,
       responseId: modelResponse?.responseId ?? null,
+      responseIds: modelResponse?.responseIds ?? (modelResponse?.responseId ? [modelResponse.responseId] : []),
       responseStatus: modelResponse?.status ?? null,
       modelUsage: modelResponse?.usage ?? null,
       generatedAt: new Date().toISOString(),

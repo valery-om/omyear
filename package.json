@@ -10,7 +10,8 @@
     "deploy:pages": "wrangler pages deploy web/dist --project-name omyear --branch main",
     "audit": "node scripts/audit-public.mjs",
     "audit:deps": "npm audit --audit-level=moderate && npm --prefix web audit --audit-level=moderate",
-    "check": "npm run test && npm run build && npm run audit && npm run audit:deps"
+    "check:worker": "npm --prefix worker run check",
+    "check": "npm run test && npm run build && npm run check:worker && npm run audit && npm run audit:deps"
   },
   "devDependencies": {
     "wrangler": "^4.112.0"

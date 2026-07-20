@@ -4,6 +4,10 @@ const PROHIBITED_PATTERNS = [
   ["prediction", /\bwill definitely\b|\bis going to happen\b/i],
   ["medical", /\b(?:diagnose|diagnosis|cure|treatment plan|medication)\b/i],
   ["investment", /\b(?:buy|sell|invest in) (?:stocks?|crypto|funds?)\b/i],
+  ["certainty_ru", /(?:гарантирован(?:о|а|ы)|неизбежн(?:о|ый|ая)|предначертан(?:о|а)|суждено)/i],
+  ["prediction_ru", /(?:точно произойд[её]т|обязательно случится)/i],
+  ["medical_ru", /(?:диагноз|диагностировать|вылечить|схема лечения|лекарств[оа])/i],
+  ["investment_ru", /(?:купи(?:ть)?|продай|инвестируй)\s+(?:акци[июй]|криптовалют[уы]|фонд)/i],
 ];
 
 function addDays(value, days) {
@@ -93,7 +97,6 @@ export function verifyDraft(draft, calculation) {
       structuralErrors.push(`matrix item ${index + 1} must cite a matrix calculation`);
     } else {
       if (String(item.arcana) !== String(matrixSource.value?.value)) structuralErrors.push(`matrix item ${index + 1} arcana must match ${matrixSource.id}`);
-      if (item.name !== matrixSource.value?.name) structuralErrors.push(`matrix item ${index + 1} name must match ${matrixSource.id}`);
     }
   }
 

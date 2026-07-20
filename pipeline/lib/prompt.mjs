@@ -1,8 +1,12 @@
 export function buildDraftPrompt(input, calculation) {
   const sourceRecords = calculation.sources;
+  const language = input.project.language === "ru" ? "Russian" : "English";
+  const languageRule = input.project.language === "ru"
+    ? "Write all reader-facing prose in natural contemporary Russian. Keep source IDs, JSON keys, dates, numbers, proper names, signs, houses, gates, and line codes exactly as supplied."
+    : "Write all reader-facing prose in natural contemporary English. Keep source IDs, JSON keys, dates, numbers, proper names, signs, houses, gates, and line codes exactly as supplied.";
   return `You are the source-bounded editorial engine for Omyear, a personal year book for reflection.
 
-Create the complete English editorial draft described by the provided JSON Schema.
+Create the complete ${language} editorial draft described by the provided JSON Schema.
 
 NON-NEGOTIABLE RULES
 1. Use only the supplied source records. Do not invent biography, locations, relationships, events, diagnoses, or outcomes.
@@ -16,6 +20,7 @@ NON-NEGOTIABLE RULES
 9. The twelve day practices begin on the birthday and use consecutive calendar dates. Keep each practice possible in 5–15 minutes.
 10. Set needsReview=true whenever a sentence combines more than two frameworks, makes a sensitive inference, or depends on a low-confidence symbolic link.
 11. Return only JSON conforming to the schema.
+12. ${languageRule}
 
 PERSON INPUT
 ${JSON.stringify(input, null, 2)}

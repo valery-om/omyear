@@ -22,21 +22,18 @@ function extractOutputText(response) {
   throw new Error("OpenAI response did not contain output_text");
 }
 
-export async function generateWithOpenAI({
+export async function requestOpenAI({
   prompt,
-  schemaPath,
-  outputPath,
-  metadataPath,
+  schema,
   model = "gpt-5.6-sol",
   safetySeed = "omyear-demo",
+  apiKey = process.env.OPENAI_API_KEY,
 }) {
-  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error("OPENAI_API_KEY is required for the openai provider");
   }
 
-  const localSchema = JSON.parse(fs.readFileSync(path.resolve(schemaPath), "utf8"));
-  const { $schema: _schemaDialect, title: _schemaTitle, ...schema } = localSchema;
+  const { $schema: _schemaDialect, title: _schemaTitle, ...apiSchema } = schema;
   const safetyIdentifier = crypto.createHash("sha256").update(safetySeed).digest("hex");
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
@@ -48,14 +45,14 @@ export async function generateWithOpenAI({
       model,
       input: prompt,
       safety_identifier: safetyIdentifier,
-      reasoning: { effort: "medium" },
+      reasoning: { effort: "low" },
       text: {
-        verbosity: "medium",
+        verbosity: "low",
         format: {
           type: "json_schema",
           name: "omyear_editorial_draft",
           strict: true,
-          schema,
+          schema: apiSchema,
         },
       },
       store: false,
@@ -75,16 +72,31 @@ export async function generateWithOpenAI({
 
   const outputText = extractOutputText(payload);
   const draft = JSON.parse(outputText);
-  fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(draft, null, 2)}\n`);
-
-  if (metadataPath) {
-    const metadata = {
+  return {
+    draft,
+    metadata: {
       responseId: payload.id,
       model: payload.model,
       status: payload.status,
       createdAt: payload.created_at,
       usage: payload.usage,
-    };
+    },
+  };
+}
+
+export async function generateWithOpenAI({
+  prompt,
+  schemaPath,
+  outputPath,
+  metadataPath,
+  model = "gpt-5.6-sol",
+  safetySeed = "omyear-demo",
+}) {
+  const schema = JSON.parse(fs.readFileSync(path.resolve(schemaPath), "utf8"));
+  const { draft, metadata } = await requestOpenAI({ prompt, schema, model, safetySeed });
+  fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(draft, null, 2)}\n`);
+
+  if (metadataPath) {
     fs.writeFileSync(path.resolve(metadataPath), `${JSON.stringify(metadata, null, 2)}\n`);
   }
 

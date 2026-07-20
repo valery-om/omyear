@@ -1,0 +1,16 @@
+{
+  "name": "omyear-api-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "types": "wrangler types",
+    "check": "wrangler types --check && tsc --noEmit && wrangler deploy --dry-run",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "wrangler": "^4.112.0"
+  }
+}

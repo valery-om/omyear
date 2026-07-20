@@ -6,6 +6,10 @@ import path from "node:path";
 import test, { after, before } from "node:test";
 import { fileURLToPath } from "node:url";
 import { generateFixtureDraft } from "../lib/fixture-provider.mjs";
+import { hydrateDraft } from "../lib/hydrate-draft.mjs";
+import { compileBook } from "../lib/compile-book.mjs";
+import { buildDraftPrompt } from "../lib/prompt.mjs";
+import { calculationForSegment, DRAFT_SEGMENTS, mergeDraftSegments, schemaForSegment } from "../lib/segment-draft.mjs";
 import { validateInput } from "../lib/validate.mjs";
 import { verifyDraft } from "../lib/verify.mjs";
 
@@ -68,4 +72,53 @@ test("fixture provider completes the full artifact pipeline", () => {
   assert.equal(book.person.publicDemo, true);
   assert.equal(book.provenance.sourceCount, 72);
   assert.equal(book.provenance.verification.invalidSourceIds.length, 0);
+});
+
+test("Russian output keeps the same calculations and localizes the book chrome", () => {
+  const russianInput = structuredClone(input);
+  russianInput.project.language = "ru";
+  russianInput.person.name = "Майя";
+  const draft = generateFixtureDraft(russianInput, calculation);
+  const verification = verifyDraft(draft, calculation);
+  const book = compileBook({ input: russianInput, calculation, draft, verification, model: "fixture" });
+  assert.equal(book.person.language, "ru");
+  assert.equal(book.months.heading, "Двенадцать глав твоего года");
+  assert.match(book.months.items[0].month, /[а-яё]/i);
+  assert.match(buildDraftPrompt(russianInput, calculation), /complete Russian editorial draft/);
+});
+
+test("verifier flags certainty language in Russian", () => {
+  const draft = generateFixtureDraft(input, calculation);
+  draft.opening.paragraphs[0].text += " Это гарантировано.";
+  const verification = verifyDraft(draft, calculation);
+  assert.ok(verification.contentWarnings.some((warning) => warning.code === "certainty_ru"));
+});
+
+test("code hydrates deterministic fields before provenance verification", () => {
+  const modelDraft = generateFixtureDraft(input, calculation);
+  modelDraft.numbers.items[0].value = "999";
+  modelDraft.matrix.items[0].arcana = "999";
+  modelDraft.matrix.items[0].name = "Маг";
+  modelDraft.months[0].period = "translated period";
+  modelDraft.twelveDays.items[0].date = "2099-01-01";
+  modelDraft.places.locations[0].line = "translated line";
+  const draft = hydrateDraft(modelDraft, calculation);
+  const verification = verifyDraft(draft, calculation);
+  assert.equal(verification.status, "needs_human_review");
+  assert.deepEqual(verification.structuralErrors, []);
+  assert.equal(draft.matrix.items[0].name, "Маг");
+});
+
+test("parallel draft segments cover the complete strict schema", () => {
+  const schema = JSON.parse(fs.readFileSync(path.join(pipelineDir, "schemas", "draft.schema.json"), "utf8"));
+  const covered = DRAFT_SEGMENTS.flatMap((segment) => segment.keys).sort();
+  assert.deepEqual(covered, [...schema.required].sort());
+  const fixture = generateFixtureDraft(input, calculation);
+  const results = DRAFT_SEGMENTS.map((segment) => {
+    const segmentSchema = schemaForSegment(schema, segment);
+    assert.deepEqual(segmentSchema.required, segment.keys);
+    assert.ok(calculationForSegment(calculation, segment).sources.length < calculation.sources.length);
+    return { draft: Object.fromEntries(segment.keys.map((key) => [key, fixture[key]])) };
+  });
+  assert.deepEqual(mergeDraftSegments(results), fixture);
 });
