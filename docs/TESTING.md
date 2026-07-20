@@ -24,3 +24,6 @@ Open `http://localhost:4321/pipeline` and `http://localhost:4321/0811`.
 `npm run check` runs eight deterministic assertions, full offline artifact E2E, Astro build,
 the public-repository secret/PII/file audit, and the dependency security audit. No API key is needed to view the
 included GPT‑5.6 artifact or run fixture tests.
+
+The sanitized production QA snapshot for both questionnaire languages lives at
+`evidence/live-bilingual-runs.json`.

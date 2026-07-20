@@ -1,0 +1,45 @@
+{
+  "capturedAt": "2026-07-20T11:36:00Z",
+  "productionUrl": "https://omyear.pages.dev/try",
+  "syntheticPerson": "Maya",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "generationArchitecture": "three parallel strict Structured Output segments",
+  "runs": [
+    {
+      "language": "ru",
+      "requestId": "e19847ab-2e48-4449-9d5c-d0ef9f6d6ec9",
+      "completedUnderSeconds": 30,
+      "bookSections": 13,
+      "months": 12,
+      "sourceRecords": 72,
+      "sourcesCited": 60,
+      "sourceLinkErrors": 0,
+      "humanReviewFlags": 21,
+      "verificationStatus": "needs_human_review",
+      "localizedChecks": [
+        "Russian book chrome",
+        "Russian month and day dates",
+        "Russian arcana names",
+        "Russian planet labels"
+      ]
+    },
+    {
+      "language": "en",
+      "requestId": "da7c9dcb-0fff-4724-a2bd-d6ff111a690f",
+      "completedUnderSeconds": 30,
+      "bookSections": 13,
+      "months": 12,
+      "sourceRecords": 72,
+      "sourcesCited": 65,
+      "sourceLinkErrors": 0,
+      "humanReviewFlags": 8,
+      "verificationStatus": "needs_human_review",
+      "localizedChecks": [
+        "English questionnaire chrome",
+        "English month and day dates",
+        "English arcana names",
+        "English planet labels"
+      ]
+    }
+  ]
+}

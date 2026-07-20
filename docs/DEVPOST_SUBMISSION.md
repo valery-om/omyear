@@ -73,6 +73,7 @@ leak into judging.
 
 - Complete questionnaire-to-book run instead of a prompt demo.
 - Bilingual RU/EN questionnaire, generation progress and private browser result.
+- Verified production RU and EN books completing in under 30 seconds with zero source-link errors.
 - Source IDs on every interpretive object and exact-value post-generation checks.
 - One correctly surfaced cross-framework human-review flag.
 - Public in-product provenance with model and response ID.

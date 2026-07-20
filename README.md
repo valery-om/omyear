@@ -145,6 +145,10 @@ The included GPT‑5.6 demo currently has 72 known records, 53 distinct sources 
 zero invalid source IDs, missing citations, structural errors or language warnings,
 and one correctly surfaced human-review flag for a three-framework synthesis.
 
+Production RU and EN questionnaire runs also completed in under 30 seconds each with
+zero source-link errors. Sanitized browser-QA counts are recorded in
+[`evidence/live-bilingual-runs.json`](evidence/live-bilingual-runs.json).
+
 ```bash
 npm run test
 npm run build
