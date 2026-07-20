@@ -1,21 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const metrics = [
-  ["72", "source records"], ["53", "sources cited"],
-  ["0", "source-link errors"], ["1", "human review flag"],
+const promises = [
+  ["Made from you", "Your real story comes first."],
+  ["Made to keep", "A beautiful book to revisit."],
+  ["Made with care", "Warm writing, carefully checked."],
+  ["Made for reflection", "No fate. No fixed predictions."],
 ];
 const layers = [
-  ["01", "Confirmed", "Facts and goals supplied by the person."],
-  ["02", "Calculated", "Repeatable values produced by code."],
-  ["03", "Interpreted", "Source-linked prose written by GPT‑5.6."],
-  ["04", "Approved", "The final decision kept by a human editor."],
+  ["01", "Tell us where you are", "Your hopes, questions, routines and turning points set the direction."],
+  ["02", "We map the patterns", "Thoughtful calculations uncover themes to explore—not fixed predictions."],
+  ["03", "Your book takes shape", "GPT‑5.6 weaves the material into a warm, coherent story for the year."],
+  ["04", "You keep the last word", "The result is yours to question, annotate and live in your own way."],
 ];
 ---
 
 <Layout
-  title="Omyear — a personal year book that can show its work"
-  description="A source-linked personal year book built with Codex and GPT-5.6 for OpenAI Build Week 2026."
+  title="Omyear — your personal year, turned into a book"
+  description="A beautiful personal book for the year between birthdays, created from your story and made to return to throughout the year."
   music={false}
   language="en"
 >
@@ -23,34 +25,34 @@ const layers = [
     <header class="home-hero">
       <nav class="home-nav" aria-label="Primary navigation">
         <a href="/" aria-current="page">omyear</a>
-        <div><a href="/try">create yours</a><a href="/pipeline">the pipeline</a><a href="/0811">Maya’s demo</a><button id="language-toggle" type="button">RU</button></div>
+        <div><a href="/try">create yours</a><a href="/pipeline">how it works</a><a href="/0811">Maya’s example</a><button id="language-toggle" type="button">RU</button></div>
       </nav>
       <div class="home-orbit" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
       <div class="home-hero__copy">
-        <p class="home-kicker">OpenAI Build Week · Apps for Your Life</p>
-        <h1>A year of your own,<br /><em>with receipts.</em></h1>
-        <p class="home-lede">A personal birthday-to-birthday book where every generated interpretation can lead back to a confirmed fact or deterministic calculation.</p>
+        <p class="home-kicker">OpenAI Build Week · A book for your personal year</p>
+        <h1>Your year,<br /><em>turned into a book.</em></h1>
+        <p class="home-lede">A beautiful personal book for the year between birthdays—created from your story, your questions, and the patterns that make you who you are.</p>
         <div class="home-actions">
-          <a class="home-button home-button--solid" href="/try">Create your book <span>↗</span></a>
-          <a class="home-button" href="/0811">Read Maya’s book <span>→</span></a>
+          <a class="home-button home-button--solid" href="/try">Create your Omyear <span>↗</span></a>
+          <a class="home-button" href="/0811">Explore Maya’s <span>→</span></a>
         </div>
       </div>
-      <p class="home-side home-side--left">confirmed · calculated</p>
-      <p class="home-side home-side--right">interpreted · approved</p>
+      <p class="home-side home-side--left">your story · your questions</p>
+      <p class="home-side home-side--right">twelve chapters · one year</p>
     </header>
 
-    <section class="home-metrics" aria-label="Current GPT-5.6 demo verification">
-      {metrics.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+    <section class="home-metrics" aria-label="What makes Omyear personal">
+      {promises.map(([title, text]) => <div><strong>{title}</strong><span>{text}</span></div>)}
     </section>
 
     <section class="home-story">
       <div>
-        <p class="home-kicker">the trust problem</p>
-        <h2>Personal enough to matter.<br />Bounded enough to inspect.</h2>
+        <p class="home-kicker">made around a real person</p>
+        <h2>Not a generic reading.<br />Not a prediction.<br />A book that begins with you.</h2>
       </div>
       <div class="home-story__copy">
-        <p>Generic AI can write a beautiful reading and quietly invent the person inside it. Omyear separates four layers so warmth never has to hide where it came from.</p>
-        <p>Symbolic systems remain reflection prompts—not scientific claims, professional advice or event predictions.</p>
+        <p>Most generated readings start with a prompt and fill in the blanks. Omyear starts with your actual life: what matters, what is shifting, what you want to protect, and what you are ready to explore.</p>
+        <p>Then it brings structure and imagination together—so the result feels intimate without pretending to know your future.</p>
       </div>
     </section>
 
@@ -59,35 +61,45 @@ const layers = [
     </section>
 
     <section class="home-path">
-      <p class="home-kicker">one inspectable line</p>
+      <p class="home-kicker">from your story to your shelf</p>
       <div class="home-path__flow" aria-label="Pipeline summary">
-        <span>questionnaire</span><i>→</i><span>calculate</span><i>→</i><span>GPT‑5.6</span><i>→</i><span>verify</span><i>→</i><span>human review</span><i>→</i><span>book</span>
+        <span>your story</span><i>→</i><span>patterns</span><i>→</i><span>thoughtful writing</span><i>→</i><span>careful checks</span><i>→</i><span>your Omyear</span>
       </div>
       <div class="home-path__close">
-        <h2>Meet Maya.<br /><em>She is entirely invented.</em></h2>
-        <p>The public demo contains no recipient data, photos, music or private history. Open the book, then expand its source ledger.</p>
-        <a class="home-button home-button--solid" href="/0811#provenance">Open the source-linked demo <span>↗</span></a>
+        <h2>Meet Maya.<br /><em>Her story is fictional. Her Omyear is ready to explore.</em></h2>
+        <p>Want to see the whole experience first? Maya’s details were invented for the demo, so you can open every chapter without looking into a real person’s private life.</p>
+        <a class="home-button home-button--solid" href="/0811">Explore Maya’s Omyear <span>↗</span></a>
       </div>
     </section>
 
-    <footer class="home-footer"><span>OMYEAR / CODEX + GPT‑5.6</span><a href="/pipeline">Trace all seven stages →</a></footer>
+    <footer class="home-footer"><span>OMYEAR / YOUR YEAR, MADE PERSONAL</span><a href="/pipeline">See how it’s made →</a></footer>
   </main>
 
   <script>
     const translations = new Map([
-      ["create yours","создать свою"],["the pipeline","как это устроено"],["Maya’s demo","пример Майи"],
-      ["OpenAI Build Week · Apps for Your Life","OpenAI Build Week · Apps for Your Life"],
-      ["A year of your own,","Твой собственный год,"],["with receipts.","с источниками."],
-      ["A personal birthday-to-birthday book where every generated interpretation can lead back to a confirmed fact or deterministic calculation.","Персональная книга от дня рождения до дня рождения, где каждую интерпретацию можно проследить до подтверждённого факта или детерминированного расчёта."],
-      ["Create your book","Создать свою книгу"],["Read Maya’s book","Открыть книгу Майи"],
-      ["confirmed · calculated","подтверждено · рассчитано"],["interpreted · approved","интерпретировано · проверено"],
-      ["source records","источника"],["sources cited","источника процитировано"],["source-link errors","ошибок связей"],["human review flag","флаг для редактора"],
-      ["the trust problem","проблема доверия"],["Personal enough to matter.","Достаточно лично, чтобы иметь значение."],["Bounded enough to inspect.","Достаточно строго, чтобы проверить."],
-      ["Generic AI can write a beautiful reading and quietly invent the person inside it. Omyear separates four layers so warmth never has to hide where it came from.","Обычный ИИ может написать красивый разбор и незаметно выдумать человека внутри него. Omyear разделяет четыре слоя, чтобы тёплый текст не скрывал своё происхождение."],
-      ["Symbolic systems remain reflection prompts—not scientific claims, professional advice or event predictions.","Символические системы остаются приглашением к рефлексии — не научным утверждением, профессиональным советом или прогнозом событий."],
-      ["Confirmed","Подтверждено"],["Facts and goals supplied by the person.","Факты и цели, которые сообщил сам человек."],["Calculated","Рассчитано"],["Repeatable values produced by code.","Воспроизводимые значения, полученные кодом."],["Interpreted","Интерпретировано"],["Source-linked prose written by GPT‑5.6.","Текст GPT‑5.6 со ссылками на источники."],["Approved","Проверено"],["The final decision kept by a human editor.","Финальное решение остаётся за человеком-редактором."],
-      ["one inspectable line","одна проверяемая цепочка"],["questionnaire","анкета"],["calculate","расчёт"],["verify","проверка"],["human review","редактор"],["book","книга"],
-      ["Meet Maya.","Познакомься с Майей."],["She is entirely invented.","Она полностью выдумана."],["The public demo contains no recipient data, photos, music or private history. Open the book, then expand its source ledger.","В публичном примере нет данных реального получателя, фотографий, музыки или частной истории. Открой книгу, затем разверни реестр источников."],["Open the source-linked demo","Открыть пример с источниками"],["Trace all seven stages →","Проследить все семь этапов →"]
+      ["create yours","создать свою"],["how it works","как это работает"],["Maya’s example","пример Майи"],
+      ["OpenAI Build Week · A book for your personal year","OpenAI Build Week · книга о твоём личном годе"],
+      ["Your year,","Твой год,"],["turned into a book.","собранный в книгу."],
+      ["A beautiful personal book for the year between birthdays—created from your story, your questions, and the patterns that make you who you are.","Красивая персональная книга на год от дня рождения до дня рождения — о твоей истории, твоих вопросах и особенностях, из которых складываешься ты."],
+      ["Create your Omyear","Создать свой Omyear"],["Explore Maya’s","Открыть пример Майи"],
+      ["your story · your questions","твоя история · твои вопросы"],["twelve chapters · one year","двенадцать глав · один год"],
+      ["Made from you","О тебе"],["Your real story comes first.","Сначала — твоя настоящая история."],
+      ["Made to keep","Чтобы сохранить"],["A beautiful book to revisit.","Красивая книга, к которой хочется возвращаться."],
+      ["Made with care","С заботой"],["Warm writing, carefully checked.","Тёплый текст, который проходит проверку."],
+      ["Made for reflection","Для размышлений"],["No fate. No fixed predictions.","Без судьбоносных обещаний и жёстких прогнозов."],
+      ["made around a real person","начинается с живого человека"],
+      ["Not a generic reading.","Не шаблонный разбор."],["Not a prediction.","Не предсказание."],["A book that begins with you.","Книга, которая начинается с тебя."],
+      ["Most generated readings start with a prompt and fill in the blanks. Omyear starts with your actual life: what matters, what is shifting, what you want to protect, and what you are ready to explore.","Большинство сгенерированных разборов начинаются с промпта и заполняют пустоты. Omyear начинается с твоей настоящей жизни: с того, что для тебя важно, что меняется, что хочется сохранить и что ты готова исследовать."],
+      ["Then it brings structure and imagination together—so the result feels intimate without pretending to know your future.","Затем структура встречается с воображением — и книга получается по-настоящему личной, не притворяясь, будто знает твоё будущее."],
+      ["Tell us where you are","Расскажи, где ты сейчас"],["Your hopes, questions, routines and turning points set the direction.","Твои надежды, вопросы, привычки и поворотные моменты задают направление."],
+      ["We map the patterns","Мы собираем узор"],["Thoughtful calculations uncover themes to explore—not fixed predictions.","Расчёты помогают увидеть темы для размышления — не выдают жёстких предсказаний."],
+      ["Your book takes shape","Книга обретает форму"],["GPT‑5.6 weaves the material into a warm, coherent story for the year.","GPT‑5.6 превращает материал в тёплую и цельную историю на год."],
+      ["You keep the last word","Последнее слово остаётся за тобой"],["The result is yours to question, annotate and live in your own way.","Ты можешь спорить с книгой, делать заметки и проживать этот год по-своему."],
+      ["from your story to your shelf","от твоей истории до твоей книги"],
+      ["your story","твоя история"],["patterns","узор"],["thoughtful writing","бережный текст"],["careful checks","проверка"],["your Omyear","твой Omyear"],
+      ["Meet Maya.","Познакомься с Майей."],["Her story is fictional. Her Omyear is ready to explore.","Её история выдумана. Её Omyear уже можно открыть."],
+      ["Want to see the whole experience first? Maya’s details were invented for the demo, so you can open every chapter without looking into a real person’s private life.","Хочешь сначала увидеть весь результат? Данные Майи придуманы специально для примера: можно открыть каждую главу, не заглядывая в частную жизнь реального человека."],
+      ["Explore Maya’s Omyear","Открыть Omyear Майи"],["OMYEAR / YOUR YEAR, MADE PERSONAL","OMYEAR / ТВОЙ ЛИЧНЫЙ ГОД"],["See how it’s made →","Посмотреть, как это сделано →"]
     ]);
     const requested = new URLSearchParams(location.search).get("lang");
     const language = requested === "ru" || (!requested && localStorage.getItem("omyear:language") === "ru") ? "ru" : "en";
@@ -133,11 +145,11 @@ const layers = [
     .home-side--left { left: 1.5rem; transform: rotate(180deg); }
     .home-side--right { right: 1.5rem; }
     .home-metrics { display: grid; grid-template-columns: repeat(4,1fr); max-width: 70rem; margin: 0 auto; padding: 0 1.3rem 6rem; }
-    .home-metrics div { min-height: 8rem; padding: 1.2rem; border: 1px solid var(--line); border-right: 0; background: rgba(251,244,230,.6); }
+    .home-metrics div { min-height: 9.5rem; padding: 1.35rem; border: 1px solid var(--line); border-right: 0; background: rgba(251,244,230,.6); display: flex; flex-direction: column; justify-content: flex-end; }
     .home-metrics div:first-child { border-radius: 18px 0 0 18px; }
     .home-metrics div:last-child { border-right: 1px solid var(--line); border-radius: 0 18px 18px 0; }
-    .home-metrics strong { display: block; color: var(--terracotta-deep); font: 500 2.7rem/1 var(--font-display); }
-    .home-metrics span { display: block; margin-top: 1rem; color: var(--sienna); font-size: .6rem; letter-spacing: .13em; text-transform: uppercase; }
+    .home-metrics strong { display: block; color: var(--terracotta-deep); font: 500 clamp(1.25rem,2vw,1.6rem)/1.08 var(--font-display); }
+    .home-metrics span { display: block; margin-top: .75rem; color: var(--sienna); font-size: .76rem; line-height: 1.45; }
     .home-story { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem,8vw,7rem); max-width: 70rem; margin: 0 auto; padding: 6rem 1.3rem 4rem; border-top: 1px solid var(--line); }
     .home-story h2, .home-path h2 { margin: 0; font: 500 clamp(2.3rem,5.5vw,4.2rem)/1.04 var(--font-display); letter-spacing: -.025em; }
     .home-story__copy { padding-top: 1.8rem; }
@@ -158,7 +170,7 @@ const layers = [
     .home-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.3rem,5vw,4.5rem); border-top: 1px solid var(--line); color: var(--sienna); font-size: .58rem; letter-spacing: .13em; }
     .home-footer a { color: var(--terracotta-deep); }
     @media (max-width:720px) {
-      .home-nav div { gap: .7rem; } .home-nav div a { font-size: .52rem; } .home-side { display:none; } .home-hero__copy { width:100%; } .home-hero h1 { font-size:clamp(2.7rem,11.5vw,3.3rem); } .home-hero h1 br { display:none; }
+      .home-nav div { gap: 0; } .home-nav div a { display: none; } .home-nav div button { font-size: .58rem; } .home-side { display:none; } .home-hero__copy { width:100%; } .home-hero h1 { font-size:clamp(2.7rem,11.5vw,3.3rem); }
       .home-metrics { grid-template-columns:repeat(2,1fr); }
       .home-metrics div,.home-metrics div:first-child,.home-metrics div:last-child { min-height:6.5rem; border:1px solid var(--line); border-radius:0; }
       .home-metrics div:first-child { border-radius:15px 0 0 0; } .home-metrics div:nth-child(2) { border-radius:0 15px 0 0; } .home-metrics div:nth-child(3) { border-radius:0 0 0 15px; } .home-metrics div:last-child { border-radius:0 0 15px 0; }
