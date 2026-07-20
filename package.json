@@ -7,8 +7,12 @@
     "dev": "npm --prefix web run dev",
     "test": "node --test pipeline/tests/pipeline.test.mjs",
     "build": "npm --prefix web run build",
+    "deploy:pages": "wrangler pages deploy web/dist --project-name omyear --branch main",
     "audit": "node scripts/audit-public.mjs",
-    "audit:deps": "npm --prefix web audit --audit-level=moderate",
+    "audit:deps": "npm audit --audit-level=moderate && npm --prefix web audit --audit-level=moderate",
     "check": "npm run test && npm run build && npm run audit && npm run audit:deps"
+  },
+  "devDependencies": {
+    "wrangler": "^4.112.0"
   }
 }

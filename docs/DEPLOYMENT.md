@@ -3,9 +3,13 @@
 Omyear builds to plain static files. No API key, server process, database or private
 run directory is required in production.
 
+Current production target: [https://omyear.pages.dev](https://omyear.pages.dev).
+
 ```bash
+npm install
 npm --prefix web install
-SITE_URL=https://your-final-domain.example npm run build
+SITE_URL=https://omyear.pages.dev npm run build
+npm run deploy:pages
 ```
 
 Publish `web/dist/` as the site root. The `SITE_URL` value is used for canonical and

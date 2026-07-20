@@ -96,7 +96,7 @@ Swiss Ephemeris, HTML, CSS and Playwright.
 
 ## Add before submitting
 
-- Demo: `[DEPLOYED URL]`
-- Repository: `[PUBLIC OR SHARED REPOSITORY URL]`
+- Demo: `https://omyear.pages.dev`
+- Repository: `https://github.com/valery-om/omyear`
 - YouTube: `[PUBLIC VIDEO URL]`
 - Codex `/feedback` session ID: `[SESSION ID]`
