@@ -117,7 +117,8 @@ const cityData = JSON.stringify(cities).replaceAll("<", "\\u003c");
     const form = document.getElementById("year-form");
     const generation = document.getElementById("generation");
     const formError = document.getElementById("form-error");
-    let language = new URLSearchParams(location.search).get("lang") === "ru" ? "ru" : (localStorage.getItem("omyear:language") || "en");
+    const requestedLanguage = new URLSearchParams(location.search).get("lang");
+    let language = requestedLanguage === "ru" || requestedLanguage === "en" ? requestedLanguage : (localStorage.getItem("omyear:language") || "en");
     if (!COPY[language]) language = "en";
 
     function cityLabel(city) { return language === "ru" ? `${city.ru}, ${city.countryRu}` : `${city.en}, ${city.countryEn}`; }
