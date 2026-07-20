@@ -100,7 +100,7 @@ const cityData = JSON.stringify(cities).replaceAll("<", "\\u003c");
   </main>
 
   <script id="city-data" type="application/json" set:html={cityData}></script>
-  <script>
+  <script is:inline>
     const API_URL = "https://omyear-api.om777-ai.workers.dev/generate";
     const CITIES = JSON.parse(document.getElementById("city-data").textContent);
     const COPY = {
