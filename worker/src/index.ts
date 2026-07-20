@@ -3,7 +3,7 @@ const LOCAL_ORIGINS = new Set(["http://localhost:4321", "http://127.0.0.1:4321"]
 
 function allowedOrigin(origin: string | null, env: Env): string | null {
   if (!origin) return null;
-  if (origin === env.SITE_ORIGIN || LOCAL_ORIGINS.has(origin)) return origin;
+  if (origin === env.SITE_ORIGIN || origin === env.APP_ORIGIN || LOCAL_ORIGINS.has(origin)) return origin;
   return null;
 }
 

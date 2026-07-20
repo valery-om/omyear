@@ -24,7 +24,7 @@ After starting the site locally:
 Maya is public and passwordless. All names, biography, goals and locations in her
 questionnaire are invented for the demo.
 
-Deployed demo: [omyear.pages.dev](https://omyear.pages.dev) · Public source:
+Deployed demo: [app.omyear.com](https://app.omyear.com) · Public source:
 [github.com/valery-om/omyear](https://github.com/valery-om/omyear)
 
 ## The sequence

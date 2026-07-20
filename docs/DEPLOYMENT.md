@@ -2,7 +2,8 @@
 
 Omyear uses three public layers:
 
-- Cloudflare Pages serves the static Astro site at `https://omyear.pages.dev`;
+- Cloudflare Pages serves the static Astro site at `https://app.omyear.com`, with
+  `https://omyear.pages.dev` retained as the platform fallback;
 - a Cloudflare Worker at `https://omyear-api.om777-ai.workers.dev` validates origins,
   enforces request-size and per-IP rate limits, and streams generation events;
 - Vercel runs the Node editorial function and private Python/Swiss Ephemeris calculator
@@ -18,7 +19,7 @@ database. The result is stored only in the current tab's `sessionStorage`.
 ```bash
 npm install
 npm --prefix web install
-SITE_URL=https://omyear.pages.dev npm run build
+SITE_URL=https://app.omyear.com npm run build
 npm run deploy:pages
 ```
 

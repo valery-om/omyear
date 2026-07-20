@@ -105,7 +105,8 @@ Node.js, Python, Swiss Ephemeris, Cloudflare Workers/Pages, Vercel, HTML and CSS
 
 ## Add before submitting
 
-- Demo: `https://omyear.pages.dev`
+- Demo: `https://app.omyear.com/?lang=en`
+- Direct judge test: `https://app.omyear.com/try/?lang=en`
 - Repository: `https://github.com/valery-om/omyear`
 - YouTube: `[PUBLIC VIDEO URL]`
 - Codex `/feedback` session ID: `[SESSION ID]`
