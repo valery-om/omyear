@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const metrics = [
+  ["72", "source records"], ["53", "sources cited"],
+  ["0", "source-link errors"], ["1", "human review flag"],
+];
+const layers = [
+  ["01", "Confirmed", "Facts and goals supplied by the person."],
+  ["02", "Calculated", "Repeatable values produced by code."],
+  ["03", "Interpreted", "Source-linked prose written by GPT‑5.6."],
+  ["04", "Approved", "The final decision kept by a human editor."],
+];
+---
+
+<Layout
+  title="Omyear — a personal year book that can show its work"
+  description="A source-linked personal year book built with Codex and GPT-5.6 for OpenAI Build Week 2026."
+  music={false}
+  language="en"
+>
+  <main class="home">
+    <header class="home-hero">
+      <nav class="home-nav" aria-label="Primary navigation">
+        <a href="/" aria-current="page">omyear</a>
+        <div><a href="/pipeline">the pipeline</a><a href="/0811">Maya’s demo</a></div>
+      </nav>
+      <div class="home-orbit" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+      <div class="home-hero__copy">
+        <p class="home-kicker">OpenAI Build Week · Apps for Your Life</p>
+        <h1>A year of your own,<br /><em>with receipts.</em></h1>
+        <p class="home-lede">A personal birthday-to-birthday book where every generated interpretation can lead back to a confirmed fact or deterministic calculation.</p>
+        <div class="home-actions">
+          <a class="home-button home-button--solid" href="/0811">Read Maya’s book <span>↗</span></a>
+          <a class="home-button" href="/pipeline">See how it works <span>→</span></a>
+        </div>
+      </div>
+      <p class="home-side home-side--left">confirmed · calculated</p>
+      <p class="home-side home-side--right">interpreted · approved</p>
+    </header>
+
+    <section class="home-metrics" aria-label="Current GPT-5.6 demo verification">
+      {metrics.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+    </section>
+
+    <section class="home-story">
+      <div>
+        <p class="home-kicker">the trust problem</p>
+        <h2>Personal enough to matter.<br />Bounded enough to inspect.</h2>
+      </div>
+      <div class="home-story__copy">
+        <p>Generic AI can write a beautiful reading and quietly invent the person inside it. Omyear separates four layers so warmth never has to hide where it came from.</p>
+        <p>Symbolic systems remain reflection prompts—not scientific claims, professional advice or event predictions.</p>
+      </div>
+    </section>
+
+    <section class="home-layers" aria-label="Omyear information layers">
+      {layers.map(([number, title, text]) => <article><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+    </section>
+
+    <section class="home-path">
+      <p class="home-kicker">one inspectable line</p>
+      <div class="home-path__flow" aria-label="Pipeline summary">
+        <span>questionnaire</span><i>→</i><span>calculate</span><i>→</i><span>GPT‑5.6</span><i>→</i><span>verify</span><i>→</i><span>human review</span><i>→</i><span>book</span>
+      </div>
+      <div class="home-path__close">
+        <h2>Meet Maya.<br /><em>She is entirely invented.</em></h2>
+        <p>The public demo contains no recipient data, photos, music or private history. Open the book, then expand its source ledger.</p>
+        <a class="home-button home-button--solid" href="/0811#provenance">Open the source-linked demo <span>↗</span></a>
+      </div>
+    </section>
+
+    <footer class="home-footer"><span>OMYEAR / CODEX + GPT‑5.6</span><a href="/pipeline">Trace all seven stages →</a></footer>
+  </main>
+
+  <style>
+    .home { overflow: hidden; }
+    .home-hero { position: relative; min-height: 94svh; display: grid; place-items: center; padding: 6rem 1.4rem 4rem; isolation: isolate; }
+    .home-nav { position: absolute; z-index: 4; inset: 1.2rem clamp(1.3rem,5vw,4.5rem) auto; display: flex; justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .home-nav > a { color: var(--ink); font: 600 1.05rem/1 var(--font-display); text-decoration: none; }
+    .home-nav div { display: flex; gap: 1.4rem; }
+    .home-nav div a { color: var(--sienna); font-size: .62rem; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+    .home-hero__copy { position: relative; z-index: 2; width: min(53rem,88vw); text-align: center; }
+    .home-kicker { margin: 0 0 .9rem; color: var(--terracotta-deep); font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; }
+    .home-hero h1 { margin: 0; font: 500 clamp(3.4rem,9vw,7.6rem)/.91 var(--font-display); letter-spacing: -.045em; }
+    .home-hero h1 em, .home-path h2 em { color: var(--terracotta); font-weight: 400; }
+    .home-lede { max-width: 39rem; margin: 1.7rem auto 0; color: var(--ink-soft); font-size: clamp(1rem,2vw,1.18rem); line-height: 1.65; }
+    .home-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+    .home-button { display: inline-flex; align-items: center; gap: .75rem; padding: .8rem 1.2rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); font-size: .84rem; line-height: 1; text-decoration: none; transition: transform .2s ease,background .2s ease; }
+    .home-button:hover { transform: translateY(-2px); background: var(--paper); }
+    .home-button--solid { border-color: var(--terracotta); background: var(--terracotta); color: var(--paper); }
+    .home-button--solid:hover { background: var(--terracotta-deep); }
+    .home-orbit { position: absolute; z-index: -1; width: min(82vw,52rem); aspect-ratio: 1; left: 50%; top: 48%; transform: translate(-50%,-50%); }
+    .home-orbit i { position: absolute; inset: 10%; border: 1px solid rgba(154,106,69,.18); border-radius: 50%; animation: orbit 80s linear infinite; }
+    .home-orbit i:nth-child(2) { inset: 20% 2%; transform: rotate(41deg); animation-direction: reverse; }
+    .home-orbit i:nth-child(3) { inset: 4% 24%; transform: rotate(73deg); animation-duration: 65s; }
+    .home-orbit i::after { content: ""; position: absolute; top: 20%; right: 7%; width: .55rem; height: .55rem; border-radius: 50%; background: var(--terracotta); box-shadow: 0 0 0 6px rgba(194,107,67,.11); }
+    .home-orbit span { position: absolute; inset: 36%; border-radius: 50%; background: radial-gradient(circle at 42% 36%,var(--sun-glow),var(--sun)); box-shadow: 0 0 9rem 4rem rgba(241,188,106,.34); }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    .home-side { position: absolute; top: 50%; margin: 0; color: var(--sienna); font-size: .54rem; letter-spacing: .24em; text-transform: uppercase; writing-mode: vertical-rl; }
+    .home-side--left { left: 1.5rem; transform: rotate(180deg); }
+    .home-side--right { right: 1.5rem; }
+    .home-metrics { display: grid; grid-template-columns: repeat(4,1fr); max-width: 70rem; margin: 0 auto; padding: 0 1.3rem 6rem; }
+    .home-metrics div { min-height: 8rem; padding: 1.2rem; border: 1px solid var(--line); border-right: 0; background: rgba(251,244,230,.6); }
+    .home-metrics div:first-child { border-radius: 18px 0 0 18px; }
+    .home-metrics div:last-child { border-right: 1px solid var(--line); border-radius: 0 18px 18px 0; }
+    .home-metrics strong { display: block; color: var(--terracotta-deep); font: 500 2.7rem/1 var(--font-display); }
+    .home-metrics span { display: block; margin-top: 1rem; color: var(--sienna); font-size: .6rem; letter-spacing: .13em; text-transform: uppercase; }
+    .home-story { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem,8vw,7rem); max-width: 70rem; margin: 0 auto; padding: 6rem 1.3rem 4rem; border-top: 1px solid var(--line); }
+    .home-story h2, .home-path h2 { margin: 0; font: 500 clamp(2.3rem,5.5vw,4.2rem)/1.04 var(--font-display); letter-spacing: -.025em; }
+    .home-story__copy { padding-top: 1.8rem; }
+    .home-story__copy p { color: var(--ink-soft); font-size: .98rem; line-height: 1.65; }
+    .home-layers { display: grid; grid-template-columns: repeat(4,1fr); max-width: 70rem; margin: 0 auto; padding: 0 1.3rem 7rem; }
+    .home-layers article { min-height: 16rem; padding: 1.4rem; border: 1px solid var(--line); border-right: 0; display: flex; flex-direction: column; background: rgba(251,244,230,.42); }
+    .home-layers article:last-child { border-right: 1px solid var(--line); }
+    .home-layers span { color: var(--gold); font: 600 .75rem/1 var(--font-display); }
+    .home-layers h3 { margin: auto 0 .55rem; font: 600 1.35rem/1.15 var(--font-display); }
+    .home-layers p { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.5; }
+    .home-path { max-width: calc(70rem - 2.6rem); margin: 0 auto 6rem; padding: clamp(2rem,6vw,4.5rem); border: 1px solid var(--line); border-radius: 26px; background: var(--paper); }
+    .home-path__flow { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; padding-bottom: 2.4rem; border-bottom: 1px solid var(--line); }
+    .home-path__flow span { padding: .45rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--terracotta-deep); font-size: .67rem; letter-spacing: .08em; text-transform: uppercase; }
+    .home-path__flow i { color: var(--gold); font-style: normal; }
+    .home-path__close { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; align-items: end; padding-top: 2.8rem; }
+    .home-path__close p { margin: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.6; }
+    .home-path__close .home-button { grid-column: 2; width: fit-content; }
+    .home-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.3rem,5vw,4.5rem); border-top: 1px solid var(--line); color: var(--sienna); font-size: .58rem; letter-spacing: .13em; }
+    .home-footer a { color: var(--terracotta-deep); }
+    @media (max-width:720px) {
+      .home-nav div { gap: .7rem; } .home-nav div a { font-size: .52rem; } .home-side { display:none; } .home-hero h1 br { display:none; }
+      .home-metrics { grid-template-columns:repeat(2,1fr); }
+      .home-metrics div,.home-metrics div:first-child,.home-metrics div:last-child { min-height:6.5rem; border:1px solid var(--line); border-radius:0; }
+      .home-metrics div:first-child { border-radius:15px 0 0 0; } .home-metrics div:nth-child(2) { border-radius:0 15px 0 0; } .home-metrics div:nth-child(3) { border-radius:0 0 0 15px; } .home-metrics div:last-child { border-radius:0 0 15px 0; }
+      .home-story,.home-path__close { grid-template-columns:1fr; } .home-layers { grid-template-columns:1fr 1fr; } .home-layers article:nth-child(2) { border-right:1px solid var(--line); } .home-layers article { min-height:12rem; } .home-path__close .home-button { grid-column:1; } .home-footer { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion:reduce) { .home-orbit i { animation:none; } }
+  </style>
+</Layout>

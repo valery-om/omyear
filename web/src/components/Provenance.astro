@@ -1,0 +1,134 @@
+---
+const { data, language = "ru" } = Astro.props;
+const english = language === "en";
+const verification = data?.verification ?? {};
+const records = data?.sourceRecords ?? [];
+const groups = Object.entries(records.reduce((result, record) => {
+  (result[record.kind] ??= []).push(record);
+  return result;
+}, {}));
+const copy = english ? {
+  eyebrow: "editorial colophon",
+  title: "How this book was made",
+  intro: "The prose is generated only after deterministic calculations. Every interpretive block carries source IDs, then a verifier checks the ledger before a person approves the final book.",
+  model: "generation model",
+  sources: "source records",
+  claims: "sources cited",
+  errors: "source-link errors",
+  review: "Human review is required",
+  reviewText: "The pipeline stops at a review gate. Symbolic language, sensitive inferences and cross-framework synthesis stay visible to an editor.",
+  ledger: "Open the source ledger",
+  empty: "No source records were attached.",
+} : {
+  eyebrow: "редакционный колофон",
+  title: "Как собрана эта книга",
+  intro: "Текст появляется только после детерминированных расчётов. Каждый смысловой блок хранит ID источников, затем проверяющий модуль сверяет реестр, а финал утверждает человек.",
+  model: "модель генерации",
+  sources: "источников",
+  claims: "источников процитировано",
+  errors: "ошибок ссылок",
+  review: "Нужна проверка человека",
+  reviewText: "Конвейер останавливается на редакционном шлюзе. Символический язык, чувствительные выводы и синтез систем остаются видимыми редактору.",
+  ledger: "Открыть реестр источников",
+  empty: "Реестр источников не приложен.",
+};
+const invalidCount = (verification.invalidSourceIds?.length ?? 0) + (verification.missingSourcePaths?.length ?? 0);
+const groupNames = english ? {
+  user_input: "Confirmed questionnaire input",
+  calculation: "Deterministic calculations",
+} : {
+  user_input: "Подтверждённые данные анкеты",
+  calculation: "Детерминированные расчёты",
+};
+const showValue = (value) => typeof value === "string" || typeof value === "number"
+  ? String(value)
+  : JSON.stringify(value);
+---
+
+{data && (
+  <section class="provenance" id="provenance" aria-labelledby="provenance-title">
+    <div class="provenance__orbit" aria-hidden="true"><span></span></div>
+    <div class="provenance__head" data-reveal>
+      <p class="provenance__eyebrow">{copy.eyebrow}</p>
+      <h2 id="provenance-title">{copy.title}</h2>
+      <p>{copy.intro}</p>
+      {data.responseId && <p class="provenance__response"><span>OpenAI response</span><code>{data.responseId}</code></p>}
+    </div>
+
+    <dl class="provenance__stats" data-reveal>
+      <div><dt>{copy.model}</dt><dd>{data.generationModel}</dd></div>
+      <div><dt>{copy.sources}</dt><dd>{data.sourceCount}</dd></div>
+      <div><dt>{copy.claims}</dt><dd>{verification.referencedClaimCount ?? 0}</dd></div>
+      <div data-state={invalidCount === 0 ? "pass" : "warn"}><dt>{copy.errors}</dt><dd>{invalidCount}</dd></div>
+    </dl>
+
+    <aside class="provenance__review" data-reveal>
+      <span class="provenance__review-mark" aria-hidden="true">✓</span>
+      <div><h3>{copy.review}</h3><p>{copy.reviewText}</p></div>
+    </aside>
+
+    <details class="provenance__ledger" data-reveal>
+      <summary>{copy.ledger}<span>{records.length}</span></summary>
+      {groups.length ? groups.map(([kind, items]) => (
+        <section class="provenance__group">
+          <h3>{groupNames[kind] ?? kind}<span>{items.length}</span></h3>
+          <ol>
+            {items.map((record) => (
+              <li>
+                <code>{record.id}</code>
+                <div><b>{record.label}</b><small>{record.method}</small></div>
+                <p>{showValue(record.value)}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )) : <p>{copy.empty}</p>}
+    </details>
+  </section>
+)}
+
+<style>
+  .provenance {
+    position: relative; max-width: var(--measure); margin: 3rem auto 5rem; padding: clamp(2rem, 6vw, 4rem);
+    overflow: hidden; border: 1px solid var(--line); border-radius: 28px;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    box-shadow: 0 30px 80px -60px rgba(70, 48, 28, .7);
+  }
+  .provenance__orbit { position: absolute; width: 22rem; height: 22rem; right: -10rem; top: -11rem; border: 1px solid var(--line); border-radius: 50%; }
+  .provenance__orbit::before, .provenance__orbit::after { content: ""; position: absolute; inset: 18%; border: 1px solid var(--line); border-radius: 50%; }
+  .provenance__orbit::after { inset: 38%; background: var(--sun-glow); border: 0; opacity: .45; }
+  .provenance__head { position: relative; max-width: 38rem; }
+  .provenance__eyebrow { margin: 0 0 .8rem; color: var(--terracotta-deep); font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; }
+  .provenance__head h2 { margin: 0; max-width: 29rem; font: 600 clamp(2rem, 6vw, 3.4rem)/1.04 var(--font-display); color: var(--ink); }
+  .provenance__head > p:not(.provenance__eyebrow):not(.provenance__response) { margin: 1.2rem 0 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.65; }
+  .provenance__response { display: flex; flex-wrap: wrap; gap: .35rem .7rem; align-items: baseline; }
+  .provenance__response span { color: var(--sienna); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; }
+  .provenance__response code { overflow-wrap: anywhere; color: var(--terracotta-deep); font-size: .66rem; }
+  .provenance__stats { display: grid; grid-template-columns: repeat(4, 1fr); margin: 2.4rem 0 0; border-block: 1px solid var(--line); }
+  .provenance__stats div { padding: 1.2rem 1rem 1.2rem 0; }
+  .provenance__stats dt { color: var(--sienna); font-size: .64rem; letter-spacing: .16em; line-height: 1.35; text-transform: uppercase; }
+  .provenance__stats dd { margin: .35rem 0 0; overflow-wrap: anywhere; color: var(--ink); font: 600 1.45rem/1.1 var(--font-display); }
+  .provenance__stats [data-state="pass"] dd { color: #47715f; }
+  .provenance__review { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; margin-top: 1.5rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 16px; background: rgba(241, 188, 106, .12); }
+  .provenance__review-mark { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: 50%; background: var(--terracotta); color: var(--paper); font-weight: 700; }
+  .provenance__review h3 { margin: 0; font: 600 1.08rem/1.25 var(--font-display); }
+  .provenance__review p { margin: .3rem 0 0; color: var(--ink-soft); font-size: .88rem; line-height: 1.5; }
+  .provenance__ledger { margin-top: 1rem; border-top: 1px solid var(--line); }
+  .provenance__ledger > summary { display: flex; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; cursor: pointer; list-style: none; color: var(--terracotta-deep); font: 600 1rem/1.2 var(--font-display); }
+  .provenance__ledger > summary::-webkit-details-marker { display: none; }
+  .provenance__ledger > summary span, .provenance__group h3 span { color: var(--sienna); font: .7rem/1 var(--font-body); letter-spacing: .12em; }
+  .provenance__group { padding: 1rem 0; border-top: 1px solid var(--line); }
+  .provenance__group h3 { display: flex; justify-content: space-between; margin: 0 0 .8rem; font: 600 1.1rem/1.2 var(--font-display); }
+  .provenance__group ol { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+  .provenance__group li { display: grid; grid-template-columns: minmax(9rem, 1.1fr) 1fr 1.2fr; gap: .8rem; align-items: baseline; padding: .65rem 0; border-top: 1px dashed var(--line); }
+  .provenance__group code { overflow-wrap: anywhere; color: var(--terracotta-deep); font-size: .67rem; line-height: 1.35; }
+  .provenance__group b, .provenance__group small { display: block; }
+  .provenance__group b { font-size: .82rem; line-height: 1.35; }
+  .provenance__group small { margin-top: .15rem; color: var(--sienna); font-size: .66rem; line-height: 1.35; }
+  .provenance__group li p { margin: 0; overflow-wrap: anywhere; color: var(--ink-soft); font-size: .72rem; line-height: 1.45; }
+  @media (max-width: 720px) {
+    .provenance { margin-inline: 1rem; border-radius: 20px; }
+    .provenance__stats { grid-template-columns: repeat(2, 1fr); }
+    .provenance__group li { grid-template-columns: 1fr; gap: .35rem; }
+  }
+</style>

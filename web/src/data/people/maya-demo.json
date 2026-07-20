@@ -1,0 +1,1427 @@
+{
+  "person": {
+    "name": "Maya",
+    "language": "en",
+    "publicDemo": true,
+    "slug": "0811",
+    "password": "1992",
+    "birthDate": "8 November 1992",
+    "birthPlace": "Paris, France",
+    "yearLabel": "your 2026 year",
+    "yearSpan": "from 8 November 2026 to 8 November 2027",
+    "startDate": "2026-11-08",
+    "signalDate": "08 · 11 · 26",
+    "og": "/og.png",
+    "music": false,
+    "experience": "editorial-atlas",
+    "style": "warm-sunset",
+    "address": "Maya"
+  },
+  "hero": {
+    "kicker": "A personal year book",
+    "title": "Maya",
+    "subtitle": "your 2026 year",
+    "note": "A quiet atlas for making, connecting, and leaving room to breathe",
+    "photos": []
+  },
+  "message": {
+    "heading": "A Place to Return To",
+    "paragraphs": [
+      "Maya, I hope this book gives you a quiet place to return to whenever the year feels noisy. Keep what resonates, leave what does not, and make the year unmistakably yours.",
+      "Maya, this book is a reflective companion for the year beginning on your birthday. Its symbolic maps are invitations, not instructions: keep what resonates, leave what does not, and make the year unmistakably yours.",
+      "You are building a consistent creative practice while trying not to turn it into another source of pressure. Because you already prefer paper journals and small weekly rituals, this book returns often to modest experiments rather than demanding streaks.",
+      "Questions of commitment, creative company, rest, and slow travel are already present. The pages ahead offer ways to notice those questions without pretending to know their outcomes."
+    ]
+  },
+  "numbers": {
+    "heading": "The Year in Numbers",
+    "intro": "Numerology can be used as a compact vocabulary for reflection. These values come from Pythagorean numerology; their meanings are prompts rather than facts about your character.",
+    "items": [
+      {
+        "value": "4",
+        "name": "Life Path",
+        "text": "The Life Path calculation totals 31 and reduces to 4. As a prompt, 4 may invite you to build dependable structures that protect the work instead of controlling it."
+      },
+      {
+        "value": "8",
+        "name": "Birthday Number",
+        "text": "The Birthday Number is 8. You might use it to examine responsibility, standards, and the way you decide what deserves a longer commitment."
+      },
+      {
+        "value": "11",
+        "name": "Personal Year",
+        "text": "The Personal Year value is 11. Symbolically, this can be a prompt to notice subtle ideas before rushing to make them useful or complete."
+      },
+      {
+        "value": "3",
+        "name": "Next Personal Year",
+        "text": "The next Personal Year value is 3. It may offer a later prompt around expression, experimentation, and sharing work with a lighter touch."
+      },
+      {
+        "value": "11",
+        "name": "Destiny Number",
+        "text": "The Destiny Number totals 56 and reduces to 11. Treat it as an invitation to ask which ideas feel worth articulating, not as a fixed account of purpose."
+      },
+      {
+        "value": "11",
+        "name": "Soul Number",
+        "text": "The Soul Number totals 29 and reduces to 11. It can prompt a private journal question: what feels quietly meaningful before anyone else responds?"
+      }
+    ],
+    "synthesis": "The repeated 11 values sit beside a Life Path 4 and Birthday Number 8. Within numerology’s symbolic language, the useful tension may be between receptivity and structure: listen first, then give a promising idea a practical container."
+  },
+  "matrix": {
+    "heading": "The 22-Arcana Matrix",
+    "intro": "This date-based matrix offers eight symbolic roles. Read each image as a question you can test against experience, not as a verdict.",
+    "items": [
+      {
+        "arcana": "8",
+        "name": "Justice",
+        "role": "Personality",
+        "text": "Justice may invite clear criteria. When assessing a project, you might write down what a fair exchange of time, scope, and creative interest would look like."
+      },
+      {
+        "arcana": "11",
+        "name": "Strength",
+        "role": "Ancestral Talents",
+        "text": "Strength can symbolize steady influence rather than force. Consider where patience and a measured response serve you better than pushing harder."
+      },
+      {
+        "arcana": "21",
+        "name": "World",
+        "role": "Ancestral Pattern",
+        "text": "The World may raise questions about completion and belonging. Notice what you want to finish, and what can remain open without becoming a burden."
+      },
+      {
+        "arcana": "18",
+        "name": "Moon",
+        "role": "Development Task",
+        "text": "The Moon can be a prompt for working with ambiguity. In your journal, separate what you know, what you sense, and what still needs time."
+      },
+      {
+        "arcana": "14",
+        "name": "Temperance",
+        "role": "Center Purpose",
+        "text": "Temperance suggests adjustment through small measures. It fits a reflective experiment: change one part of a routine and observe before changing the rest."
+      },
+      {
+        "arcana": "10",
+        "name": "Wheel of Fortune",
+        "role": "Spiritual Line",
+        "text": "The Wheel of Fortune may invite attention to cycles and changing conditions. Ask what is genuinely shifting and what is simply having a noisy week."
+      }
+    ],
+    "synthesis": "Across the matrix, Temperance appears twice, while Justice, Strength, the World, the Moon, the Wheel of Fortune, and the Emperor each add a different lens. A grounded reading is to balance discernment, flexibility, and structure while allowing uncertainty to remain visible."
+  },
+  "nature": {
+    "heading": "Your Human Design Reflection",
+    "intro": "Human Design is used here as a symbolic language for observing decisions, energy, and communication. It is not a scientific assessment or a rulebook.",
+    "design": [
+      {
+        "label": "Type",
+        "text": "Projector. As a reflection prompt, notice which commitments benefit from discernment before participation rather than automatic availability."
+      },
+      {
+        "label": "Authority",
+        "text": "Self-projected. You might speak a choice aloud or write it in your own words, then listen for whether the language feels like yours."
+      },
+      {
+        "label": "Profile",
+        "text": "4/6. This profile can prompt reflection on trusted networks, lived learning, and the difference between performing expertise and sharing what experience has clarified."
+      },
+      {
+        "label": "Defined Channel",
+        "text": "The defined channel is 7–31. Symbolically, it may invite questions about direction and voice: when does guidance feel useful, and when is silence more honest?"
+      }
+    ],
+    "strengthsHeading": "Possible Strengths to Practise",
+    "strengths": [
+      {
+        "title": "Direction Through Language",
+        "text": "With the G and Throat listed as defined centers, a useful experiment is to describe your direction in one plain sentence and revise it only when experience changes."
+      },
+      {
+        "title": "Selective Commitment",
+        "text": "The Projector type can be used as a reminder to pause before saying yes. For current work, ask whether the project offers enough meaning for the time it requests."
+      },
+      {
+        "title": "Environmental Awareness",
+        "text": "Ajna, Ego, Head, Root, Sacral, Solar Plexus, and Spleen are listed as open centers. Rather than treating this as a weakness, you might notice when urgency, certainty, or effort seems borrowed from the room."
+      },
+      {
+        "title": "Trusted Creative Company",
+        "text": "The 4/6 profile can be a prompt to value a small, trusted network over broad visibility. That lens aligns with your wish for an honest and energising creative circle."
+      }
+    ]
+  },
+  "yearTheme": {
+    "heading": "The Year’s Symbolic Weather",
+    "intro": "The solar return was calculated for Lisbon at 2026-11-08T19:24:00Z. The chart describes themes for reflection, not events that must occur.",
+    "paragraphs": [
+      "A Gemini solar-return ascendant at 20.79° may invite curiosity, conversation, and multiple drafts. The useful question is not how to do everything, but which questions deserve another pass.",
+      "The solar-return Sun at 16.4° Scorpio and Moon at 10.86° Scorpio are both in house 6. Symbolically, this places attention on the texture of daily work and maintenance. Small routines may matter more than dramatic declarations.",
+      "Mercury retrograde at 7.29° Scorpio and Venus retrograde at 23.42° Libra are both in house 5. This can be read as permission to revisit unfinished ideas, old preferences, or the conditions that make creativity enjoyable—without assuming that every return requires revival.",
+      "Mars at 22.45° Leo and Jupiter at 25.2° Leo are both in house 3. Their symbolic prompt is expressive momentum: sketch, write, converse, or share a small study, while leaving room to edit volume into clarity."
+    ]
+  },
+  "months": {
+    "heading": "Your twelve chapters",
+    "intro": "Twelve editorial chapters follow the year from birthday to birthday. Their boundaries are reflection prompts, not event predictions.",
+    "photos": [],
+    "items": [
+      {
+        "month": "November",
+        "period": "08 Nov 2026 – 07 Dec 2026",
+        "topic": "Begin With Your Own Measure",
+        "house": "Solar House 1",
+        "note": "An editorial chapter about identity, presence, and how you enter the year—not a prediction.",
+        "text": "Start by noticing how you want to meet the year before deciding what it must contain. Choose a few words for the quality of your participation, especially when outside noise makes every option appear urgent."
+      },
+      {
+        "month": "December",
+        "period": "08 Dec 2026 – 07 Jan 2027",
+        "topic": "Define Enough",
+        "house": "Solar House 2",
+        "note": "An editorial chapter about values and resources—not a prediction.",
+        "text": "This chapter may invite a simple inventory of what supports your work: time, attention, materials, and clear limits. “Enough” can be more useful than an ideal system."
+      },
+      {
+        "month": "January",
+        "period": "08 Jan 2027 – 07 Feb 2027",
+        "topic": "Make the Idea Speakable",
+        "house": "Solar House 3",
+        "note": "An editorial chapter about communication, learning, and local exchange—not a prediction.",
+        "text": "Use this chapter to turn one complicated idea into a clear sentence, thumbnail, or question. Communication can begin as a study rather than a polished statement."
+      },
+      {
+        "month": "February",
+        "period": "08 Feb 2027 – 07 Mar 2027",
+        "topic": "Tend the Base",
+        "house": "Solar House 4",
+        "note": "An editorial chapter about foundations, privacy, and belonging—not a prediction.",
+        "text": "Consider what helps you feel sufficiently settled to create and rest. The answer may be a boundary, a cleared surface, or an evening with no productive purpose."
+      },
+      {
+        "month": "March",
+        "period": "08 Mar 2027 – 07 Apr 2027",
+        "topic": "Recover Play",
+        "house": "Solar House 5",
+        "note": "An editorial chapter about creativity, pleasure, and experimentation—not a prediction.",
+        "text": "Creative work does not always need to justify itself. This chapter may invite a private experiment whose value lies in interest rather than usefulness."
+      },
+      {
+        "month": "April",
+        "period": "08 Apr 2027 – 07 May 2027",
+        "topic": "Design a Humane Rhythm",
+        "house": "Solar House 6",
+        "note": "An editorial chapter about routines, craft, and maintenance—not a prediction.",
+        "text": "Instead of pursuing a flawless daily system, examine the smallest weekly rhythm that keeps the practice alive. Maintenance can be quiet and still count."
+      },
+      {
+        "month": "May",
+        "period": "08 May 2027 – 07 Jun 2027",
+        "topic": "Choose Good Company",
+        "house": "Solar House 7",
+        "note": "An editorial chapter about one-to-one exchange and collaboration—not a prediction.",
+        "text": "Reflect on what makes a creative exchange feel honest and energising. Useful company may be defined less by agreement than by attention, candour, and mutual respect."
+      },
+      {
+        "month": "June",
+        "period": "08 Jun 2027 – 07 Jul 2027",
+        "topic": "Look Beneath the Commitment",
+        "house": "Solar House 8",
+        "note": "An editorial chapter about shared stakes, depth, and change—not a prediction.",
+        "text": "A longer commitment asks for more than enthusiasm. This chapter can help you examine what a project requests, what it returns, and which uncertainties need to remain visible."
+      },
+      {
+        "month": "July",
+        "period": "08 Jul 2027 – 07 Aug 2027",
+        "topic": "Widen the Frame Slowly",
+        "house": "Solar House 9",
+        "note": "An editorial chapter about perspective, study, and travel—not a prediction.",
+        "text": "New perspective does not require speed. Slow travel, sustained reading, or a patient encounter with an unfamiliar method may help you notice what is changing."
+      },
+      {
+        "month": "August",
+        "period": "08 Aug 2027 – 07 Sep 2027",
+        "topic": "Name the Work You Want Known",
+        "house": "Solar House 10",
+        "note": "An editorial chapter about vocation, visibility, and public contribution—not a prediction.",
+        "text": "Consider which projects represent the direction you want to strengthen. Visibility can be selective: not everything meaningful must become part of a public identity."
+      },
+      {
+        "month": "September",
+        "period": "08 Sep 2027 – 07 Oct 2027",
+        "topic": "Build the Small Circle",
+        "house": "Solar House 11",
+        "note": "An editorial chapter about community, networks, and shared hopes—not a prediction.",
+        "text": "This chapter may invite you to define community at a human scale. A small circle can begin with one sincere exchange rather than a fully formed group."
+      },
+      {
+        "month": "October",
+        "period": "08 Oct 2027 – 07 Nov 2027",
+        "topic": "Leave Space Unclaimed",
+        "house": "Solar House 12",
+        "note": "An editorial chapter about retreat, release, and closure—not a prediction.",
+        "text": "End the cycle with room for what cannot be summarised. Rest and unstructured time may help you distinguish what has completed from what simply needs to continue quietly."
+      }
+    ]
+  },
+  "monthPractices": [
+    "Take 10 minutes to complete three lines: “I want more…”, “I want less…”, and “I want to approach this year as…”",
+    "List five resources your creative practice already has. Circle one you want to protect this month.",
+    "Choose one current idea and explain it on a single journal page using no more than six sentences or six small sketches.",
+    "Spend 10 minutes adjusting one small part of your space so it better supports either rest or creative work.",
+    "Make a 10-minute image with an unfamiliar constraint: one tool, two colours, or a subject chosen at random.",
+    "Draft a weekly ritual with three parts: a five-minute setup, one modest creative action, and a clear stopping point.",
+    "Write three qualities you value in a creative collaborator. Add one quality you want to offer in return.",
+    "Divide a page into “gives,” “asks,” and “unknowns.” Use it to review one possible long-term project.",
+    "Spend 10 minutes listing three ways to widen your perspective without overfilling your schedule. Choose the gentlest one.",
+    "Write a two-sentence description of the work you want to make more room for. Remove any phrase that feels borrowed.",
+    "Draft a brief invitation for a low-pressure creative exchange: one conversation, shared page, or work-in-progress check-in.",
+    "Set a timer for 10 minutes. Write what you are ready to release, retain, and leave undecided."
+  ],
+  "synergy": {
+    "heading": "Where the Maps Meet",
+    "paragraphs": [
+      "Numerology’s 4 and the matrix’s Emperor 4 both offer a symbolic prompt around structure. For you, the most useful structure may be one that makes creative consistency easier without becoming another standard to fail.",
+      "The solar-return emphasis on house 6 and the Human Design Projector type can be read together as a question about sustainable participation: what rhythm keeps the work present while preserving enough room to pause?",
+      "The repeated numerology value 11, Temperance at the matrix center, and the Gemini solar-return ascendant together suggest a broad editorial theme of listening, adjusting, and remaining curious. Because this combines three symbolic frameworks, treat it as a loose creative motif rather than a conclusion.",
+      "Your wish for honest creative company can also be explored through two symbolic lenses: the Human Design 4/6 profile highlights trusted networks, while solar-return Saturn at 8.83° Aries in house 11 may prompt careful choices about group commitments."
+    ]
+  },
+  "places": {
+    "eyebrow": "a symbolic geography",
+    "heading": "A Symbolic Geography",
+    "intro": "Astrocartography maps planetary lines onto places. Distance matters: a nearest line is not the same as an exact crossing. These notes are reflective prompts, not travel advice or forecasts.",
+    "compass": [
+      {
+        "label": "Lisbon, Portugal",
+        "text": "Saturn ASC — 88 km; Mercury MC — 367 km; Mars DSC — 1038 km"
+      },
+      {
+        "label": "Edinburgh, United Kingdom",
+        "text": "Mars DSC — 82 km; Mercury MC — 107 km; Saturn ASC — 357 km"
+      },
+      {
+        "label": "Montreal, Canada",
+        "text": "Mercury ASC — 381 km; Jupiter MC — 691 km; Sun ASC — 1624 km"
+      }
+    ],
+    "moment": "Use place as a question about context, never as a promise of what will happen there.",
+    "paragraphs": [
+      "Use place as a question rather than an answer. Before or after visiting, you might record how your attention, pace, and creative habits actually feel there, then compare experience with the symbolic description.",
+      "Lisbon is also the stated solar-return location. That makes it editorially relevant to this year’s chart, while its astrocartography distances remain a separate symbolic layer."
+    ],
+    "citiesHeading": "Four places to explore symbolically",
+    "cities": [
+      {
+        "name": "Lisbon, Portugal",
+        "line": "Saturn ASC — 88 km; Mercury MC — 367 km; Mars DSC — 1038 km",
+        "text": "The nearest line is Saturn ASC at 88 km, which may prompt reflection on boundaries, responsibility, and the shape of self-directed effort. Mercury MC at 367 km adds a looser question about public communication; Mars DSC is much farther away at 1038 km.",
+        "color": "#C26B43"
+      },
+      {
+        "name": "Edinburgh, United Kingdom",
+        "line": "Mars DSC — 82 km; Mercury MC — 107 km; Saturn ASC — 357 km",
+        "text": "Mars DSC at 82 km and Mercury MC at 107 km are the closest listed lines. Symbolically, Edinburgh may be used to observe the pace of exchange, directness in collaboration, and how readily ideas become speakable. Saturn ASC lies at 357 km.",
+        "color": "#D99A57"
+      },
+      {
+        "name": "Montreal, Canada",
+        "line": "Mercury ASC — 381 km; Jupiter MC — 691 km; Sun ASC — 1624 km",
+        "text": "Mercury ASC is the nearest listed line at 381 km, followed by Jupiter MC at 691 km and Sun ASC at 1624 km. The symbolic prompt centers on curiosity, language, and perspective, with the substantial distances kept in view.",
+        "color": "#5E7A78"
+      },
+      {
+        "name": "Melbourne, Australia",
+        "line": "Sun IC — 745 km; Mars ASC — 847 km; Moon MC — 1233 km",
+        "text": "The nearest listed line is Sun IC at 745 km, followed by Mars ASC at 847 km and Moon MC at 1233 km. These are relatively distant lines, so any symbolic reading should stay light: belonging, initiative, and public feeling can simply become journal questions.",
+        "color": "#786A91"
+      }
+    ],
+    "method": "Distances are calculated from Swiss Ephemeris planetary positions to the nearest natal angular line. Meanings remain symbolic.",
+    "note": "None of these locations is presented as better, safer, or more successful. If you travel, let your direct experience carry more weight than the map, especially given your wish to travel slowly and notice what is changing."
+  },
+  "traps": {
+    "heading": "Common Traps, Gentle Antidotes",
+    "intro": "These are not predictions or diagnoses. They are practical tensions suggested by your stated goals and the book’s symbolic themes.",
+    "items": [
+      {
+        "title": "Turning Practice Into Proof",
+        "text": "A wish for consistency can quietly become pressure to prove seriousness through an unbroken streak.",
+        "antidote": "Define a minimum weekly ritual and let returning count more than never missing."
+      },
+      {
+        "title": "Committing Before Defining the Exchange",
+        "text": "When deciding which projects deserve a longer commitment, enthusiasm alone may not answer questions about scope, time, and creative value.",
+        "antidote": "Before agreeing, write what the project gives, asks, and leaves unclear."
+      },
+      {
+        "title": "Mistaking More People for Better Community",
+        "text": "The goal is a small circle where creative work feels honest and energising, not connection at any scale.",
+        "antidote": "Prioritise one sincere exchange and notice how you feel afterward."
+      },
+      {
+        "title": "Scheduling All the Empty Space",
+        "text": "Unstructured time can disappear when every open hour is assigned a restorative purpose.",
+        "antidote": "Leave one small block unnamed. Do not require it to produce insight."
+      },
+      {
+        "title": "Treating a Symbol as an Instruction",
+        "text": "A compelling chart or number can sound more authoritative than it is.",
+        "antidote": "Translate every interpretation into a question, then keep only what your experience supports."
+      }
+    ],
+    "closing": "The aim is not perfect self-management. It is a kinder way to notice, choose, revise, and return."
+  },
+  "twelveDays": {
+    "heading": "Twelve Days to Enter the Year",
+    "intro": "Beginning on Maya’s birthday, these consecutive 5–15 minute practices create a gentle opening sequence. Missing one does not break anything.",
+    "items": [
+      {
+        "day": "Day 1",
+        "date": "2026-11-08",
+        "title": "Open the Book",
+        "text": "Copy one sentence from the gift message into your paper journal. Under it, write what you would like this book to make quieter."
+      },
+      {
+        "day": "Day 2",
+        "date": "2026-11-09",
+        "title": "Choose Three Qualities",
+        "text": "Write three qualities you want your creative practice to have. Avoid measurable targets for this exercise."
+      },
+      {
+        "day": "Day 3",
+        "date": "2026-11-10",
+        "title": "Make a Tiny Mark",
+        "text": "Spend 10 minutes making a small image with no intended audience. Stop when the timer ends."
+      },
+      {
+        "day": "Day 4",
+        "date": "2026-11-11",
+        "title": "Hear the Choice",
+        "text": "Say one possible commitment aloud, then write the sentence again in your own words. Notice which phrasing feels clearest."
+      },
+      {
+        "day": "Day 5",
+        "date": "2026-11-12",
+        "title": "Define Enough",
+        "text": "List what would make one creative session feel sufficient this week. Keep the list to three items."
+      },
+      {
+        "day": "Day 6",
+        "date": "2026-11-13",
+        "title": "Leave a Gap",
+        "text": "Find one 10-minute space today and leave it unassigned. Afterward, note one thing you noticed."
+      },
+      {
+        "day": "Day 7",
+        "date": "2026-11-14",
+        "title": "Name Good Company",
+        "text": "Write four qualities that make a creative conversation feel honest and energising."
+      },
+      {
+        "day": "Day 8",
+        "date": "2026-11-15",
+        "title": "Review One Project",
+        "text": "Choose one possible long-term project. Write one reason to continue, one reason to pause, and one question to clarify."
+      },
+      {
+        "day": "Day 9",
+        "date": "2026-11-16",
+        "title": "Revisit an Idea",
+        "text": "Open an old sketch or note. Spend 10 minutes adding one response without deciding whether the idea should return."
+      },
+      {
+        "day": "Day 10",
+        "date": "2026-11-17",
+        "title": "Write the Invitation",
+        "text": "Draft a two-sentence invitation to one low-pressure creative conversation. Sending it is optional."
+      },
+      {
+        "day": "Day 11",
+        "date": "2026-11-18",
+        "title": "Protect the Margin",
+        "text": "Look at the coming week and identify one small block that can remain unstructured. Mark it without assigning a task."
+      },
+      {
+        "day": "Day 12",
+        "date": "2026-11-19",
+        "title": "Make a Return Path",
+        "text": "Choose one weekly moment for reopening this book or your journal. Keep the ritual small enough to resume after an interruption."
+      }
+    ]
+  },
+  "manifest": {
+    "heading": "A Small Manifesto for the Year",
+    "paragraphs": [
+      "I will build through return, not through pressure. A small weekly ritual can hold more meaning than an ambitious streak I cannot inhabit.",
+      "I will ask what a commitment gives, what it asks, and whether it deserves a longer place in my working life.",
+      "I will value honest creative company at a human scale. One energising exchange is a real beginning.",
+      "I will protect some time from usefulness. Rest, slow travel, and attention do not need to prove their value."
+    ]
+  },
+  "letter": {
+    "heading": "A Letter to Your Future Self",
+    "intro": "Write this near the beginning of the year and reopen it during the final chapter. Ten quiet minutes are enough.",
+    "prompts": [
+      "Dear future Maya, the kind of creative rhythm I hope you have protected is…",
+      "The projects I hope you have learned to choose more clearly are the ones that…",
+      "I hope your creative circle feels honest and energising because…"
+    ],
+    "closing": "End with one permission rather than one demand: “Whatever changed, you are allowed to keep what resonates and leave what does not.”"
+  },
+  "footer": {
+    "disclaimer": "Deterministic calculations feed symbolic self-reflection prompts. They do not predict events or replace professional advice.",
+    "signoff": "Generated as a source-linked draft. Human editorial approval is required before delivery."
+  },
+  "provenance": {
+    "schemaVersion": "1.0.0",
+    "generationModel": "gpt-5.6-sol",
+    "responseId": "resp_01e77d14254a634c016a5ddadded6c819984838e885d18a1ef",
+    "responseStatus": "completed",
+    "modelUsage": {
+      "input_tokens": 9846,
+      "input_tokens_details": {
+        "cache_write_tokens": 9843,
+        "cached_tokens": 0
+      },
+      "output_tokens": 9289,
+      "output_tokens_details": {
+        "reasoning_tokens": 418
+      },
+      "total_tokens": 19135
+    },
+    "generatedAt": "2026-07-20T08:31:08.500Z",
+    "sourceCount": 72,
+    "verification": {
+      "status": "needs_human_review",
+      "checkedAt": "2026-07-20T08:31:08.489Z",
+      "knownSourceCount": 72,
+      "referencedClaimCount": 53,
+      "invalidSourceIds": [],
+      "missingSourcePaths": [],
+      "structuralErrors": [],
+      "contentWarnings": [],
+      "humanReview": {
+        "required": true,
+        "flaggedPaths": [
+          "draft.synergy.paragraphs[2]"
+        ],
+        "reason": "Omyear requires editorial approval before build output can be published."
+      }
+    },
+    "sourceRecords": [
+      {
+        "id": "input.person.name",
+        "kind": "user_input",
+        "label": "Preferred name",
+        "value": "Maya",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.birth",
+        "kind": "user_input",
+        "label": "Birth data",
+        "value": {
+          "date": "1992-11-08",
+          "time": "14:30",
+          "utcOffset": "+01:00",
+          "place": "Paris, France",
+          "latitude": 48.8566,
+          "longitude": 2.3522
+        },
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.giftMessage",
+        "kind": "user_input",
+        "label": "Gift message",
+        "value": "Maya, I hope this book gives you a quiet place to return to whenever the year feels noisy. Keep what resonates, leave what does not, and make the year unmistakably yours.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.goal.creative-practice",
+        "kind": "user_input",
+        "label": "Personal goal",
+        "value": "Build a consistent creative practice without turning it into another source of pressure.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.goal.community",
+        "kind": "user_input",
+        "label": "Personal goal",
+        "value": "Find a small circle of people with whom creative work feels honest and energising.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.goal.rest",
+        "kind": "user_input",
+        "label": "Personal goal",
+        "value": "Protect enough unstructured time to rest, travel slowly, and notice what is changing.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.fact.work",
+        "kind": "user_input",
+        "label": "Confirmed fact",
+        "value": "Maya works as an independent editorial illustrator and is deciding which projects deserve a longer commitment.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.fact.ritual",
+        "kind": "user_input",
+        "label": "Confirmed fact",
+        "value": "She keeps a paper journal and prefers small weekly rituals to ambitious daily streaks.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "input.fact.gift",
+        "kind": "user_input",
+        "label": "Confirmed fact",
+        "value": "The book is a birthday gift from a close friend who wants it to feel supportive rather than predictive.",
+        "method": "questionnaire"
+      },
+      {
+        "id": "calc.numerology.lifePath",
+        "kind": "calculation",
+        "label": "lifePath",
+        "value": {
+          "sum": 31,
+          "value": 4
+        },
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.birthdayNumber",
+        "kind": "calculation",
+        "label": "birthdayNumber",
+        "value": 8,
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.personalYear",
+        "kind": "calculation",
+        "label": "personalYear",
+        "value": 11,
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.nextPersonalYear",
+        "kind": "calculation",
+        "label": "nextPersonalYear",
+        "value": 3,
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.destinyNumber",
+        "kind": "calculation",
+        "label": "destinyNumber",
+        "value": {
+          "sum": 56,
+          "value": 11
+        },
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.soulNumber",
+        "kind": "calculation",
+        "label": "soulNumber",
+        "value": {
+          "sum": 29,
+          "value": 11
+        },
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.numerology.personalityNumber",
+        "kind": "calculation",
+        "label": "personalityNumber",
+        "value": {
+          "sum": 27,
+          "value": 9
+        },
+        "method": "Pythagorean numerology"
+      },
+      {
+        "id": "calc.matrix.personality",
+        "kind": "calculation",
+        "label": "personality",
+        "value": {
+          "value": 8,
+          "name": "Justice"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.ancestralTalents",
+        "kind": "calculation",
+        "label": "ancestralTalents",
+        "value": {
+          "value": 11,
+          "name": "Strength"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.ancestralPattern",
+        "kind": "calculation",
+        "label": "ancestralPattern",
+        "value": {
+          "value": 21,
+          "name": "World"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.developmentTask",
+        "kind": "calculation",
+        "label": "developmentTask",
+        "value": {
+          "value": 18,
+          "name": "Moon"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.centerPurpose",
+        "kind": "calculation",
+        "label": "centerPurpose",
+        "value": {
+          "value": 14,
+          "name": "Temperance"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.spiritualLine",
+        "kind": "calculation",
+        "label": "spiritualLine",
+        "value": {
+          "value": 10,
+          "name": "Wheel of Fortune"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.materialLine",
+        "kind": "calculation",
+        "label": "materialLine",
+        "value": {
+          "value": 4,
+          "name": "Emperor"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.matrix.personalPurpose",
+        "kind": "calculation",
+        "label": "personalPurpose",
+        "value": {
+          "value": 14,
+          "name": "Temperance"
+        },
+        "method": "22-arcana date formula"
+      },
+      {
+        "id": "calc.astrology.natal.ascendant",
+        "kind": "calculation",
+        "label": "natal ascendant",
+        "value": {
+          "sign": "Aquarius",
+          "degree": 25,
+          "longitude": 324.9963
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.midheaven",
+        "kind": "calculation",
+        "label": "natal midheaven",
+        "value": {
+          "sign": "Sagittarius",
+          "degree": 14.18,
+          "longitude": 254.1811
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.sun",
+        "kind": "calculation",
+        "label": "natal Sun",
+        "value": {
+          "label": "Sun",
+          "longitude": 226.4031,
+          "sign": "Scorpio",
+          "degree": 16.4,
+          "house": 8,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.moon",
+        "kind": "calculation",
+        "label": "natal Moon",
+        "value": {
+          "label": "Moon",
+          "longitude": 24.8287,
+          "sign": "Aries",
+          "degree": 24.83,
+          "house": 2,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.mercury",
+        "kind": "calculation",
+        "label": "natal Mercury",
+        "value": {
+          "label": "Mercury",
+          "longitude": 247.8206,
+          "sign": "Sagittarius",
+          "degree": 7.82,
+          "house": 9,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.venus",
+        "kind": "calculation",
+        "label": "natal Venus",
+        "value": {
+          "label": "Venus",
+          "longitude": 264.0144,
+          "sign": "Sagittarius",
+          "degree": 24.01,
+          "house": 10,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.mars",
+        "kind": "calculation",
+        "label": "natal Mars",
+        "value": {
+          "label": "Mars",
+          "longitude": 115.0194,
+          "sign": "Cancer",
+          "degree": 25.02,
+          "house": 6,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.jupiter",
+        "kind": "calculation",
+        "label": "natal Jupiter",
+        "value": {
+          "label": "Jupiter",
+          "longitude": 185.8386,
+          "sign": "Libra",
+          "degree": 5.84,
+          "house": 7,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.saturn",
+        "kind": "calculation",
+        "label": "natal Saturn",
+        "value": {
+          "label": "Saturn",
+          "longitude": 312.2855,
+          "sign": "Aquarius",
+          "degree": 12.29,
+          "house": 12,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.uranus",
+        "kind": "calculation",
+        "label": "natal Uranus",
+        "value": {
+          "label": "Uranus",
+          "longitude": 284.9468,
+          "sign": "Capricorn",
+          "degree": 14.95,
+          "house": 11,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.neptune",
+        "kind": "calculation",
+        "label": "natal Neptune",
+        "value": {
+          "label": "Neptune",
+          "longitude": 286.6588,
+          "sign": "Capricorn",
+          "degree": 16.66,
+          "house": 11,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.pluto",
+        "kind": "calculation",
+        "label": "natal Pluto",
+        "value": {
+          "label": "Pluto",
+          "longitude": 232.6091,
+          "sign": "Scorpio",
+          "degree": 22.61,
+          "house": 8,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.natal.northNode",
+        "kind": "calculation",
+        "label": "natal North Node",
+        "value": {
+          "label": "North Node",
+          "longitude": 263.2548,
+          "sign": "Sagittarius",
+          "degree": 23.25,
+          "house": 10,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.ascendant",
+        "kind": "calculation",
+        "label": "solarReturn ascendant",
+        "value": {
+          "sign": "Gemini",
+          "degree": 20.79,
+          "longitude": 80.7914
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.midheaven",
+        "kind": "calculation",
+        "label": "solarReturn midheaven",
+        "value": {
+          "sign": "Aquarius",
+          "degree": 27.78,
+          "longitude": 327.7803
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.sun",
+        "kind": "calculation",
+        "label": "solarReturn Sun",
+        "value": {
+          "label": "Sun",
+          "longitude": 226.4031,
+          "sign": "Scorpio",
+          "degree": 16.4,
+          "house": 6,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.moon",
+        "kind": "calculation",
+        "label": "solarReturn Moon",
+        "value": {
+          "label": "Moon",
+          "longitude": 220.8595,
+          "sign": "Scorpio",
+          "degree": 10.86,
+          "house": 6,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.mercury",
+        "kind": "calculation",
+        "label": "solarReturn Mercury",
+        "value": {
+          "label": "Mercury",
+          "longitude": 217.2876,
+          "sign": "Scorpio",
+          "degree": 7.29,
+          "house": 5,
+          "retrograde": true
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.venus",
+        "kind": "calculation",
+        "label": "solarReturn Venus",
+        "value": {
+          "label": "Venus",
+          "longitude": 203.4171,
+          "sign": "Libra",
+          "degree": 23.42,
+          "house": 5,
+          "retrograde": true
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.mars",
+        "kind": "calculation",
+        "label": "solarReturn Mars",
+        "value": {
+          "label": "Mars",
+          "longitude": 142.4498,
+          "sign": "Leo",
+          "degree": 22.45,
+          "house": 3,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.jupiter",
+        "kind": "calculation",
+        "label": "solarReturn Jupiter",
+        "value": {
+          "label": "Jupiter",
+          "longitude": 145.1988,
+          "sign": "Leo",
+          "degree": 25.2,
+          "house": 3,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.saturn",
+        "kind": "calculation",
+        "label": "solarReturn Saturn",
+        "value": {
+          "label": "Saturn",
+          "longitude": 8.8308,
+          "sign": "Aries",
+          "degree": 8.83,
+          "house": 11,
+          "retrograde": true
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.uranus",
+        "kind": "calculation",
+        "label": "solarReturn Uranus",
+        "value": {
+          "label": "Uranus",
+          "longitude": 64.3798,
+          "sign": "Gemini",
+          "degree": 4.38,
+          "house": 12,
+          "retrograde": true
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.neptune",
+        "kind": "calculation",
+        "label": "solarReturn Neptune",
+        "value": {
+          "label": "Neptune",
+          "longitude": 1.932,
+          "sign": "Aries",
+          "degree": 1.93,
+          "house": 11,
+          "retrograde": true
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.pluto",
+        "kind": "calculation",
+        "label": "solarReturn Pluto",
+        "value": {
+          "label": "Pluto",
+          "longitude": 303.2017,
+          "sign": "Aquarius",
+          "degree": 3.2,
+          "house": 9,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.astrology.solarReturn.northNode",
+        "kind": "calculation",
+        "label": "solarReturn North Node",
+        "value": {
+          "label": "North Node",
+          "longitude": 325.66,
+          "sign": "Aquarius",
+          "degree": 25.66,
+          "house": 9,
+          "retrograde": false
+        },
+        "method": "Swiss Ephemeris / Placidus"
+      },
+      {
+        "id": "calc.humanDesign.type",
+        "kind": "calculation",
+        "label": "Human Design type",
+        "value": "Projector",
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.humanDesign.authority",
+        "kind": "calculation",
+        "label": "Human Design authority",
+        "value": "Self-projected",
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.humanDesign.profile",
+        "kind": "calculation",
+        "label": "Human Design profile",
+        "value": "4/6",
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.humanDesign.definedChannels",
+        "kind": "calculation",
+        "label": "Human Design definedChannels",
+        "value": [
+          [
+            7,
+            31
+          ]
+        ],
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.humanDesign.definedCenters",
+        "kind": "calculation",
+        "label": "Human Design definedCenters",
+        "value": [
+          "G",
+          "Throat"
+        ],
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.humanDesign.openCenters",
+        "kind": "calculation",
+        "label": "Human Design openCenters",
+        "value": [
+          "Ajna",
+          "Ego",
+          "Head",
+          "Root",
+          "Sacral",
+          "Solar Plexus",
+          "Spleen"
+        ],
+        "method": "64-gate wheel / 88-degree design solar arc"
+      },
+      {
+        "id": "calc.period.1",
+        "kind": "calculation",
+        "label": "Solar-year chapter 1",
+        "value": {
+          "index": 1,
+          "solarHouse": 1,
+          "start": "2026-11-08",
+          "endExclusive": "2026-12-08",
+          "label": "08 Nov 2026 – 07 Dec 2026"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.2",
+        "kind": "calculation",
+        "label": "Solar-year chapter 2",
+        "value": {
+          "index": 2,
+          "solarHouse": 2,
+          "start": "2026-12-08",
+          "endExclusive": "2027-01-08",
+          "label": "08 Dec 2026 – 07 Jan 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.3",
+        "kind": "calculation",
+        "label": "Solar-year chapter 3",
+        "value": {
+          "index": 3,
+          "solarHouse": 3,
+          "start": "2027-01-08",
+          "endExclusive": "2027-02-08",
+          "label": "08 Jan 2027 – 07 Feb 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.4",
+        "kind": "calculation",
+        "label": "Solar-year chapter 4",
+        "value": {
+          "index": 4,
+          "solarHouse": 4,
+          "start": "2027-02-08",
+          "endExclusive": "2027-03-08",
+          "label": "08 Feb 2027 – 07 Mar 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.5",
+        "kind": "calculation",
+        "label": "Solar-year chapter 5",
+        "value": {
+          "index": 5,
+          "solarHouse": 5,
+          "start": "2027-03-08",
+          "endExclusive": "2027-04-08",
+          "label": "08 Mar 2027 – 07 Apr 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.6",
+        "kind": "calculation",
+        "label": "Solar-year chapter 6",
+        "value": {
+          "index": 6,
+          "solarHouse": 6,
+          "start": "2027-04-08",
+          "endExclusive": "2027-05-08",
+          "label": "08 Apr 2027 – 07 May 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.7",
+        "kind": "calculation",
+        "label": "Solar-year chapter 7",
+        "value": {
+          "index": 7,
+          "solarHouse": 7,
+          "start": "2027-05-08",
+          "endExclusive": "2027-06-08",
+          "label": "08 May 2027 – 07 Jun 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.8",
+        "kind": "calculation",
+        "label": "Solar-year chapter 8",
+        "value": {
+          "index": 8,
+          "solarHouse": 8,
+          "start": "2027-06-08",
+          "endExclusive": "2027-07-08",
+          "label": "08 Jun 2027 – 07 Jul 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.9",
+        "kind": "calculation",
+        "label": "Solar-year chapter 9",
+        "value": {
+          "index": 9,
+          "solarHouse": 9,
+          "start": "2027-07-08",
+          "endExclusive": "2027-08-08",
+          "label": "08 Jul 2027 – 07 Aug 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.10",
+        "kind": "calculation",
+        "label": "Solar-year chapter 10",
+        "value": {
+          "index": 10,
+          "solarHouse": 10,
+          "start": "2027-08-08",
+          "endExclusive": "2027-09-08",
+          "label": "08 Aug 2027 – 07 Sep 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.11",
+        "kind": "calculation",
+        "label": "Solar-year chapter 11",
+        "value": {
+          "index": 11,
+          "solarHouse": 11,
+          "start": "2027-09-08",
+          "endExclusive": "2027-10-08",
+          "label": "08 Sep 2027 – 07 Oct 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.period.12",
+        "kind": "calculation",
+        "label": "Solar-year chapter 12",
+        "value": {
+          "index": 12,
+          "solarHouse": 12,
+          "start": "2027-10-08",
+          "endExclusive": "2027-11-08",
+          "label": "08 Oct 2027 – 07 Nov 2027"
+        },
+        "method": "12 sequential solar-year chapters"
+      },
+      {
+        "id": "calc.astrocartography.lisbon",
+        "kind": "calculation",
+        "label": "Nearest lines for Lisbon",
+        "value": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "country": "Portugal",
+          "latitude": 38.7223,
+          "longitude": -9.1393,
+          "nearestLines": [
+            {
+              "planet": "saturn",
+              "planetLabel": "Saturn",
+              "angle": "ASC",
+              "distanceKm": 88
+            },
+            {
+              "planet": "mercury",
+              "planetLabel": "Mercury",
+              "angle": "MC",
+              "distanceKm": 367
+            },
+            {
+              "planet": "mars",
+              "planetLabel": "Mars",
+              "angle": "DSC",
+              "distanceKm": 1038
+            }
+          ]
+        },
+        "method": "Swiss Ephemeris astrocartography"
+      },
+      {
+        "id": "calc.astrocartography.edinburgh",
+        "kind": "calculation",
+        "label": "Nearest lines for Edinburgh",
+        "value": {
+          "id": "edinburgh",
+          "name": "Edinburgh",
+          "country": "United Kingdom",
+          "latitude": 55.9533,
+          "longitude": -3.1883,
+          "nearestLines": [
+            {
+              "planet": "mars",
+              "planetLabel": "Mars",
+              "angle": "DSC",
+              "distanceKm": 82
+            },
+            {
+              "planet": "mercury",
+              "planetLabel": "Mercury",
+              "angle": "MC",
+              "distanceKm": 107
+            },
+            {
+              "planet": "saturn",
+              "planetLabel": "Saturn",
+              "angle": "ASC",
+              "distanceKm": 357
+            }
+          ]
+        },
+        "method": "Swiss Ephemeris astrocartography"
+      },
+      {
+        "id": "calc.astrocartography.montreal",
+        "kind": "calculation",
+        "label": "Nearest lines for Montreal",
+        "value": {
+          "id": "montreal",
+          "name": "Montreal",
+          "country": "Canada",
+          "latitude": 45.5019,
+          "longitude": -73.5674,
+          "nearestLines": [
+            {
+              "planet": "mercury",
+              "planetLabel": "Mercury",
+              "angle": "ASC",
+              "distanceKm": 381
+            },
+            {
+              "planet": "jupiter",
+              "planetLabel": "Jupiter",
+              "angle": "MC",
+              "distanceKm": 691
+            },
+            {
+              "planet": "sun",
+              "planetLabel": "Sun",
+              "angle": "ASC",
+              "distanceKm": 1624
+            }
+          ]
+        },
+        "method": "Swiss Ephemeris astrocartography"
+      },
+      {
+        "id": "calc.astrocartography.melbourne",
+        "kind": "calculation",
+        "label": "Nearest lines for Melbourne",
+        "value": {
+          "id": "melbourne",
+          "name": "Melbourne",
+          "country": "Australia",
+          "latitude": -37.8136,
+          "longitude": 144.9631,
+          "nearestLines": [
+            {
+              "planet": "sun",
+              "planetLabel": "Sun",
+              "angle": "IC",
+              "distanceKm": 745
+            },
+            {
+              "planet": "mars",
+              "planetLabel": "Mars",
+              "angle": "ASC",
+              "distanceKm": 847
+            },
+            {
+              "planet": "moon",
+              "planetLabel": "Moon",
+              "angle": "MC",
+              "distanceKm": 1233
+            }
+          ]
+        },
+        "method": "Swiss Ephemeris astrocartography"
+      }
+    ]
+  }
+}

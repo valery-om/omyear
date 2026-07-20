@@ -1,0 +1,29 @@
+{
+  "runId": "2026-07-20T08-22-52-303Z-maya-demo",
+  "provider": "OpenAI Responses API",
+  "requestedModel": "gpt-5.6",
+  "resolvedModel": "gpt-5.6-sol",
+  "responseId": "resp_01e77d14254a634c016a5ddadded6c819984838e885d18a1ef",
+  "responseStatus": "completed",
+  "usage": {
+    "inputTokens": 9846,
+    "outputTokens": 9289,
+    "reasoningTokens": 418,
+    "totalTokens": 19135
+  },
+  "verification": {
+    "status": "needs_human_review",
+    "knownSourceCount": 72,
+    "referencedSourceCount": 53,
+    "invalidSourceIds": 0,
+    "missingSourcePaths": 0,
+    "structuralErrors": 0,
+    "contentWarnings": 0,
+    "humanReviewFlags": 1
+  },
+  "notes": [
+    "The sample person is fully synthetic.",
+    "The response body and private API credential are not included here.",
+    "The compiled structured output is web/src/data/people/maya-demo.json."
+  ]
+}

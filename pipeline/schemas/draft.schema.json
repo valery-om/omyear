@@ -1,0 +1,348 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Omyear source-linked editorial draft",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "opening",
+    "numbers",
+    "matrix",
+    "nature",
+    "yearTheme",
+    "months",
+    "synergy",
+    "places",
+    "traps",
+    "twelveDays",
+    "manifest",
+    "letter",
+    "disclaimer"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bookTitle", "tagline", "centralTheme"],
+      "properties": {
+        "bookTitle": { "type": "string" },
+        "tagline": { "type": "string" },
+        "centralTheme": { "type": "string" }
+      }
+    },
+    "opening": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "paragraphs"],
+      "properties": {
+        "heading": { "type": "string" },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        }
+      }
+    },
+    "numbers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "items", "synthesis"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/numberItem" }
+        },
+        "synthesis": { "$ref": "#/$defs/sourcedText" }
+      }
+    },
+    "matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "items", "synthesis"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/matrixItem" }
+        },
+        "synthesis": { "$ref": "#/$defs/sourcedText" }
+      }
+    },
+    "nature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "design", "strengthsHeading", "strengths"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "design": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/labeledText" }
+        },
+        "strengthsHeading": { "type": "string" },
+        "strengths": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/titledText" }
+        }
+      }
+    },
+    "yearTheme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "paragraphs"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        }
+      }
+    },
+    "months": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": { "$ref": "#/$defs/month" }
+    },
+    "synergy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "paragraphs"],
+      "properties": {
+        "heading": { "type": "string" },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        }
+      }
+    },
+    "places": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "paragraphs", "locations", "note"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        },
+        "locations": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/location" }
+        },
+        "note": { "$ref": "#/$defs/sourcedText" }
+      }
+    },
+    "traps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "items", "closing"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/trap" }
+        },
+        "closing": { "type": "string" }
+      }
+    },
+    "twelveDays": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/day" }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "paragraphs"],
+      "properties": {
+        "heading": { "type": "string" },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        }
+      }
+    },
+    "letter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "intro", "prompts", "closing"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "prompts": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/sourcedText" }
+        },
+        "closing": { "type": "string" }
+      }
+    },
+    "disclaimer": { "type": "string" }
+  },
+  "$defs": {
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "sourcedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "numberItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "name", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "value": { "type": "string" },
+        "name": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "matrixItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["arcana", "name", "role", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "arcana": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "labeledText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "label": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "titledText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "month": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "period", "topic", "house", "note", "text", "practice", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "period": { "type": "string" },
+        "topic": { "type": "string" },
+        "house": { "type": "string" },
+        "note": { "type": "string" },
+        "text": { "type": "string" },
+        "practice": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "line", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "line": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "trap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "text", "antidote", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "antidote": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    },
+    "day": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["day", "date", "title", "text", "sourceIds", "confidence", "needsReview"],
+      "properties": {
+        "day": { "type": "string" },
+        "date": { "type": "string" },
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "needsReview": { "type": "boolean" }
+      }
+    }
+  }
+}

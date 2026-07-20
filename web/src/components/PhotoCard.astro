@@ -1,0 +1,48 @@
+---
+/**
+ * Album keepsake photo card: dashed frame, tape, tilt.
+ * photo: { src, alt, caption?, side?, tilt? } — side is handled by the parent
+ * layout wrapper (.photo-flow--left/right/center); tilt (deg) may come from
+ * data and overrides the section default passed via the `tilt` prop.
+ */
+interface Photo {
+  src: string;
+  alt: string;
+  caption?: string;
+  side?: "left" | "right";
+  tilt?: number;
+  ratio?: string;
+}
+interface Props {
+  photo: Photo;
+  tilt?: number;
+  tape?: "strip" | "corner";
+  class?: string;
+}
+const { photo, tilt = -2.5, tape = "strip", class: cls } = Astro.props;
+const finalTilt = typeof photo.tilt === "number" ? photo.tilt : tilt;
+---
+<figure
+  class:list={["photo-card", `photo-card--tape-${tape}`, cls]}
+  data-reveal
+  style={`--tilt:${finalTilt}deg;${photo.ratio ? `--photo-ratio:${photo.ratio}` : ""}`}
+>
+  {tape === "corner" ? (
+    <>
+      <span class="photo-card__tape photo-card__tape--tl" aria-hidden="true"></span>
+      <span class="photo-card__tape photo-card__tape--br" aria-hidden="true"></span>
+    </>
+  ) : (
+    <span class="photo-card__tape" aria-hidden="true"></span>
+  )}
+  <span class="photo-card__frame">
+    <img
+      class="photo-card__img"
+      src={photo.src}
+      alt={photo.alt}
+      loading="lazy"
+      decoding="async"
+    />
+  </span>
+  {photo.caption && <figcaption class="photo-card__caption">{photo.caption}</figcaption>}
+</figure>

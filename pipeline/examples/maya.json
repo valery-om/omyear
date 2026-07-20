@@ -1,0 +1,88 @@
+{
+  "$schema": "../schemas/input.schema.json",
+  "project": {
+    "language": "en",
+    "targetYear": 2026,
+    "style": "warm-sunset",
+    "experience": "editorial-atlas",
+    "publicDemo": true
+  },
+  "person": {
+    "id": "maya-demo",
+    "name": "Maya",
+    "fullNameAtBirth": "Maya Elise Hart",
+    "birth": {
+      "date": "1992-11-08",
+      "time": "14:30",
+      "utcOffset": "+01:00",
+      "place": "Paris, France",
+      "latitude": 48.8566,
+      "longitude": 2.3522
+    },
+    "solarReturnLocation": {
+      "place": "Lisbon, Portugal",
+      "latitude": 38.7223,
+      "longitude": -9.1393,
+      "utcOffset": "+00:00"
+    },
+    "goals": [
+      {
+        "id": "creative-practice",
+        "text": "Build a consistent creative practice without turning it into another source of pressure."
+      },
+      {
+        "id": "community",
+        "text": "Find a small circle of people with whom creative work feels honest and energising."
+      },
+      {
+        "id": "rest",
+        "text": "Protect enough unstructured time to rest, travel slowly, and notice what is changing."
+      }
+    ],
+    "facts": [
+      {
+        "id": "work",
+        "text": "Maya works as an independent editorial illustrator and is deciding which projects deserve a longer commitment."
+      },
+      {
+        "id": "ritual",
+        "text": "She keeps a paper journal and prefers small weekly rituals to ambitious daily streaks."
+      },
+      {
+        "id": "gift",
+        "text": "The book is a birthday gift from a close friend who wants it to feel supportive rather than predictive."
+      }
+    ],
+    "giftMessage": "Maya, I hope this book gives you a quiet place to return to whenever the year feels noisy. Keep what resonates, leave what does not, and make the year unmistakably yours."
+  },
+  "candidateLocations": [
+    {
+      "id": "lisbon",
+      "name": "Lisbon",
+      "country": "Portugal",
+      "latitude": 38.7223,
+      "longitude": -9.1393
+    },
+    {
+      "id": "edinburgh",
+      "name": "Edinburgh",
+      "country": "United Kingdom",
+      "latitude": 55.9533,
+      "longitude": -3.1883
+    },
+    {
+      "id": "montreal",
+      "name": "Montreal",
+      "country": "Canada",
+      "latitude": 45.5019,
+      "longitude": -73.5674
+    },
+    {
+      "id": "melbourne",
+      "name": "Melbourne",
+      "country": "Australia",
+      "latitude": -37.8136,
+      "longitude": 144.9631
+    }
+  ]
+}

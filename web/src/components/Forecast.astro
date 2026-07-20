@@ -1,0 +1,706 @@
+---
+import Sun from "./Sun.astro";
+import PhotoCard from "./PhotoCard.astro";
+import Sticker from "./Sticker.astro";
+import Provenance from "./Provenance.astro";
+const { d } = Astro.props;
+const motes = Array.from({ length: 10 });
+const sea = d.person.style === "warm-sunset-sea";
+const atlasExperience = d.person.experience === "editorial-atlas";
+const signal = d.person.style === "warm-sunset-signal" || atlasExperience;
+const english = d.person.language === "en";
+const locale = english ? "en-GB" : "ru-RU";
+const displayDate = (value, options = { day: "numeric", month: "long" }) => value
+  ? new Intl.DateTimeFormat(locale, { ...options, timeZone: "UTC" }).format(new Date(`${value}T12:00:00Z`))
+  : "";
+const signalDate = d.person.signalDate ?? `${d.person.slug.slice(0, 2)} · ${d.person.slug.slice(2)} · 26`;
+const signalMonth = displayDate(d.person.startDate, { month: "long", year: "numeric" });
+const firstDay = d.twelveDays?.items?.[0]?.date;
+const lastDay = d.twelveDays?.items?.at(-1)?.date;
+const daysNote = firstDay && lastDay ? `${displayDate(firstDay)}–${displayDate(lastDay)}` : (english ? "twelve days" : "12 дней");
+const chapterNotes = english
+  ? ["a personal note", "your numbers", "portrait", "your nature", "main theme", "resources", "route", "synthesis", "together", "world map", "detours", daysNote, "keep close", "one year on"]
+  : ["личное письмо", "твои числа", "портрет", "твоя природа", "главная тема", "ресурсы", "маршрут", "синтез", "вдвоём", "карта мира", "объезды", daysNote, "главное", "через год"];
+const side = (photo, def) => photo?.side ?? def;
+const chapters = [
+  { id: "opening", title: d.message?.heading ?? (english ? "A personal note" : "Личное письмо"), note: chapterNotes[0] },
+  { id: "numbers", title: d.numbers?.heading, note: chapterNotes[1] },
+  { id: "matrix", title: d.matrix?.heading, note: chapterNotes[2] },
+  { id: "nature", title: d.nature?.heading, note: chapterNotes[3] },
+  { id: "year", title: d.yearTheme?.heading, note: chapterNotes[4] },
+  { id: "money", title: d.money?.heading, note: chapterNotes[5] },
+  { id: "months", title: d.months?.heading, note: chapterNotes[6] },
+  { id: "synergy", title: d.synergy?.heading, note: chapterNotes[7] },
+  { id: "duet", title: d.duet?.heading, note: chapterNotes[8] },
+  { id: "places", title: d.places?.heading ?? d.placesPortal?.heading, note: chapterNotes[9] },
+  { id: "traps", title: d.traps?.heading, note: chapterNotes[10] },
+  { id: "days", title: d.twelveDays?.heading, note: chapterNotes[11] },
+  { id: "manifest", title: d.manifest?.heading, note: chapterNotes[12] },
+  { id: "future-letter", title: d.letter?.heading, note: chapterNotes[13] },
+].filter((chapter) => chapter.title);
+const placesHref = d.places ? "#places" : d.placesPortal?.href;
+---
+<header class="hero" id="top">
+  <div class="hero__sky" aria-hidden="true">
+    <div class="hero__rays"></div>
+    <div class="hero__sun"></div>
+    {signal && (
+      <div class="signal-field">
+        <span class="signal-orbit signal-orbit--one"></span>
+        <span class="signal-orbit signal-orbit--two"></span>
+        <span class="signal-node signal-node--one"></span>
+        <span class="signal-node signal-node--two"></span>
+        <span class="signal-node signal-node--three"></span>
+        <svg class="signal-wave" viewBox="0 0 1200 180" preserveAspectRatio="none">
+          <path d="M0 116 C150 34 280 146 430 78 C570 14 700 146 846 86 C980 32 1080 70 1200 44" />
+        </svg>
+        <span class="signal-field__label signal-field__label--left">{english ? "keep only what feels yours" : "оставь только своё"}</span>
+        <span class="signal-field__label signal-field__label--right">{signalDate}</span>
+      </div>
+    )}
+    <div class="hero__motes">
+      {motes.map(() => <span class="hero__mote" />)}
+    </div>
+  </div>
+  {Boolean(d.hero.photos?.length) && (
+    <div class="hero-portraits" aria-label={`Фотографии ${d.person.name}`}>
+      {d.hero.photos.slice(0, 2).map((photo, index) => (
+        <figure class:list={["hero-portrait", `hero-portrait--${index + 1}`, "reveal", `d${index + 3}`]}>
+          <span class="hero-portrait__index" aria-hidden="true">0{index + 1}</span>
+          <img src={photo.src} alt={photo.alt} loading="eager" decoding="async" />
+        </figure>
+      ))}
+    </div>
+  )}
+  <div class="hero__inner">
+    {signal && (
+      <div class="signal-meta reveal d1">
+        <span>{signalMonth}</span>
+      </div>
+    )}
+    <p class="hero__kicker reveal d1">{d.hero.kicker}</p>
+    <h1 class="hero__name reveal d2">{d.hero.title}</h1>
+    <hr class="hero__rule reveal d3" />
+    <p class="hero__sub reveal d3">{d.hero.subtitle}</p>
+    <p class="hero__note reveal d4">{d.person.birthDate} · {d.person.birthPlace}</p>
+    {signal && <p class="signal-span reveal d5">{d.person.yearSpan}</p>}
+  </div>
+  <span class="hero__cue">{english ? "scroll to begin" : "листай вниз"}</span>
+</header>
+
+{atlasExperience && (
+  <details class="chapter-dock" id="chapter-dock" data-visible="false">
+    <summary>
+      <span class="chapter-dock__sun" aria-hidden="true"></span>
+      <span class="chapter-dock__copy">
+        <small>{english ? "now" : "сейчас"}</small>
+        <strong id="chapter-current">{chapters[0]?.title}</strong>
+      </span>
+      <span class="chapter-dock__chevron" aria-hidden="true">⌄</span>
+    </summary>
+    <nav aria-label={english ? "Quick navigation through the book" : "Быстрая навигация по подарку"}>
+      {chapters.map((chapter, index) => (
+        <a href={`#${chapter.id}`}>
+          <span>{String(index).padStart(2, "0")}</span>{chapter.title}
+        </a>
+      ))}
+    </nav>
+  </details>
+)}
+
+<main class:list={["wrap", atlasExperience && "experience-editorial-atlas"]}>
+  <section class="section feature message-section" id="opening" data-chapter data-chapter-title={d.message.heading}>
+    <div class="section__head" data-reveal>
+      <Sun size={32} />
+      {atlasExperience && d.message.heading && <h2 class="section__title">{d.message.heading}</h2>}
+    </div>
+    <div class:list={["photo-flow", d.message.photo && "photo-flow--tall", d.message.photo && `photo-flow--${side(d.message.photo, "right")}`]}>
+      {d.message.photo && <PhotoCard photo={d.message.photo} tilt={-2.5} tape="strip" />}
+      <div class="message__body prose photo-flow__body" data-reveal>
+        {atlasExperience && <span class="message__date" aria-hidden="true">{signalDate}</span>}
+        {d.message.paragraphs.map((p, index) => (
+          <p class:list={[index === 0 && "message__salutation", index === d.message.paragraphs.length - 1 && "message__signature"]} set:html={p} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {atlasExperience && (
+    <section class="section year-index-section" id="year-index" aria-labelledby="year-index-title">
+      <div class="year-index__head" data-reveal>
+        <p>{english ? "book map" : "карта подарка"}</p>
+        <h2 id="year-index-title">{english ? "Your atlas of the year" : "Твой атлас года"}</h2>
+        <span>{english ? "Read in order or open the chapter you need." : "Можно читать по порядку или сразу открыть нужную главу."}</span>
+      </div>
+      <nav class="year-index" aria-label={english ? "Book contents" : "Оглавление подарка"} data-reveal>
+        {chapters.map((chapter, index) => (
+          <a href={`#${chapter.id}`} class:list={[chapter.id === "places" && "year-index__item--accent"]}>
+            <span class="year-index__number">{String(index).padStart(2, "0")}</span>
+            <span class="year-index__text"><b>{chapter.title}</b><small>{chapter.note}</small></span>
+            <span class="year-index__arrow" aria-hidden="true">↘</span>
+          </a>
+        ))}
+      </nav>
+    </section>
+  )}
+
+  <section class="section numbers-section" id="numbers" data-chapter data-chapter-title={d.numbers.heading}>
+    <div class="section__head" data-reveal>
+      <Sun size={30} />
+      <h2 class="section__title">{d.numbers.heading}</h2>
+      <p class="section__intro">{d.numbers.intro}</p>
+    </div>
+    <div class="numbers">
+      {d.numbers.items.map((n, i) => (
+        <div class="numcard" data-reveal style={`--rd:${(i % 4) * 110}ms`}>
+          <div class="numcard__val">{n.value}</div>
+          <div>
+            <p class="numcard__name">{n.name}</p>
+            <p class="numcard__text">{n.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="synthesis" data-reveal>{d.numbers.synthesis}</p>
+  </section>
+
+  <section class="section matrix-section" id="matrix" data-chapter data-chapter-title={d.matrix.heading}>
+    <div class="section__head" data-reveal>
+      <Sun size={30} />
+      <h2 class="section__title">{d.matrix.heading}</h2>
+      <p class="section__intro">{d.matrix.intro}</p>
+    </div>
+    <div class="arcanas">
+      {d.matrix.items.map((a, i) => (
+        <div class="arcana" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+          <div class="arcana__num">{a.arcana}</div>
+          <div>
+            <span class="arcana__name">{a.name}</span>
+            <span class="arcana__role">{a.role}</span>
+            <p class="arcana__text">{a.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="synthesis" data-reveal>{d.matrix.synthesis}</p>
+  </section>
+
+  {d.nature && (
+    <section class="section nature-section" id="nature" data-chapter data-chapter-title={d.nature.heading}>
+      <div class="section__head" data-reveal>
+        <Sun size={30} />
+        <h2 class="section__title">{d.nature.heading}</h2>
+        <p class="section__intro">{d.nature.intro}</p>
+      </div>
+      <div class="nature">
+        <div class="nature__rows">
+          {d.nature.design.map((it, i) => (
+            <div class="nature__row" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+              <p class="nature__label">{it.label}</p>
+              <p class="nature__text">{it.text}</p>
+            </div>
+          ))}
+        </div>
+        <h3 class="nature__subhead" data-reveal>{d.nature.strengthsHeading}</h3>
+        <ul class="strengths" data-reveal>
+          {d.nature.strengths.map((s) => (
+            <li class="strength"><span class="strength__title">{s.title}:</span> {s.text}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="section year-section" id="year" data-chapter data-chapter-title={d.yearTheme.heading}>
+    <div class="section__head" data-reveal>
+      {sea && <Sticker name="palm" class="sticker--year" />}
+      <Sun size={30} />
+      <h2 class="section__title">{d.yearTheme.heading}</h2>
+      <p class="section__intro">{d.yearTheme.intro}</p>
+    </div>
+    <div class:list={["photo-flow", d.yearTheme.photo && "photo-flow--tall", d.yearTheme.photo && `photo-flow--${side(d.yearTheme.photo, "right")}`]}>
+      {d.yearTheme.photo && <PhotoCard photo={d.yearTheme.photo} tilt={2} tape="corner" />}
+      <div class="prose photo-flow__body" data-reveal>
+        {d.yearTheme.paragraphs.map((p) => <p class="lead">{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  {d.money && (
+    <section class="section money-section" id="money" data-chapter data-chapter-title={d.money.heading}>
+      <div class="section__head" data-reveal>
+        {sea && <Sticker name="wave" class="sticker--money" />}
+        <Sun size={30} />
+        <h2 class="section__title">{d.money.heading}</h2>
+        <p class="section__intro">{d.money.intro}</p>
+      </div>
+      <div class="spheres">
+        {d.money.windows.map((w, i) => (
+          <article class="sphere" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+            <h3 class="sphere__name">{w.name}</h3>
+            <p class="sphere__text">{w.text}</p>
+          </article>
+        ))}
+      </div>
+      {d.money.experiment && (
+        <aside class="money-experiment" data-reveal>
+          <div class="money-experiment__head">
+            {d.money.experiment.eyebrow && <p class="money-experiment__eyebrow">{d.money.experiment.eyebrow}</p>}
+            <h3>{d.money.experiment.heading}</h3>
+            <p>{d.money.experiment.intro}</p>
+          </div>
+          <ol class="money-experiment__steps">
+            {d.money.experiment.steps.map((step, i) => (
+              <li>
+                <span class="money-experiment__num">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <h4>{step.title}</h4>
+                  <p>{step.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          {d.money.experiment.closing && <p class="money-experiment__closing">{d.money.experiment.closing}</p>}
+        </aside>
+      )}
+      <div class:list={["photo-flow", "money__law", d.money.photo && `photo-flow--${side(d.money.photo, "left")}`]}>
+        {d.money.photo && <PhotoCard photo={d.money.photo} tilt={-2.5} tape="strip" />}
+        <div class="prose photo-flow__body" data-reveal>
+          {d.money.paragraphs.map((p) => <p class="lead">{p}</p>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {d.spheres && (
+    <section class="section spheres-section" id="spheres" data-chapter data-chapter-title={d.spheres.heading}>
+      <div class="section__head" data-reveal>
+        <Sun size={30} />
+        <h2 class="section__title">{d.spheres.heading}</h2>
+        <p class="section__intro">{d.spheres.intro}</p>
+      </div>
+      <div class="spheres">
+        {d.spheres.items.map((s, i) => (
+          <article class="sphere" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+            <h3 class="sphere__name">{s.name}</h3>
+            <p class="sphere__text">{s.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section months-section" id="months" data-chapter data-chapter-title={d.months.heading} data-start-date={d.person.startDate ?? "2026-07-17"}>
+    <div class="section__head" data-reveal>
+      <Sun size={30} />
+      <h2 class="section__title">{d.months.heading}</h2>
+      <p class="section__intro">{d.months.intro}</p>
+    </div>
+    {d.months.photos && d.months.photos.length > 0 && (
+      <div class="film" data-reveal>
+        {sea && <Sticker name="shell" class="sticker--film" size={26} />}
+        <div class="film__strip">
+          {d.months.photos.slice(0, 3).map((p) => (
+            <figure class="film__frame">
+              <img class="film__img" src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+              {p.caption && <figcaption class="film__caption">{p.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </div>
+    )}
+    <div class="months">
+      {d.months.items.map((m, i) => atlasExperience ? (
+        <details class="month month--compact" data-month-index={i} data-current="false" open={i === 0} data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+          <summary class="month__summary">
+            <span class="month__summary-copy">
+              <span class="month__top">
+                <span class="month__name">{m.month}</span>
+                <span class="month__current">{english ? "now" : "сейчас"}</span>
+              </span>
+              <span class="month__tags">{m.topic} · {m.house}</span>
+            </span>
+            <span class="month__note">{m.note}</span>
+            <span class="month__arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="month__content">
+            <p class="month__text">{m.text}</p>
+            {d.monthPractices?.[i] && (
+              <div class="month__practice" role="checkbox" tabindex="0" aria-checked="false" data-check data-key={`month-${i}`} data-done="false">
+                <span class="practice__check">✓</span>
+                <span class="practice__text"><b>{english ? "Chapter practice." : "Практика месяца."}</b> {d.monthPractices[i]}</span>
+              </div>
+            )}
+          </div>
+        </details>
+      ) : (
+        <article class="month" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+          <div class="month__top">
+            <h3 class="month__name">{m.month}</h3>
+            <span class="month__note">{m.note}</span>
+          </div>
+          <p class="month__tags">{m.topic} · {m.house}</p>
+          <p class="month__text">{m.text}</p>
+          {d.monthPractices?.[i] && (
+            <div class="month__practice" role="checkbox" tabindex="0" aria-checked="false" data-check data-key={`month-${i}`} data-done="false">
+              <span class="practice__check">✓</span>
+              <span class="practice__text"><b>{english ? "Chapter practice." : "Практика месяца."}</b> {d.monthPractices[i]}</span>
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section synergy-section" id="synergy" data-chapter data-chapter-title={d.synergy.heading}>
+    <div class="section__head" data-reveal>
+      {sea && <Sticker name="heart" class="sticker--synergy" size={26} />}
+      <Sun size={30} />
+      <h2 class="section__title">{d.synergy.heading}</h2>
+    </div>
+    <div class:list={["photo-flow", d.synergy.photo && "photo-flow--tall", d.synergy.photo && `photo-flow--${side(d.synergy.photo, "right")}`]}>
+      {d.synergy.photo && <PhotoCard photo={d.synergy.photo} tilt={2.2} tape="corner" />}
+      <div class="prose photo-flow__body" data-reveal>
+        {d.synergy.paragraphs.map((p) => <p class="lead">{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  {d.duet && (
+    <section class="section duet-section" id="duet" data-chapter data-chapter-title={d.duet.heading}>
+      <div class="section__head" data-reveal>
+        <div class="duet-suns" aria-hidden="true">
+          <span class="duet-sun duet-sun--big"></span>
+          <span class="duet-sun duet-sun--small"></span>
+        </div>
+        <h2 class="section__title">{d.duet.heading}</h2>
+        {d.duet.intro && <p class="section__intro">{d.duet.intro}</p>}
+      </div>
+      {d.duet.photo && (
+        <div class="photo-flow photo-flow--center">
+          <PhotoCard photo={d.duet.photo} tilt={-2} tape="strip" />
+        </div>
+      )}
+      {d.duet.facts && (
+        <div class="duet-facts">
+          {d.duet.facts.map((f, i) => (
+            <article class="duet-fact" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+              <div class="duet-fact__pair">
+                <span class="duet-fact__side duet-fact__side--you">
+                  <span class="duet-fact__val">{f.yours}{f.footnoteMark && <sup class="duet-fact__fn">{f.footnoteMark}</sup>}</span>
+                  <span class="duet-fact__who">{d.duet.labelYou ?? "ты"}</span>
+                </span>
+                <span class="duet-fact__link" aria-hidden="true"></span>
+                <span class="duet-fact__side duet-fact__side--her">
+                  <span class="duet-fact__val">{f.hers}</span>
+                  <span class="duet-fact__who">{d.duet.labelHer ?? "она"}</span>
+                </span>
+              </div>
+              <h3 class="duet-fact__title">{f.title}</h3>
+              <p class="duet-fact__text">{f.text}</p>
+            </article>
+          ))}
+        </div>
+      )}
+      {d.duet.footnote && <p class="duet__footnote" data-reveal>{d.duet.footnote}</p>}
+      {d.duet.paragraphs && (
+        <div class="prose duet__prose" data-reveal>
+          {d.duet.paragraphs.map((p) => <p class="lead">{p}</p>)}
+        </div>
+      )}
+      {d.duet.closing && <p class="synthesis" data-reveal>{d.duet.closing}</p>}
+    </section>
+  )}
+
+  {d.places && (
+    <section class="section feature places-section" id="places" data-chapter data-chapter-title={d.places.heading}>
+      <div class="section__head" data-reveal>
+        <Sun size={32} />
+        {d.places.eyebrow && <p class="places-section__eyebrow">{d.places.eyebrow}</p>}
+        <h2 class="section__title">{d.places.heading}</h2>
+        {d.places.intro && <p class="section__intro">{d.places.intro}</p>}
+      </div>
+      {d.places.compass && (
+        <div class="places-compass" data-reveal aria-label={english ? "Short place compass" : "Короткий компас мест"}>
+          {d.places.compass.map((item, i) => (
+            <article class="places-compass__item" style={`--rd:${i * 80}ms`}>
+              <span aria-hidden="true">0{i + 1}</span>
+              <div><b>{item.label}</b><p>{item.text}</p></div>
+            </article>
+          ))}
+        </div>
+      )}
+      {d.places.moment && <p class="places-section__moment" data-reveal>{d.places.moment}</p>}
+      <div class="prose" data-reveal>
+        {d.places.paragraphs.map((p) => <p class="lead">{p}</p>)}
+      </div>
+      {d.places.photo && (
+        <div class="photo-flow photo-flow--center places-photo">
+          <PhotoCard photo={d.places.photo} tilt={-1.2} tape="corner" class="photo-card--wide" />
+        </div>
+      )}
+      {d.places.map && (
+        <figure class="places-map" data-reveal>
+          <img src={d.places.map} alt="Карта твоих астрографических линий над миром" loading="lazy" />
+          {d.places.mapCaption && <figcaption>{d.places.mapCaption}</figcaption>}
+        </figure>
+      )}
+      {d.places.cities && (
+        <div class="places-list" data-reveal>
+          {d.places.citiesHeading && <p class="places-list__head">{d.places.citiesHeading}</p>}
+          <ul class="places-list__ul">
+            {d.places.cities.map((c) => (
+              <li class="places-list__item">
+                <span class="places-list__dot" style={`background:${c.color}`} aria-hidden="true"></span>
+                <span><b class="places-list__place">{c.name}</b>{c.line && <span class="places-list__line"> · {c.line}</span>} — {c.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {d.places.solarHeading && (
+        <div class="places-solar" data-reveal>
+          <div class="places-solar__head">
+            <span aria-hidden="true">☼</span>
+            <div>
+              <h3>{d.places.solarHeading}</h3>
+              {d.places.solarIntro && <p>{d.places.solarIntro}</p>}
+            </div>
+          </div>
+          {d.places.solarOptions && (
+            <div class="places-solar__grid">
+              {d.places.solarOptions.map((option, i) => (
+                <article class="places-solar__card">
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <h4>{option.place}</h4>
+                  <b>{option.label}</b>
+                  <p>{option.text}</p>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      {d.places.method && <p class="places-method" data-reveal><b>{english ? "How to read the map." : "Как читать карту."}</b> {d.places.method}</p>}
+      {d.places.duetHeading && (
+        <div class="section__head places-section__sub" data-reveal>
+          <Sun size={26} />
+          <h3 class="section__title">{d.places.duetHeading}</h3>
+        </div>
+      )}
+      {d.places.duetParagraphs && (
+        <div class="prose" data-reveal>
+          {d.places.duetParagraphs.map((p) => <p class="lead">{p}</p>)}
+        </div>
+      )}
+      {d.places.coupleMap && (
+        <figure class="places-map" data-reveal>
+          <img src={d.places.coupleMap} alt={english ? "A shared symbolic geography map" : "Совместная карта символической географии"} loading="lazy" />
+          {d.places.coupleMapCaption && <figcaption>{d.places.coupleMapCaption}</figcaption>}
+        </figure>
+      )}
+      {d.places.coupleCities && (
+        <div class="places-list" data-reveal>
+          {d.places.coupleCitiesHeading && <p class="places-list__head">{d.places.coupleCitiesHeading}</p>}
+          <ul class="places-list__ul">
+            {d.places.coupleCities.map((c) => (
+              <li class="places-list__item">
+                <span class="places-list__dot" style={`background:${c.color}`} aria-hidden="true"></span>
+                <span><b class="places-list__place">{c.name}</b> — {c.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {d.places.note && <p class="synthesis places-synthesis" data-reveal>{d.places.note}</p>}
+    </section>
+  )}
+
+  {d.placesPortal && (
+    <section class="section atlas-portal-section" id="places" data-chapter data-chapter-title={d.placesPortal.heading}>
+      <a class="atlas-portal" href={d.placesPortal.href} data-reveal aria-label={`${d.placesPortal.heading}. ${d.placesPortal.label}`}>
+        <div class="atlas-portal__copy">
+          <p class="atlas-portal__eyebrow">{d.placesPortal.eyebrow}</p>
+          <h2 class="atlas-portal__title">{d.placesPortal.heading}</h2>
+          <p class="atlas-portal__intro">{d.placesPortal.intro}</p>
+          <ul class="atlas-portal__compass">
+            {d.placesPortal.compass.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="atlas-portal__moment">{d.placesPortal.moment}</p>
+          <span class="atlas-portal__button">
+            {d.placesPortal.label}<span aria-hidden="true">↗</span>
+          </span>
+        </div>
+        <div class="atlas-portal__chart" aria-hidden="true">
+          <span class="atlas-portal__chapter">17 · 07</span>
+          <svg viewBox="0 0 560 360" role="presentation">
+            <defs>
+              <radialGradient id="atlas-glow" cx="56%" cy="42%" r="58%">
+                <stop offset="0%" stop-color="#F1BC6A" stop-opacity=".46" />
+                <stop offset="100%" stop-color="#F1BC6A" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="atlas-line" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F1BC6A" />
+                <stop offset="100%" stop-color="#C26B43" />
+              </linearGradient>
+            </defs>
+            <circle cx="300" cy="174" r="166" fill="url(#atlas-glow)" />
+            <g class="atlas-portal__globe">
+              <ellipse cx="300" cy="178" rx="198" ry="126" />
+              <ellipse cx="300" cy="178" rx="198" ry="62" />
+              <ellipse cx="300" cy="178" rx="94" ry="126" />
+              <ellipse cx="300" cy="178" rx="35" ry="126" />
+              <path d="M102 178h396" />
+            </g>
+            <g class="atlas-portal__routes">
+              <path d="M118 235C187 63 359 57 486 214" />
+              <path d="M152 96C240 283 382 303 472 118" />
+              <path d="M102 185C225 124 356 134 498 188" />
+            </g>
+            <g class="atlas-portal__nodes">
+              <circle cx="213" cy="126" r="5" />
+              <circle cx="300" cy="178" r="7" />
+              <circle cx="395" cy="137" r="5" />
+              <circle cx="438" cy="226" r="5" />
+            </g>
+            <g class="atlas-portal__labels">
+              <text x="193" y="111">душа</text>
+              <text x="311" y="202">дом</text>
+              <text x="405" y="124">мастерство</text>
+              <text x="447" y="249">красота</text>
+            </g>
+          </svg>
+          <p>линии, на которых жизнь звучит громче</p>
+        </div>
+      </a>
+    </section>
+  )}
+
+  {d.traps && (
+    <section class="section traps-section" id="traps" data-chapter data-chapter-title={d.traps.heading}>
+      <div class="section__head" data-reveal>
+        <Sun size={30} />
+        <h2 class="section__title">{d.traps.heading}</h2>
+        <p class="section__intro">{d.traps.intro}</p>
+      </div>
+      <div class:list={["photo-flow", d.traps.photo && "photo-flow--tall", d.traps.photo && `photo-flow--${side(d.traps.photo, "left")}`]}>
+        {d.traps.photo && <PhotoCard photo={d.traps.photo} tilt={2.4} tape="corner" />}
+        <div class="traps photo-flow__body">
+          {d.traps.items.map((t, i) => (
+            <div class="trap" data-reveal style={`--rd:${(i % 3) * 100}ms`}>
+              <p class="trap__title">{t.title}</p>
+              <p class="trap__text">{t.text}</p>
+              <p class="trap__antidote">{t.antidote}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {d.traps.closing && <p class="synthesis" data-reveal>{d.traps.closing}</p>}
+    </section>
+  )}
+
+  {d.twelveDays && (
+    <section class="section days-section" id="days" data-chapter data-chapter-title={d.twelveDays.heading}>
+      <div class="section__head" data-reveal>
+        {sea && <Sticker name="spark" class="sticker--days" size={24} />}
+        <Sun size={30} />
+        <h2 class="section__title">{d.twelveDays.heading}</h2>
+        <p class="section__intro">{d.twelveDays.intro}</p>
+      </div>
+      {d.twelveDays.photo && (
+        <div class="photo-flow photo-flow--center">
+          <PhotoCard photo={d.twelveDays.photo} tilt={1.8} tape="corner" />
+        </div>
+      )}
+      <div class="days">
+        {d.twelveDays.items.map((day, i) => (
+          <div class="day" role="checkbox" tabindex="0" aria-checked="false" data-check data-key={`day-${i}`} data-done="false" data-reveal style={`--rd:${(i % 3) * 90}ms`}>
+            <span class="day__check">✓</span>
+            <div>
+              {atlasExperience ? (
+                <span class="day__meta"><span class="day__day">{day.day}</span><span class="day__date">{displayDate(day.date)}</span></span>
+              ) : <span class="day__day">{day.day}</span>}
+              <h3 class="day__title">{day.title}</h3>
+              <p class="day__text">{day.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section feature manifest-section" id="manifest" data-chapter data-chapter-title={d.manifest.heading}>
+    <div class="section__head" data-reveal>
+      <Sun size={32} />
+      <h2 class="section__title">{d.manifest.heading}</h2>
+    </div>
+    <div class:list={["photo-flow", d.manifest.photo && "photo-flow--tall", d.manifest.photo && `photo-flow--${side(d.manifest.photo, "left")}`]}>
+      {d.manifest.photo && <PhotoCard photo={d.manifest.photo} tilt={-2} tape="strip" />}
+      <div class="manifest__body prose photo-flow__body" data-reveal>
+        {d.manifest.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  {d.letter && (
+    <section class="section feature letter-section" id="future-letter" data-chapter data-chapter-title={d.letter.heading}>
+      <div class="section__head" data-reveal>
+        <Sun size={32} />
+        <h2 class="section__title">{d.letter.heading}</h2>
+        <p class="section__intro">{d.letter.intro}</p>
+      </div>
+      <ol class="letter__prompts" data-reveal>
+        {d.letter.prompts.map((p) => <li>{p}</li>)}
+      </ol>
+      {d.letter.service && (
+        <aside class="letter__service" data-reveal>
+          <div class="letter__service-mark" aria-hidden="true">
+            <span class="letter__service-sun"></span>
+            <span class="letter__service-orbit"></span>
+          </div>
+          <div class="letter__service-body">
+            {d.letter.service.date && <p class="letter__service-date">{d.letter.service.date}</p>}
+            <p>{d.letter.service.text}</p>
+            <a href={d.letter.service.href} target="_blank" rel="noopener noreferrer">
+              {d.letter.service.label}<span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </aside>
+      )}
+      <p class="letter__closing" data-reveal>{d.letter.closing}</p>
+    </section>
+  )}
+
+  {atlasExperience && (
+    <nav class="gift-closing-nav" aria-label={english ? "What to open next" : "Что открыть дальше"} data-reveal>
+      <a href="#year-index"><span aria-hidden="true">☼</span><b>{english ? "Contents" : "К оглавлению"}</b><small>{english ? "choose a chapter" : "выбрать главу"}</small></a>
+      {placesHref && <a href={placesHref}><span aria-hidden="true">⌁</span><b>{english ? "Place map" : "Карта мест"}</b><small>{english ? "open geography" : "открыть географию"}</small></a>}
+      <a href="#top"><span aria-hidden="true">↑</span><b>{english ? "To the top" : "Наверх"}</b><small>{english ? "return to the beginning" : "вернуться к началу"}</small></a>
+    </nav>
+  )}
+</main>
+
+<Provenance data={d.provenance} language={d.person.language} />
+
+<footer class="foot">
+  <p class="foot__disc">{d.footer.disclaimer}</p>
+  {d.person.pdfs?.length ? (
+    <div class="foot__downloads" aria-label="Версии PDF для печати">
+      <p class="foot__downloads-title">Версия для печати</p>
+      <div class="foot__actions">
+        {d.person.pdfs.map((pdf) => (
+          <a class="btn btn--format" href={pdf.href} download={pdf.name}>
+            <span class="btn__format">{pdf.format}</span>
+            <span class="btn__note">{pdf.note}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  ) : d.person.pdf && (
+    <div class="foot__actions">
+      <a class="btn" href={d.person.pdf} download={d.person.pdfName}>Скачать PDF</a>
+    </div>
+  )}
+  {d.footer.signoff && <p class="foot__signoff">{d.footer.signoff}</p>}
+  {d.footer.madeWith && <p class="foot__made">{d.footer.madeWith}</p>}
+</footer>

@@ -1,0 +1,225 @@
+---
+import "../styles/global.css";
+import "../styles/atlas-signals.css";
+interface Props { title: string; description?: string; image?: string; styleName?: string; experience?: string; music?: string; musicLabel?: string; language?: string; }
+const {
+  title,
+  description = "Персональный прогноз на твой год по дате рождения.",
+  image = "/og.png",
+  styleName,
+  experience,
+  music = "/music.mp3",
+  musicLabel = "музыка для чтения",
+  language = "ru",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+---
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="omyear" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#F4E8D4" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class:list={[styleName && `style-${styleName}`, experience && `experience-${experience}`]}>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noise)" opacity="0.4" />
+    </svg>
+
+    <div class="shell">
+      <slot />
+      {music && (
+        <>
+          <div class="music-dock">
+            <span class="music-hint" id="music-hint">{musicLabel}</span>
+            <button class="music" id="music" aria-label="Включить музыку" aria-pressed="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+              </svg>
+            </button>
+          </div>
+          <audio id="track" loop preload="none" src={music}></audio>
+        </>
+      )}
+    </div>
+
+    <script is:inline>
+      const btn = document.getElementById("music");
+      const track = document.getElementById("track");
+      const hint = document.getElementById("music-hint");
+      const setMusicState = (playing) => {
+        if (!btn) return;
+        btn.setAttribute("aria-pressed", String(playing));
+        btn.setAttribute("aria-label", playing ? "Выключить музыку" : "Включить музыку");
+      };
+      if (track) track.volume = 0.28;
+      track?.addEventListener("playing", () => setMusicState(true));
+      track?.addEventListener("pause", () => setMusicState(false));
+      track?.addEventListener("error", () => {
+        setMusicState(false);
+        if (hint) {
+          hint.textContent = "музыка не загрузилась";
+          hint.classList.remove("music-hint--hidden");
+        }
+      });
+      btn?.addEventListener("click", () => {
+        if (hint) hint.classList.add("music-hint--hidden");
+        if (track.paused) {
+          track.play().catch(() => {
+            setMusicState(false);
+            if (hint) {
+              hint.textContent = "нажми ещё раз, чтобы включить";
+              hint.classList.remove("music-hint--hidden");
+            }
+          });
+        } else {
+          track.pause();
+        }
+      });
+
+      // Scroll reveal (progressive enhancement, respects reduced motion)
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealEls = document.querySelectorAll("[data-reveal]");
+      const showNow = (el) => {
+        el.removeAttribute("data-reveal");
+        el.classList.remove("is-visible");
+        el.style.removeProperty("--rd");
+      };
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealEls.forEach(showNow);
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const en of entries) {
+              if (!en.isIntersecting) continue;
+              const el = en.target;
+              io.unobserve(el);
+              el.classList.add("is-visible");
+              // after the transition settles, drop the reveal styles so
+              // hover transforms/transitions behave normally again
+              setTimeout(() => showNow(el), 2000);
+            }
+          },
+          { rootMargin: "0px 0px -9% 0px", threshold: 0.05 }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+
+      // Reading progress + hero sun parallax (one cheap rAF handler)
+      const progress = document.getElementById("progress");
+      const sky = document.querySelector(".hero__sky");
+      let rafPending = false;
+      function onScroll() {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          const y = window.scrollY;
+          if (progress) {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+          }
+          if (sky && !reduceMotion) {
+            const shift = Math.min(y, window.innerHeight * 1.2) * 0.28;
+            sky.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
+          }
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      onScroll();
+
+      document.querySelectorAll("[data-check]").forEach((el) => {
+        const key = "yby-" + el.getAttribute("data-key");
+        const setDone = (done) => {
+          el.setAttribute("data-done", String(done));
+          el.setAttribute("aria-checked", String(done));
+          localStorage.setItem(key, done ? "1" : "0");
+        };
+        if (localStorage.getItem(key) === "1") setDone(true);
+        const toggleDone = (event) => {
+          event.stopPropagation();
+          const done = el.getAttribute("data-done") === "true";
+          setDone(!done);
+        };
+        el.addEventListener("click", toggleDone);
+        el.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          toggleDone(event);
+        });
+      });
+
+      // The month guide opens the chapter that contains today's date.
+      const monthSection = document.querySelector("[data-start-date]");
+      const monthCards = monthSection ? [...monthSection.querySelectorAll("details[data-month-index]")] : [];
+      if (monthCards.length) {
+        const [startYear, startMonth, startDay] = monthSection.getAttribute("data-start-date").split("-").map(Number);
+        const now = new Date();
+        let currentMonth = (now.getFullYear() - startYear) * 12 + (now.getMonth() - (startMonth - 1));
+        if (now.getDate() < startDay) currentMonth -= 1;
+        currentMonth = Math.max(0, Math.min(monthCards.length - 1, currentMonth));
+        monthCards.forEach((card, index) => {
+          card.open = index === currentMonth;
+          card.setAttribute("data-current", String(index === currentMonth));
+        });
+      }
+
+      // A small chapter dock appears after the table of contents and follows reading position.
+      const chapterDock = document.getElementById("chapter-dock");
+      const chapterCurrent = document.getElementById("chapter-current");
+      const yearIndex = document.getElementById("year-index");
+      if (chapterDock && chapterCurrent && yearIndex) {
+        const updateDockVisibility = () => {
+          const indexBottom = yearIndex.offsetTop + yearIndex.offsetHeight;
+          chapterDock.setAttribute("data-visible", String(window.scrollY > indexBottom - 80));
+        };
+        window.addEventListener("scroll", updateDockVisibility, { passive: true });
+        window.addEventListener("resize", updateDockVisibility, { passive: true });
+        updateDockVisibility();
+
+        const chapterObserver = new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            const title = entry.target.getAttribute("data-chapter-title");
+            if (title) chapterCurrent.textContent = title;
+          }
+        }, { rootMargin: "-18% 0px -70% 0px", threshold: 0 });
+        document.querySelectorAll("[data-chapter]").forEach((section) => chapterObserver.observe(section));
+        chapterDock.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+          chapterDock.removeAttribute("open");
+        }));
+      }
+    </script>
+  </body>
+</html>

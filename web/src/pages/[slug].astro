@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Forecast from "../components/Forecast.astro";
+
+export function getStaticPaths() {
+  const modules = import.meta.glob("../data/people/*.json", { eager: true });
+  return Object.values(modules).map((m) => {
+    const d = m.default;
+    return { params: { slug: d.person.slug }, props: { d } };
+  });
+}
+
+const { d } = Astro.props;
+---
+<Layout
+  title={`${d.person.name} — ${d.person.yearLabel}`}
+  description="Тёплый прогноз на твой год по числам и звёздам. Введи свой год рождения, чтобы открыть."
+  image={d.person.og}
+  styleName={d.person.style}
+  experience={d.person.experience}
+  music={d.person.music}
+  musicLabel={d.person.musicLabel}
+  language={d.person.language ?? "ru"}
+>
+  <Forecast d={d} />
+</Layout>

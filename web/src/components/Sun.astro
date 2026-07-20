@@ -1,0 +1,18 @@
+---
+interface Props { size?: number; }
+const { size = 30 } = Astro.props;
+const rays = Array.from({ length: 12 }, (_, i) => i * 30);
+---
+<span class="sun-mark" aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
+    <circle cx="24" cy="24" r="7.5" fill="var(--sun)" />
+    {rays.map((deg) => (
+      <line
+        x1="24" y1="14" x2="24" y2="5"
+        stroke="var(--terracotta)" stroke-width="1.4" stroke-linecap="round"
+        transform={`rotate(${deg} 24 24)`}
+        opacity="0.85"
+      />
+    ))}
+  </svg>
+</span>

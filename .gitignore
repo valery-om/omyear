@@ -1,0 +1,13 @@
+__pycache__/
+.DS_Store
+.qa/
+tmp/
+output/pdf/omyear-*-solar*.pdf
+pipeline/runs/
+node_modules/
+web/node_modules/
+web/dist/
+web/.astro/
+.env
+.env.*
+!.env.example
