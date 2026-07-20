@@ -84,7 +84,17 @@ test("Russian output keeps the same calculations and localizes the book chrome",
   assert.equal(book.person.language, "ru");
   assert.equal(book.months.heading, "Двенадцать глав твоего года");
   assert.match(book.months.items[0].month, /[а-яё]/i);
-  assert.match(buildDraftPrompt(russianInput, calculation), /complete Russian editorial draft/);
+  assert.match(book.places.cities[0].line, / км/);
+  assert.doesNotMatch(book.places.cities[0].line, / km/);
+  const russianPrompt = buildDraftPrompt(russianInput, calculation);
+  assert.match(russianPrompt, /complete Russian editorial draft/);
+  assert.match(russianPrompt, /address the reader consistently as “ты”/);
+  assert.match(russianPrompt, /not as a translator/);
+  assert.match(russianPrompt, /never leave English prepositions/);
+  assert.match(russianPrompt, /never substitute generic brevity/);
+  assert.match(russianPrompt, /The letter is the editorial finale/);
+  assert.match(russianPrompt, /letter is the only section/);
+  assert.match(russianPrompt, /matrix has six items/);
 });
 
 test("verifier flags certainty language in Russian", () => {

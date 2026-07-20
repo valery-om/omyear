@@ -48,7 +48,7 @@ browser tab.
 The web experience uses Astro. Python and Swiss Ephemeris perform deterministic
 calendar/astronomical calculations; Node.js orchestrates the run, calls the OpenAI
 Responses API, verifies the structured draft and compiles `book.json`. The live flow
-uses three parallel `gpt-5.4-mini` Structured Outputs for lower latency; code merges
+uses three parallel `gpt-5.6-terra` Structured Outputs; code merges
 them and rehydrates every number, date, ID and measured distance before verification.
 The evidence demo resolved to `gpt-5.6-sol` and cites 53 of 72 records with zero
 source-link or structural errors. Cloudflare Workers protects and streams the API;
@@ -94,7 +94,7 @@ evaluation harness for comparing prompt and model changes without losing provena
 
 ## Built with
 
-Codex, GPT‑5.6 Sol, GPT‑5.4 mini, OpenAI Responses API, Structured Outputs, Astro,
+Codex, GPT‑5.6 Sol, OpenAI Responses API, Structured Outputs, Astro,
 Node.js, Python, Swiss Ephemeris, Cloudflare Workers/Pages, Vercel, HTML and CSS.
 
 ## Gallery order

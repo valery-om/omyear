@@ -93,7 +93,7 @@ export default {
             const result = await requestOpenAI({
               prompt: buildDraftPrompt(input, segmentCalculation),
               schema: schemaForSegment(draftSchema, segment),
-              model: "gpt-5.4-mini",
+              model: "gpt-5.6-terra",
               safetySeed: `${requestId}:${segment.name}`,
             });
             completedSegments += 1;

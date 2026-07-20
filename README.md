@@ -65,10 +65,10 @@ The included public demo was produced by the Responses API with resolved model
 [`evidence/gpt-5.6-run.json`](evidence/gpt-5.6-run.json), and the response ID is also
 visible in Maya’s in-product provenance section.
 
-The public creation flow uses three parallel `gpt-5.4-mini` Structured Output calls
+The public creation flow uses three parallel `gpt-5.6-terra` Structured Output calls
 for portrait, year and practice chapters. Code then merges the segments, restores all
 deterministic fields and verifies the complete draft. The pre-generated evidence demo
-remains the original `gpt-5.6-sol` run.
+remains the original single-pass `gpt-5.6-sol` run.
 
 ## How Codex contributed
 

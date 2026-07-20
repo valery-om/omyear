@@ -26,8 +26,8 @@ means publication approval.
 ## Providers
 
 `openai` is the submission/production path and the default. It calls
-`POST /v1/responses` with `gpt-5.6-sol`, medium reasoning, `store: false`, and a
-strict JSON Schema output. It requires `OPENAI_API_KEY` in the process environment.
+`POST /v1/responses` with `gpt-5.6-sol`, low reasoning, medium text verbosity,
+`store: false`, and a strict JSON Schema output. It requires `OPENAI_API_KEY` in the process environment.
 The key is never written to a run artifact.
 
 `fixture` produces a deterministic synthetic draft. It exists for tests, UI work and

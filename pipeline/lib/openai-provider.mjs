@@ -47,7 +47,7 @@ export async function requestOpenAI({
       safety_identifier: safetyIdentifier,
       reasoning: { effort: "low" },
       text: {
-        verbosity: "low",
+        verbosity: "medium",
         format: {
           type: "json_schema",
           name: "omyear_editorial_draft",

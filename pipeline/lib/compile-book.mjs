@@ -22,7 +22,8 @@ const PLANETS_RU = {
 
 function localizeLine(value, isRussian) {
   if (!isRussian) return value;
-  return Object.entries(PLANETS_RU).reduce((text, [english, russian]) => text.replaceAll(english, russian), value);
+  const localized = Object.entries(PLANETS_RU).reduce((text, [english, russian]) => text.replaceAll(english, russian), value);
+  return localized.replaceAll(" km", " км");
 }
 
 export function compileBook({ input, calculation, draft, verification, model, modelResponse = null }) {
