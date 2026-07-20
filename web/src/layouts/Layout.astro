@@ -58,6 +58,11 @@ const ogImage = new URL(image, Astro.site);
 
     <div class="shell">
       <slot />
+      <footer class="source-offer">
+        <a href="https://github.com/valery-om/omyear" rel="license external">Source</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/valery-om/omyear/blob/main/LICENSE" rel="license external">AGPL‑3.0-or-later</a>
+      </footer>
       {music && (
         <>
           <div class="music-dock">

@@ -97,6 +97,12 @@ evaluation harness for comparing prompt and model changes without losing provena
 Codex, GPT‑5.6 Sol, OpenAI Responses API, Structured Outputs, Astro,
 Node.js, Python, Swiss Ephemeris, Cloudflare Workers/Pages, Vercel, HTML and CSS.
 
+## Repository license
+
+Omyear is published under `AGPL-3.0-or-later`, matching the license of the
+`pyswisseph` calculation dependency. Third-party attribution and source links are
+included in `THIRD_PARTY_NOTICES.md`.
+
 ## Gallery order
 
 1. `docs/screenshots/01-product-home.png` — product promise.

@@ -168,4 +168,13 @@ not belong in this repository. See [`SECURITY.md`](SECURITY.md) and
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+Copyright (C) 2026 Valeria Omelnitskaya.
+
+Omyear is free software licensed under the
+[GNU Affero General Public License v3.0 or later](LICENSE) (`AGPL-3.0-or-later`).
+If you modify Omyear and make the modified version available over a network, the
+AGPL requires you to offer the corresponding source code to its users.
+
+The deterministic calculation layer uses `pyswisseph`, which is also distributed
+under the GNU Affero General Public License. See
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for attribution and source links.

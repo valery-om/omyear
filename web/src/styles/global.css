@@ -50,6 +50,22 @@ body {
 
 .shell { position: relative; z-index: 1; }
 
+.source-offer {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 1.1rem 1.4rem 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--sienna);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-offer a { color: inherit; text-decoration: none; }
+.source-offer a:hover { color: var(--terracotta-deep); }
+
 .wrap {
   max-width: var(--measure);
   margin: 0 auto;
