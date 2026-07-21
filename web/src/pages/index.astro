@@ -107,6 +107,42 @@ const systems = [
       </div>
     </section>
 
+    <section id="built-with-codex" class="home-build" aria-labelledby="home-build-title">
+      <div class="home-build__halo" aria-hidden="true"><i></i><i></i><span></span></div>
+      <div class="home-build__intro">
+        <div data-reveal>
+          <p class="home-kicker">Built with Codex · bounded with care</p>
+          <h2 id="home-build-title">A handmade idea,<br /><em>made repeatable.</em></h2>
+        </div>
+        <p data-reveal style="--rd:120ms">The first Omyear books were made by hand. During Build Week, Codex helped turn that craft into a working bilingual product—without giving the model permission to invent a life.</p>
+      </div>
+
+      <div class="home-build__roles" aria-label="How Codex, GPT-5.6, and human judgment work together">
+        <article data-reveal>
+          <span>01</span>
+          <p class="home-build__label">implementation partner</p>
+          <h3>Codex builds the system</h3>
+          <p>It helped audit the handmade prototype and implement the questionnaire, calculation pipeline, schemas, verification, tests, responsive interface, and deployment.</p>
+        </article>
+        <article data-reveal style="--rd:100ms">
+          <span>02</span>
+          <p class="home-build__label">bounded editorial intelligence</p>
+          <h3>GPT‑5.6 writes within evidence</h3>
+          <p>It receives registered facts and calculated sources in a strict schema. It connects the material; it does not calculate, approve, or publish.</p>
+        </article>
+        <article data-reveal style="--rd:200ms">
+          <span>03</span>
+          <p class="home-build__label">the last word</p>
+          <h3>Human judgment closes the loop</h3>
+          <p>The founder sets the product boundaries and tone. A person reviews the result before any book is delivered.</p>
+        </article>
+      </div>
+
+      <p class="home-build__flow" data-reveal style="--rd:260ms">
+        <span>human direction</span><i>→</i><span>Codex implementation</span><i>→</i><span>deterministic calculation</span><i>→</i><span>GPT‑5.6 synthesis</span><i>→</i><span>verification</span><i>→</i><span>human review</span>
+      </p>
+    </section>
+
     <footer class="home-footer" data-reveal><span>OMYEAR / YOUR YEAR, MADE PERSONAL</span><a href="/pipeline">See how it’s made →</a></footer>
   </main>
 
@@ -146,7 +182,15 @@ const systems = [
       ["your story","твоя история"],["patterns","узор"],["thoughtful writing","бережный текст"],["careful checks","проверка"],["your Omyear","твой Omyear"],
       ["Meet Maya.","Познакомься с Майей."],["Her story is fictional. Her Omyear is ready to explore.","Её история выдумана. Её Omyear уже можно открыть."],
       ["Want to see the whole experience first? Maya’s details were invented for the demo, so you can open every chapter without looking into a real person’s private life.","Хочешь сначала увидеть весь результат? Данные Майи придуманы специально для примера: можно открыть каждую главу, не заглядывая в частную жизнь реального человека."],
-      ["Explore Maya’s Omyear","Открыть Omyear Майи"],["OMYEAR / YOUR YEAR, MADE PERSONAL","OMYEAR / ТВОЙ ЛИЧНЫЙ ГОД"],["See how it’s made →","Посмотреть, как это сделано →"]
+      ["Explore Maya’s Omyear","Открыть Omyear Майи"],
+      ["Built with Codex · bounded with care","Создано с Codex · с бережными границами"],
+      ["A handmade idea,","Ручная идея,"],["made repeatable.","ставшая системой."],
+      ["The first Omyear books were made by hand. During Build Week, Codex helped turn that craft into a working bilingual product—without giving the model permission to invent a life.","Первые книги Omyear создавались вручную. Во время Build Week Codex помог превратить это ремесло в работающий двуязычный продукт — не давая модели права выдумывать жизнь человека."],
+      ["implementation partner","партнёр по реализации"],["Codex builds the system","Codex строит систему"],["It helped audit the handmade prototype and implement the questionnaire, calculation pipeline, schemas, verification, tests, responsive interface, and deployment.","Он помог провести аудит ручного прототипа и реализовать анкету, конвейер расчётов, схемы, проверку, тесты, адаптивный интерфейс и деплой."],
+      ["bounded editorial intelligence","редакторский интеллект в границах"],["GPT‑5.6 writes within evidence","GPT‑5.6 пишет только по данным"],["It receives registered facts and calculated sources in a strict schema. It connects the material; it does not calculate, approve, or publish.","Он получает зарегистрированные факты и рассчитанные источники в строгой схеме. Он соединяет материал, но не рассчитывает, не утверждает и не публикует."],
+      ["the last word","последнее слово"],["Human judgment closes the loop","Человек завершает работу"],["The founder sets the product boundaries and tone. A person reviews the result before any book is delivered.","Фаундер задаёт границы продукта и интонацию. Перед передачей книги человеку результат проходит человеческую проверку."],
+      ["human direction","человеческий замысел"],["Codex implementation","реализация с Codex"],["deterministic calculation","детерминированный расчёт"],["GPT‑5.6 synthesis","синтез GPT‑5.6"],["verification","проверка"],["human review","человеческая редактура"],
+      ["OMYEAR / YOUR YEAR, MADE PERSONAL","OMYEAR / ТВОЙ ЛИЧНЫЙ ГОД"],["See how it’s made →","Посмотреть, как это сделано →"]
     ]);
     const requested = new URLSearchParams(location.search).get("lang");
     const language = requested === "ru" || (!requested && localStorage.getItem("omyear:language") === "ru") ? "ru" : "en";
@@ -158,6 +202,7 @@ const systems = [
         if (translations.has(key)) node.nodeValue = node.nodeValue.replace(key, translations.get(key));
       }
       document.querySelector(".home-systems__method")?.setAttribute("aria-label", "Как Omyear использует пять систем");
+      document.querySelector(".home-build__roles")?.setAttribute("aria-label", "Как Codex, GPT-5.6 и человеческая редактура работают вместе");
     }
     const toggle = document.getElementById("language-toggle");
     toggle.textContent = language === "ru" ? "EN" : "RU";
@@ -253,6 +298,29 @@ const systems = [
     .home-path__close { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; align-items: end; padding-top: 2.8rem; }
     .home-path__close p { margin: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.6; }
     .home-path__close .home-button { grid-column: 2; width: fit-content; }
+    .home-build { position: relative; isolation: isolate; max-width: calc(70rem - 2.6rem); margin: 0 auto 6rem; padding: clamp(2.2rem,6vw,4.5rem); overflow: hidden; border: 1px solid rgba(154,106,69,.24); border-radius: 26px; background: linear-gradient(145deg,rgba(251,244,230,.94),rgba(244,232,212,.72)); box-shadow: 0 34px 74px -58px rgba(70,48,28,.72); }
+    .home-build__halo { position: absolute; z-index: -1; right: -8rem; top: -12rem; width: 32rem; aspect-ratio: 1; pointer-events: none; }
+    .home-build__halo i { position: absolute; inset: 12%; border: 1px solid rgba(194,107,67,.13); border-radius: 50%; animation: orbit 44s linear infinite; }
+    .home-build__halo i:nth-child(2) { inset: 27% 2%; animation-direction: reverse; animation-duration: 36s; }
+    .home-build__halo i::after { content:""; position:absolute; top:19%; right:8%; width:.48rem; aspect-ratio:1; border-radius:50%; background:var(--terracotta); box-shadow:0 0 0 5px rgba(194,107,67,.09); }
+    .home-build__halo span { position:absolute; inset:39%; border-radius:50%; background:radial-gradient(circle,var(--sun-glow),var(--sun)); box-shadow:0 0 7rem 3rem rgba(241,188,106,.24); }
+    .home-build__intro { display:grid; grid-template-columns:1.08fr .92fr; gap:clamp(2rem,7vw,6rem); align-items:end; padding-bottom:2.8rem; border-bottom:1px solid var(--line); }
+    .home-build__intro h2 { margin:0; font:500 clamp(2.5rem,5.6vw,4.4rem)/.98 var(--font-display); letter-spacing:-.035em; }
+    .home-build__intro h2 em { color:var(--terracotta); font-weight:400; }
+    .home-build__intro > p { max-width:29rem; margin:0 0 .3rem; color:var(--ink-soft); font-size:.94rem; line-height:1.68; }
+    .home-build__roles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line); }
+    .home-build__roles article { position:relative; min-width:0; min-height:18rem; padding:2rem 1.5rem 2rem 0; border-right:1px solid var(--line); }
+    .home-build__roles article + article { padding-left:1.5rem; }
+    .home-build__roles article:last-child { padding-right:0; border-right:0; }
+    .home-build__roles article::before { content:""; position:absolute; top:-.3rem; left:0; width:.55rem; aspect-ratio:1; border-radius:50%; background:var(--terracotta); box-shadow:0 0 0 6px rgba(194,107,67,.1); }
+    .home-build__roles article + article::before { left:1.5rem; }
+    .home-build__roles article > span { color:var(--gold); font:500 .86rem/1 var(--font-display); }
+    .home-build__label { margin:3.4rem 0 .65rem; color:var(--terracotta-deep); font-size:.57rem; letter-spacing:.16em; text-transform:uppercase; }
+    .home-build__roles h3 { margin:0 0 .8rem; font:600 clamp(1.25rem,2vw,1.55rem)/1.1 var(--font-display); }
+    .home-build__roles article > p:last-child { margin:0; color:var(--ink-soft); font-size:.78rem; line-height:1.58; }
+    .home-build__flow { display:flex; flex-wrap:wrap; align-items:center; gap:.48rem; margin:1.6rem 0 0; }
+    .home-build__flow span { padding:.42rem .66rem; border:1px solid var(--line); border-radius:999px; background:rgba(251,244,230,.56); color:var(--sienna); font-size:.59rem; letter-spacing:.07em; text-transform:uppercase; }
+    .home-build__flow i { color:var(--gold); font-style:normal; }
     .home-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.3rem,5vw,4.5rem); border-top: 1px solid var(--line); color: var(--sienna); font-size: .58rem; letter-spacing: .13em; }
     .home-footer a { color: var(--terracotta-deep);transition:color .25s ease; }
     html.js .home-metrics [data-reveal],html.js .home-systems__grid [data-reveal],html.js .home-layers [data-reveal] { transform:translateY(38px) scale(.975); }
@@ -281,6 +349,12 @@ const systems = [
       .home-systems__grid { grid-template-columns:1fr 1fr; } .home-systems__grid article,.home-systems__grid article:nth-child(4) { grid-column:auto;min-height:11.8rem; } .home-systems__grid article:nth-child(5) { grid-column:1/-1; }
       .home-systems__method { grid-template-columns:1fr; } .home-systems__method div { border-right:0; border-bottom:1px solid var(--line); } .home-systems__method div:last-child { border-bottom:0; }
       .home-layers { grid-template-columns:1fr 1fr; } .home-layers article:nth-child(2) { border-right:1px solid var(--line); } .home-layers article { min-height:12rem; } .home-path__close .home-button { grid-column:1; } .home-footer { flex-direction:column; }
+      .home-build__intro { grid-template-columns:1fr; gap:1.4rem; }
+      .home-build__roles { grid-template-columns:1fr; }
+      .home-build__roles article,.home-build__roles article + article { min-height:0; padding:2rem 0; border-right:0; border-bottom:1px solid var(--line); }
+      .home-build__roles article:last-child { border-bottom:0; }
+      .home-build__roles article + article::before { left:0; }
+      .home-build__label { margin-top:2.2rem; }
     }
     @media (max-width:520px) { .home-systems__grid { grid-template-columns:1fr; } .home-systems__grid article,.home-systems__grid article:nth-child(4),.home-systems__grid article:nth-child(5) { grid-column:1;min-height:10.4rem; } }
     @media (prefers-reduced-motion:reduce) {

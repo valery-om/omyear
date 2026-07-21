@@ -470,7 +470,7 @@ const placesHref = d.places ? "#places" : d.placesPortal?.href;
           {d.places.solarOptions && (
             <div class="places-solar__grid">
               {d.places.solarOptions.map((option, i) => (
-                <article class="places-solar__card">
+                <article class="places-solar__card" style={`--rd:${i * 80}ms`}>
                   <span>{String(i + 1).padStart(2, "0")}</span>
                   <h4>{option.place}</h4>
                   <b>{option.label}</b>

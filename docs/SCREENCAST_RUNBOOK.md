@@ -1,156 +1,95 @@
-# Omyear screencast runbook
+# Omyear screencast runbook — coherent product cut
 
-Target duration: **2:42–2:52**. Record in English at 1920×1080 with browser zoom at
-100%. Use the production site and synthetic Maya only.
+Target duration: **2:45–2:52**. Record in English at 1920×1080 and 100% browser zoom.
+Use the production site and synthetic Maya only.
 
-This is an edited screen recording, not one continuous take. Record the five clips
-below, remove generation wait time, then add reviewed English captions. Keep the
-cursor still whenever the viewer needs to read.
+This cut uses five clean clips. The viewer sees the finished product first, then
+watches the same Maya move from questionnaire to the same finished experience. The
+technical close is on the Omyear landing page, not GitHub.
 
 ## Before recording
 
-1. Close email, billing, API-key, Devpost and private-recipient tabs.
+1. Close mail, billing, Devpost, API-key, GitHub, terminal, and private-recipient tabs.
 2. Turn off notifications and hide the bookmarks bar.
-3. Open these pages in this order:
+3. Open only these pages:
    - `https://app.omyear.com/?lang=en`
    - `https://app.omyear.com/0811`
    - `https://app.omyear.com/try/?lang=en`
-   - `https://app.omyear.com/pipeline`
-   - `https://github.com/valery-om/omyear#how-codex-contributed`
-4. On `/try`, select **English**, click **Use synthetic Maya data**, and complete one
-   successful generation before recording. Keep its `/result?lang=en` tab open.
-5. Return every recording tab to the position named below.
-6. Make one silent rehearsal. Aim for calm movement and 125–135 spoken words per
-   minute.
+   - a successfully completed `/result?lang=en`
+4. On `/try`, click **Use synthetic Maya data** and complete one successful generation
+   before recording. Keep that finished result available as the destination shot.
+5. Record each clip separately. Remove the live wait, but keep the generate click and
+   visible progress steps.
+6. Keep the cursor still while headings are being read. Use calm manual scrolls; do
+   not speed-scroll.
 
-## Clip 1 — the promise and the five lenses
+## Clip 1 · 0:00–0:24 — The promise
 
-### 0:00–0:30
+**Start:** home hero.
 
-**Start:** `https://app.omyear.com/?lang=en`, at the top of the page.
+1. Hold **Your year, turned into a book** for three seconds.
+2. Scroll once to the four promise cards.
+3. Stop before the five-systems section.
 
-**Actions**
+Use narration block 1 from `VIDEO_SCRIPT.md`.
 
-1. Hold the hero still for three seconds.
-2. At 0:10, scroll through **Made from you / Made to keep / Made with care / Made for
-   reflection** and **Not a generic reading**.
-3. At 0:18, continue to **Five systems · one book for the year**.
-4. Pause on the five cards and the **Calculated by code / Woven by GPT‑5.6 / Checked
-   against sources** strip.
-5. At 0:30, cut to the next clip. Do not click a CTA in this take.
+## Clip 2 · 0:24–0:58 — Maya’s finished Omyear
 
-**Narration**
+**Start:** Maya’s cover at `/0811`.
 
-> I made the first Omyear for my best friend, who lives far away. I wanted her to
-> have more than a birthday message: a beautiful place she could return to on a
-> difficult day and remember her strengths, her possibilities, and that someone
-> believes in her. That promise comes before the technology.
+1. Hold the animated cover for three seconds.
+2. Scroll to **A Place to Return To**.
+3. Continue to **Your atlas of the year**.
+4. Open **Your twelve chapters** from the atlas.
+5. Open one month and hold on its chapter practice.
 
-## Clip 2 — the book people return to
+Use narration block 2.
 
-### 0:30–1:00
+## Clip 3 · 0:58–1:38 — Maya becomes a book
 
-**Start:** `https://app.omyear.com/0811`, on Maya's cover.
+**Start:** `/try/?lang=en` at the top.
 
-**Actions**
+1. Hold the questionnaire title for two seconds.
+2. Click **Use synthetic Maya data**.
+3. Scroll through birth data, goals, confirmed facts, and four selected places.
+4. Show the privacy/consent card.
+5. Check consent and click **Generate my book**.
+6. Keep the four progress stages for six to eight seconds.
+7. Cut the remaining generation wait.
 
-1. Hold Maya's cover for two seconds.
-2. Scroll slowly to **A Place to Return To** and the **Your atlas of the year** book
-   map.
-3. Click the book-map item **05 · Your twelve chapters · route**.
-4. In the month list, click the **December · Define enough** card.
-5. Hold on the opened month text and its practice for three seconds.
+Use narration block 3.
 
-**Narration**
+## Clip 4 · 1:38–2:22 — The same result, now generated
 
-> Omyear is an interactive personal book for the year between birthdays. It brings a
-> person's real context together with five symbolic systems: numerology, the
-> 22-Arcana Matrix, astrology, Human Design, and astrocartography. One coherent book
-> replaces five fragmented readings. Maya is entirely fictional. The book offers
-> perspective and encouragement; it never tells someone what must happen.
+**Start:** the completed generated result on its cover.
 
-## Clip 3 — from a person to GPT‑5.6
+1. Match the cover framing used at the start of Clip 2.
+2. Scroll to the opening letter and atlas.
+3. Open one month to demonstrate that this is a working book.
+4. Use the contents control to move to **Source ledger**.
+5. Hold on the four metrics, then open the ledger and show several rows.
 
-### 1:00–1:38
+Use narration block 4.
 
-**Start:** `https://app.omyear.com/try/?lang=en`, at the top of the questionnaire.
+## Clip 5 · 2:22–2:48 — Built with Codex
 
-**Actions**
+**Start:** `https://app.omyear.com/?lang=en#built-with-codex`.
 
-1. Show **Make the year legible** and the first fields for four seconds.
-2. Press `End` to move to **Nothing is published**.
-3. Click **Use synthetic Maya data**.
-4. Press `Home`, then scroll through the filled facts, goals and four places for six
-   seconds.
-5. Press `End` again.
-6. Check **I have permission to use this data…**.
-7. Click **Generate my book ↗**.
-8. Show the progress screen until **GPT‑5.6 is shaping the chapters…** appears.
-9. Cut out the waiting time.
-10. Cut to the already completed `/result?lang=en` tab and hold its cover for three
-    seconds.
+1. Hold **A handmade idea, made repeatable**.
+2. Scroll just enough to reveal all three roles:
+   - **Codex builds the system**
+   - **GPT‑5.6 writes within evidence**
+   - **Human judgment closes the loop**
+3. Finish on the process line from human direction to human review.
+4. Fade out without returning to GitHub or another screen.
 
-**Narration**
+Use narration block 5.
 
-> The process begins with a person, not a blank prompt: confirmed facts, goals,
-> values, birth data, important places, and a message of care. Code performs the
-> calculations first. GPT‑5.6 receives only registered material and an exact JSON
-> schema, then writes separate parts of the book in parallel. The private result stays
-> in this browser tab.
+## Final export check
 
-## Clip 4 — how the result stays inspectable
-
-### 1:38–2:22
-
-**Start:** `https://app.omyear.com/pipeline`, at the top.
-
-**Actions**
-
-1. Hold the verification snapshot showing **72 / 53 / 0 / 12** for three seconds.
-2. Click **Trace the sequence ↓**.
-3. Scroll steadily through stages **01 Intake** to **07 Publish**.
-4. Pause at **Four kinds of truth. Never blurred together.**
-5. Continue to the bottom and click **Inspect the live source ledger ↗**.
-6. On Maya's **How this book was made** section, hold on `gpt-5.6-sol`, the source
-   counts and **Human review is required**.
-7. Click **Open the source ledger** and show the first source rows.
-
-**Narration**
-
-> Every input and calculation receives a stable source ID. GPT‑5.6 can select only
-> IDs enumerated in its schema. Code restores exact dates and numbers, checks the
-> structure and rejects a draft that crosses its boundaries. The public Maya run has
-> seventy-two source records, fifty-three cited sources, and zero source-link errors.
-> A human still keeps the final editorial word.
-
-## Clip 5 — Codex and the close
-
-### 2:22–2:48
-
-**Start:** the public GitHub README at **How Codex contributed**.
-
-**Actions**
-
-1. Scroll slowly through the Codex contribution bullets for eight seconds.
-2. Cut back to the Omyear home hero.
-3. Hold on **Your year, turned into a book** through the final sentence.
-4. Fade out by 2:50. Leave five seconds of safety before the three-minute limit.
-
-**Narration**
-
-> Codex helped me turn a handmade gift into this repeatable product: strict schemas,
-> generalized calculations, generation, verification, the bilingual experience,
-> testing, and deployment. I kept the idea, the care, and the editorial boundaries.
-> Omyear is a personal year book to return to whenever you need your wings back.
-
-## Recording and edit checklist
-
-- Keep the final public YouTube video under three minutes.
-- Use spoken English audio; record the voice separately if that sounds calmer.
-- Add manually reviewed English captions.
-- Use hard cuts or short dissolves; do not speed-scroll.
-- Remove the live-generation wait, but keep the click and several seconds of progress.
-- Do not expose API keys, billing pages, personal tabs, local paths or recipient data.
-- Do not use copyrighted music. Silence under the voice is appropriate for Omyear.
-- Export at 1080p, upload as **Public**, and test the link while logged
-  out before adding it to Devpost.
+- 1080p, public YouTube, under three minutes.
+- Spoken English audio and manually reviewed English captions.
+- Same Maya visual language before and after generation.
+- No private data, API keys, local paths, browser chrome clutter, copyrighted music,
+  GitHub, terminal, or black technical slides.
+- Test the public YouTube link while logged out before adding it to Devpost.

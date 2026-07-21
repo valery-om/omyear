@@ -778,20 +778,28 @@ p:last-child { margin-bottom: 0; }
 }
 .places-compass {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 0.75rem;
   margin: 0 auto 2.5rem;
-  max-width: 61rem;
+  max-width: 46rem;
 }
 .places-compass__item {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
   gap: 0.7rem;
   min-width: 0;
+  min-height: 100%;
   padding: 1.15rem 1rem;
   border: 1px solid rgba(241, 188, 106, 0.25);
   border-radius: 0.85rem;
   background: rgba(255, 250, 240, 0.07);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.75, 0.2, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.45s ease;
 }
 .places-compass__item > span {
   color: var(--sun-glow);
@@ -874,6 +882,11 @@ p:last-child { margin-bottom: 0; }
   border: 1px solid rgba(241, 188, 106, 0.24);
   border-radius: 0.85rem;
   background: linear-gradient(145deg, rgba(255,250,240,0.11), rgba(255,250,240,0.045));
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.75, 0.2, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.45s ease;
 }
 .places-solar__card:nth-child(4) { grid-column: 2 / span 2; }
 .places-solar__card > span {
@@ -1549,6 +1562,17 @@ html.js [data-reveal].is-visible {
   transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--rd, 0ms);
 }
+html.js .places-compass[data-reveal] .places-compass__item,
+html.js .places-solar[data-reveal] .places-solar__card {
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+}
+html.js .places-compass[data-reveal].is-visible .places-compass__item,
+html.js .places-solar[data-reveal].is-visible .places-solar__card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: calc(var(--rd, 0ms) + 120ms);
+}
 /* power numbers flare in: scale 0.85 -> 1 with a soft spring */
 html.js .numcard[data-reveal] .numcard__val,
 html.js .arcana[data-reveal] .arcana__num {
@@ -1897,6 +1921,16 @@ html.js .film[data-reveal].is-visible {
   }
   .style-warm-sunset-sea .month { transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease; }
   .style-warm-sunset-sea .month:hover { border-color: var(--sea-soft); }
+  .places-compass__item:hover,
+  html.js .places-compass[data-reveal].is-visible .places-compass__item:hover,
+  .places-solar__card:hover,
+  html.js .places-solar[data-reveal].is-visible .places-solar__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 188, 106, 0.46);
+    background: rgba(255, 250, 240, 0.11);
+    box-shadow: 0 18px 34px -22px rgba(8, 4, 12, 0.82);
+    transition-delay: 0ms;
+  }
 }
 
 /* ---------- Reduced motion: visibility, no transforms ---------- */
@@ -1921,7 +1955,8 @@ html.js .film[data-reveal].is-visible {
   .experience-editorial-atlas .places-section::before,
   .experience-editorial-atlas .music,
   .experience-editorial-atlas .music svg { animation: none !important; }
-  .month:hover, .duet-fact:hover { transform: none; }
+  .month:hover, .duet-fact:hover,
+  .places-compass__item:hover, .places-solar__card:hover { transform: none; }
   .month:hover .month__note { transform: none; }
 }
 
