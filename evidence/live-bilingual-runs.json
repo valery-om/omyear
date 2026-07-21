@@ -1,44 +1,60 @@
 {
-  "capturedAt": "2026-07-20T11:36:00Z",
-  "productionUrl": "https://omyear.pages.dev/try",
+  "capturedAt": "2026-07-21T07:39:56Z",
+  "productionUrl": "https://app.omyear.com/try",
   "syntheticPerson": "Maya",
-  "model": "gpt-5.4-mini-2026-03-17",
-  "generationArchitecture": "three parallel strict Structured Output segments",
+  "model": "gpt-5.6-terra",
+  "generationArchitecture": "three parallel strict Structured Output segments with per-segment source ID enums",
   "runs": [
     {
-      "language": "ru",
-      "requestId": "e19847ab-2e48-4449-9d5c-d0ef9f6d6ec9",
-      "completedUnderSeconds": 30,
-      "bookSections": 13,
-      "months": 12,
-      "sourceRecords": 72,
-      "sourcesCited": 60,
-      "sourceLinkErrors": 0,
-      "humanReviewFlags": 21,
-      "verificationStatus": "needs_human_review",
-      "localizedChecks": [
-        "Russian book chrome",
-        "Russian month and day dates",
-        "Russian arcana names",
-        "Russian planet labels"
-      ]
-    },
-    {
       "language": "en",
-      "requestId": "da7c9dcb-0fff-4724-a2bd-d6ff111a690f",
-      "completedUnderSeconds": 30,
-      "bookSections": 13,
+      "requestId": "4f8983fd-bfb5-4b1e-bd87-c2f0ecdd52fe",
+      "responseIds": [
+        "resp_0a5ba50144772363016a5f21c4e07481a096c7f08b78e74677",
+        "resp_073ed6a5add86acd016a5f21c3cd6c819f9a9943cf86fe5d8a",
+        "resp_01cccb7df59254ba016a5f21c3c7e0819d9cfe01a3d9f375da"
+      ],
+      "completedInMilliseconds": 27632,
+      "topLevelBookKeys": 17,
       "months": 12,
       "sourceRecords": 72,
-      "sourcesCited": 65,
+      "sourcesCited": 58,
       "sourceLinkErrors": 0,
-      "humanReviewFlags": 8,
+      "missingSourcePaths": 0,
+      "structuralErrors": 0,
+      "contentWarnings": 0,
+      "humanReviewFlags": 33,
       "verificationStatus": "needs_human_review",
       "localizedChecks": [
         "English questionnaire chrome",
         "English month and day dates",
         "English arcana names",
         "English planet labels"
+      ]
+    },
+    {
+      "language": "ru",
+      "requestId": "67bbc364-15ae-4bc9-8497-01d695a8c294",
+      "responseIds": [
+        "resp_0f0ba2c0204da58b016a5f2212db5081a28635fdc0c24a7654",
+        "resp_0d84979eec45a3a7016a5f2212d81881a29ac63fac13a15bd5",
+        "resp_05f5d7e4a6befc49016a5f2212fd8c819f880e547eb122ec0b"
+      ],
+      "completedInMilliseconds": 33580,
+      "topLevelBookKeys": 17,
+      "months": 12,
+      "sourceRecords": 72,
+      "sourcesCited": 63,
+      "sourceLinkErrors": 0,
+      "missingSourcePaths": 0,
+      "structuralErrors": 0,
+      "contentWarnings": 1,
+      "humanReviewFlags": 46,
+      "verificationStatus": "needs_human_review",
+      "localizedChecks": [
+        "Russian book chrome",
+        "Russian month and day dates",
+        "Russian arcana names",
+        "Russian planet labels"
       ]
     }
   ]

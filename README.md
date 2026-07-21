@@ -1,33 +1,49 @@
 # Omyear
 
-**A source-linked personal year book, built with Codex and the OpenAI Responses API.**
+**A personal year book to return to whenever you need your wings back.**
 
-Omyear turns a structured birthday questionnaire into a warm, responsive book for
-the year from one birthday to the next. Deterministic code performs the calculations;
-OpenAI models write only from registered sources; a verifier checks every citation and
-required section; a human keeps the final editorial decision.
+Omyear is a beautiful, interactive book for the year from one birthday to the next. It
+begins with a person's real story—their goals, values, questions and turning points—then
+brings several symbolic self-discovery systems into one warm narrative.
+
+The first Omyear was a handmade gift for a best friend living far away: a place she
+could open on a difficult day and still feel supported. Early recipients said they
+returned to particular chapters when life felt uncertain. The book did not tell them
+what would happen; it helped them meet change with more perspective and confidence.
+
+That emotional purpose remains the product boundary. Omyear is made for reflection,
+not prediction. Deterministic code owns the calculations, GPT‑5.6 synthesizes only
+registered material, a verifier checks the result, and a human keeps the final
+editorial word.
 
 This is the sanitized OpenAI Build Week 2026 submission repository. It contains one
 fully synthetic person, Maya, and no customer photos, private recipient books, music,
 or production data.
 
-## Try it
+## Judge it in three minutes
 
-After starting the site locally:
+No account, payment or private data is required.
 
-- `/` — short product introduction;
-- `/try` — bilingual consent-first questionnaire and live generation;
-- `/result?demo=maya` — the private-result renderer populated with synthetic data;
-- `/pipeline` — the seven-stage algorithm and current verification snapshot;
-- `/0811` — Maya’s generated book, including its expandable source ledger.
+1. Open the [product](https://app.omyear.com/?lang=en) to understand the promise.
+2. Read [Maya's Omyear](https://app.omyear.com/0811), a complete synthetic edition.
+3. Use [Create yours](https://app.omyear.com/try/?lang=en) to test the bilingual live flow.
+4. Inspect [How it works](https://app.omyear.com/pipeline) and the in-book source ledger.
 
-Maya is public and passwordless. All names, biography, goals and locations in her
-questionnaire are invented for the demo.
+Detailed judge instructions are in
+[`docs/JUDGING_GUIDE.md`](docs/JUDGING_GUIDE.md). Local setup takes four commands below.
 
-Deployed demo: [app.omyear.com](https://app.omyear.com) · Public source:
-[github.com/valery-om/omyear](https://github.com/valery-om/omyear)
+## From handmade gift to working product
 
-## The sequence
+Omyear's visual language and several handcrafted private books existed before Build
+Week. The work submitted here is the repeatable product added after July 13: strict
+schemas, generalized calculations, GPT‑5.6 generation, deterministic verification,
+book compilation, bilingual creation, protected deployment, a synthetic public demo
+and reproducible tests.
+
+The explicit before/after boundary is documented in
+[`docs/BUILD_WEEK_CHANGELOG.md`](docs/BUILD_WEEK_CHANGELOG.md).
+
+## How it works
 
 ```mermaid
 flowchart LR
@@ -72,7 +88,7 @@ remains the original single-pass `gpt-5.6-sol` run.
 
 ## How Codex contributed
 
-Codex collaborated on the core Build Week extension:
+Codex helped turn the original one-off gift into a repeatable, testable product:
 
 - audited the pre-existing handcrafted Omyear project and separated new work;
 - designed the strict input and editorial schemas;
@@ -83,21 +99,11 @@ Codex collaborated on the core Build Week extension:
 - tested desktop/mobile behavior and added self-contained E2E coverage;
 - prepared the sanitized public repository and submission documentation.
 
-The product owner made the key product and editorial decisions: calculations stay
+Codex did not invent the product or make its editorial decisions. Founder Valeria
+Omelnitskaya chose the audience, experience and boundaries: calculations stay
 deterministic, model prose stays source-bounded, symbolic frameworks are presented as
 reflection rather than prediction, the public demo uses synthetic data, and a person
 always approves the final book.
-
-## Build Week delta
-
-Omyear’s visual language and several handcrafted private books existed before the
-submission period. The work evaluated here is the repeatable engine added after July
-13: schemas, generalized calculations, OpenAI generation, deterministic verification,
-book compilation, bilingual creation flow, protected API gateway, synthetic public
-demo, provenance UI, tests and documentation.
-
-See [`docs/BUILD_WEEK_CHANGELOG.md`](docs/BUILD_WEEK_CHANGELOG.md) for the explicit
-before/after boundary.
 
 ## Local setup
 
@@ -135,9 +141,18 @@ node --env-file=.env.local pipeline/run.mjs \
 
 ## Submission gallery
 
+- [`devpost-thumbnail-landing-final.png`](docs/screenshots/devpost-thumbnail-landing-final.png) — recommended 3:2 thumbnail;
 - [`01-product-home.png`](docs/screenshots/01-product-home.png) — product promise;
-- [`02-pipeline.png`](docs/screenshots/02-pipeline.png) — sequential algorithm;
-- [`03-maya-demo.png`](docs/screenshots/03-maya-demo.png) — synthetic generated book.
+- [`03-maya-demo.png`](docs/screenshots/03-maya-demo.png) — synthetic generated book;
+- [`02-pipeline.png`](docs/screenshots/02-pipeline.png) — sequential algorithm.
+
+## Submission materials
+
+- [`docs/DEVPOST_SUBMISSION.md`](docs/DEVPOST_SUBMISSION.md) — copy-ready project story;
+- [`docs/JUDGING_GUIDE.md`](docs/JUDGING_GUIDE.md) — the shortest path through the product;
+- [`docs/VIDEO_SCRIPT.md`](docs/VIDEO_SCRIPT.md) — the under-three-minute demo script;
+- [`docs/SCREENCAST_RUNBOOK.md`](docs/SCREENCAST_RUNBOOK.md) — exact recording clicks and cuts;
+- [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md) — final publishing checklist.
 
 ## Verification snapshot
 
@@ -145,8 +160,9 @@ The included GPT‑5.6 demo currently has 72 known records, 53 distinct sources 
 zero invalid source IDs, missing citations, structural errors or language warnings,
 and one correctly surfaced human-review flag for a three-framework synthesis.
 
-Production RU and EN questionnaire runs also completed in under 30 seconds each with
-zero source-link errors. Sanitized browser-QA counts are recorded in
+Fresh production questionnaire runs also completed with `gpt-5.6-terra`: English in
+27.6 seconds and Russian in 33.6 seconds. Both returned 12 months with zero source-link
+or structural errors. Sanitized metadata is in
 [`evidence/live-bilingual-runs.json`](evidence/live-bilingual-runs.json).
 
 ```bash

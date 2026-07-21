@@ -1,12 +1,14 @@
 # Devpost submission copy
 
+Copy-ready English text for the OpenAI Build Week submission.
+
 ## Project name
 
 Omyear
 
-## Tagline
+## Elevator pitch
 
-A personal year book that can show its work.
+A personal year book to return to whenever you need your wings back.
 
 ## Track
 
@@ -14,105 +16,159 @@ Apps for Your Life
 
 ## Short description
 
-Omyear turns a birthday questionnaire into a source-linked personal year book. Code
-performs deterministic symbolic calculations, OpenAI models write only from registered
-evidence, a verifier checks every citation and required section, and a human keeps the
-last editorial word.
+Omyear turns a person's story and four symbolic self-discovery systems into a
+beautiful, interactive book for the year between birthdays—a calm place to return to
+for perspective, care and courage.
 
 ## Inspiration
 
-Personalized birthday books can feel deeply meaningful, but producing one by hand is
-slow and hard to verify. Generic AI readings solve the speed problem by creating a
-trust problem: the reader cannot tell what came from them, what was calculated and
-what the model invented. Omyear asks whether a personal story can stay warm while also
-showing its evidence.
+I made the first Omyear for my best friend, who lives far away. I wanted to give her
+something she could keep: a calm place entirely about her, where she could return on a
+difficult day and still feel my support. A reminder of her strengths, her
+possibilities and how deeply she is loved.
+
+Friends who received early handmade editions told me they returned to a particular
+month when life felt uncertain. Seeing change reflected there did not predict what
+would happen, but it helped them meet it with more curiosity and confidence.
+
+That is the heart of Omyear. Modern life gives us many reasons to doubt ourselves and
+very few places devoted entirely to remembering who we are. Omyear is for reflective,
+curious people who find meaning in both structured knowledge and symbolism. It can be
+a gift that says “I believe in you,” or a gift we choose for ourselves.
 
 ## What it does
 
-Omyear follows one inspectable sequence:
+Omyear creates a personal, birthday-to-birthday book. The reader shares confirmed
+facts, goals, values, birth data, important locations and the questions that are alive
+for them now.
 
-1. validates confirmed facts, goals, birth data and a gift message;
-2. calculates the symbolic systems with deterministic code;
-3. gives every input and calculation a stable source ID;
-4. asks GPT‑5.6 for strict editorial JSON where every interpretive object cites those IDs;
-5. verifies citations, exact values, twelve periods, dates, locations and language guardrails;
-6. stops at a mandatory human-review gate;
-7. compiles the result into a responsive personal book with a visible source ledger.
+Code calculates the four underlying symbolic systems. GPT‑5.6 brings the material
+into one coherent editorial voice. The finished experience includes a personal
+portrait, themes for the year, twelve monthly chapters, places, practices and
+reflection prompts.
 
-The public Maya demo is fully synthetic and requires no login. A bilingual English /
-Russian questionnaire also runs the sequence live and keeps the result in the current
+The book is designed to be revisited. It does not tell a person what must happen or
+what they must do. It offers another angle, names strengths that may have been
+forgotten and turns difficult themes into questions with agency.
+
+Every generated interpretation can show what it was allowed to use. Inputs and
+calculations receive stable source IDs, the model can select only IDs enumerated in
+its schema, deterministic checks reject altered values, and a human keeps the last
+editorial word.
+
+The public Maya edition is entirely synthetic and requires no login. The live creation
+flow works in English and Russian and keeps the generated result only in the current
 browser tab.
 
 ## How we built it
 
-The web experience uses Astro. Python and Swiss Ephemeris perform deterministic
-calendar/astronomical calculations; Node.js orchestrates the run, calls the OpenAI
-Responses API, verifies the structured draft and compiles `book.json`. The live flow
-uses three parallel `gpt-5.6-terra` Structured Outputs; code merges
-them and rehydrates every number, date, ID and measured distance before verification.
-The evidence demo resolved to `gpt-5.6-sol` and cites 53 of 72 records with zero
-source-link or structural errors. Cloudflare Workers protects and streams the API;
-Vercel runs the Node and Python functions.
+An Astro website presents the book. Behind it, Python and Swiss Ephemeris handle
+astronomical calculations while Node.js orchestrates the run, builds an immutable
+source registry and calls the OpenAI Responses API. Three parallel `gpt-5.6-terra`
+Structured Output calls create different parts of the book. Code then merges them and
+restores exact dates, numbers, IDs and measured distances before verification.
 
-Codex helped audit and generalize the existing handcrafted project, design the schemas
-and safety boundary, implement the engine and verifier, build the provenance UI, run
-responsive browser QA, and prepare this sanitized submission. The owner chose the
-product boundary and retained every final editorial decision.
+The verifier checks citations, required sections, twelve consecutive periods,
+locations and language. A human-review gate remains mandatory even when every
+automated check passes. Approved data compiles into the warm, responsive format of
+the original handmade editions.
+
+Cloudflare Pages serves the product, a Cloudflare Worker protects and streams the API,
+and Vercel runs the Node/Python backend. The private result remains in the current
+browser tab rather than a database.
+
+GPT‑5.6 is the synthesis engine inside the product. Codex was my development partner
+during Build Week. It helped separate the handmade prototype from new work, design
+strict schemas, generalize the calculation engine, implement generation and
+verification, build the bilingual flow, test it and prepare the public submission.
+
+I kept the product and editorial decisions: symbolic systems remain prompts for
+reflection rather than scientific or predictive claims; calculations stay
+deterministic; the public person is synthetic; and the model never approves its own
+work.
 
 ## Challenges
 
-The hardest part was deciding what the model must never own—and making a full book fit
-inside serverless latency limits. We split editorial generation into parallel,
-source-filtered chapters and kept the edge connection alive with SSE heartbeats.
-Calculations had to remain repeatable, biography had to remain questionnaire-bound,
-and symbolic interpretation had to stay visibly separate from fact. We also separated
-the public demo from a private workspace so no recipient data or old Git history could
-leak into judging.
+The hardest challenge was preserving warmth inside clear boundaries. Four
+self-discovery systems can easily become unrelated reports, and generated prose can
+sound convincing even when it has invented the person inside it. I wanted synthesis
+without fabrication and optimism without fatalism.
 
-## Accomplishments
+A complete book is also much larger than a typical chat response. We split generation
+into source-filtered sections, used strict schemas, streamed progress and restored
+deterministic values after generation. We built the public demo from scratch with
+synthetic data, keeping every real recipient's history and photographs private.
 
-- Complete questionnaire-to-book run instead of a prompt demo.
-- Bilingual RU/EN questionnaire, generation progress and private browser result.
-- Verified production RU and EN books completing in under 30 seconds with zero source-link errors.
-- Source IDs on every interpretive object and exact-value post-generation checks.
-- One correctly surfaced cross-framework human-review flag.
-- Public in-product provenance with model and response ID.
-- Synthetic data, zero private photos and reproducible offline E2E.
+## Accomplishments that we're proud of
+
+- Turned a one-off handmade gift into a repeatable questionnaire-to-book product.
+- Built a complete bilingual generation flow, not a prompt or static mock-up.
+- Combined several symbolic frameworks into one coherent narrative while keeping each
+  generated claim traceable to supplied or calculated material.
+- Completed current GPT‑5.6 production runs in both English and Russian with zero
+  source-link or structural errors.
+- Kept real recipient data out of the public repository and demo.
+- Preserved the most important feature of the original gift: a beautiful place a
+  person can return to when they need perspective and encouragement.
+
+The included GPT‑5.6 evidence run contains 72 registered records, cites 53 of them and
+has no unknown citations or structural errors. One cross-framework passage is
+correctly left for human review rather than silently approved.
 
 ## What we learned
 
-Structured Outputs solve shape, not truth. Useful personalization needs three separate
-contracts: what the person confirmed, what code calculated and what the model is
-allowed to interpret. The human-review boundary becomes clearer once those layers are
-explicit.
+Trust needs imagination and clear boundaries. Structured Outputs guarantee shape,
+not truth. Useful personalization needs three separate contracts: what the person
+confirmed, what code calculated and what the model may interpret. With those layers
+explicit, AI can connect a large amount of material into a story that still belongs
+to the person reading it.
 
-## What is next
+I also learned that the emotional center of the product is not prediction. It is
+return. The book matters when someone opens it months later and remembers that they
+still have choices, strengths and people who believe in them.
 
-Add an editorial review workspace and private account/deployment isolation per
-recipient. The calculation/verifier layer can also become an
-evaluation harness for comparing prompt and model changes without losing provenance.
+## What's next for Omyear
+
+Omyear will grow into a small family of birthday and life-cycle reflection tools: a
+pre-birthday workbook, guided practices, a more intimate self-gift flow and a gifting
+flow that lets someone add their own message of care.
+
+The next product layer is a private space where a person can review, annotate and keep
+their editions over time. The verification layer can also become an evaluation
+harness for improving prompts and models without losing the book's boundaries.
+
+The long-term idea is simple: help more people keep a small inner flame of kindness
+and self-belief alive—and make it easier to pass that care to someone else.
 
 ## Built with
 
-Codex, GPT‑5.6 Sol, OpenAI Responses API, Structured Outputs, Astro,
-Node.js, Python, Swiss Ephemeris, Cloudflare Workers/Pages, Vercel, HTML and CSS.
+Codex, GPT‑5.6 Sol, GPT‑5.6 Terra, OpenAI Responses API, Structured Outputs, Astro,
+Node.js, Python, Swiss Ephemeris, Cloudflare Workers, Cloudflare Pages, Vercel, HTML
+and CSS.
 
 ## Repository license
 
 Omyear is published under `AGPL-3.0-or-later`, matching the license of the
-`pyswisseph` calculation dependency. Third-party attribution and source links are
-included in `THIRD_PARTY_NOTICES.md`.
+`pyswisseph` calculation dependency. Third-party attribution and source links are in
+`THIRD_PARTY_NOTICES.md`.
+
+## Submission links
+
+- Product: `https://app.omyear.com/?lang=en`
+- Judge test: `https://app.omyear.com/try/?lang=en`
+- Synthetic Maya book: `https://app.omyear.com/0811`
+- How it works: `https://app.omyear.com/pipeline`
+- Repository: `https://github.com/valery-om/omyear`
+- YouTube: `[PUBLIC VIDEO URL]`
+- Codex `/feedback` Session ID: `[SESSION ID]`
 
 ## Gallery order
 
-1. `docs/screenshots/01-product-home.png` — product promise.
-2. `docs/screenshots/02-pipeline.png` — seven-stage algorithm and proof counts.
-3. `docs/screenshots/03-maya-demo.png` — synthetic book cover.
+1. Product promise / Omyear home.
+2. Maya's complete synthetic book.
+3. The story-to-book pipeline and verification boundary.
 
-## Add before submitting
+## Thumbnail
 
-- Demo: `https://app.omyear.com/?lang=en`
-- Direct judge test: `https://app.omyear.com/try/?lang=en`
-- Repository: `https://github.com/valery-om/omyear`
-- YouTube: `[PUBLIC VIDEO URL]`
-- Codex `/feedback` session ID: `[SESSION ID]`
+Use `docs/screenshots/devpost-thumbnail-landing-final.png` (3:2, under 5 MB). It is a
+clean capture of the product itself and keeps the submission visually consistent.

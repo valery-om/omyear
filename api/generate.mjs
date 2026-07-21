@@ -92,7 +92,11 @@ export default {
             const segmentCalculation = calculationForSegment(calculation, segment);
             const result = await requestOpenAI({
               prompt: buildDraftPrompt(input, segmentCalculation),
-              schema: schemaForSegment(draftSchema, segment),
+              schema: schemaForSegment(
+                draftSchema,
+                segment,
+                segmentCalculation.sources.map((source) => source.id),
+              ),
               model: "gpt-5.6-terra",
               safetySeed: `${requestId}:${segment.name}`,
             });
