@@ -1,10 +1,15 @@
 # Omyear
 
-**A personal year book to return to whenever you need your wings back.**
+**A personal interactive book for the year between birthdays—a place to return to for
+perspective, encouragement, and renewed confidence.**
 
-Omyear is a beautiful, interactive book for the year from one birthday to the next. It
-begins with a person's real story—their goals, values, questions and turning points—then
-brings several symbolic self-discovery systems into one warm narrative.
+Omyear brings five symbolic self-discovery systems together with a person's real
+context, turning fragmented readings into one coherent, source-linked experience. It
+begins with their goals, values, questions and turning points, then becomes a warm
+personal book they can revisit throughout the year.
+
+Most self-discovery readings are generic, fragmented or fatalistic. Omyear is designed
+to restore perspective and agency rather than prescribe a future.
 
 The first Omyear was a handmade gift for a best friend living far away: a place she
 could open on a difficult day and still feel supported. Early recipients said they
@@ -141,8 +146,8 @@ node --env-file=.env.local pipeline/run.mjs \
 
 ## Submission gallery
 
-- [`devpost-thumbnail-landing-final.png`](docs/screenshots/devpost-thumbnail-landing-final.png) — recommended 3:2 thumbnail;
-- [`01-product-home.png`](docs/screenshots/01-product-home.png) — product promise;
+- [`devpost-thumbnail-landing-final.png`](docs/screenshots/devpost-thumbnail-landing-final.png) — recommended 3:2 thumbnail and product promise;
+- [`five-systems-desktop-en.png`](docs/screenshots/five-systems-desktop-en.png) — five lenses and the code/model/source boundary;
 - [`03-maya-demo.png`](docs/screenshots/03-maya-demo.png) — synthetic generated book;
 - [`02-pipeline.png`](docs/screenshots/02-pipeline.png) — sequential algorithm.
 

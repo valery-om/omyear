@@ -1,6 +1,8 @@
 # Devpost submission copy
 
-Copy-ready English text for the OpenAI Build Week submission.
+Copy-ready English text for the OpenAI Build Week submission. This copy is grounded
+in the founder interview and should receive one final read-aloud pass before it is
+submitted, so the finished entry still sounds unmistakably like Valeria.
 
 ## Project name
 
@@ -10,15 +12,16 @@ Omyear
 
 A personal year book to return to whenever you need your wings back.
 
-## Track
+## Category / track
 
 Apps for Your Life
 
 ## Short description
 
-Omyear turns a person's story and four symbolic self-discovery systems into a
-beautiful, interactive book for the year between birthdays—a calm place to return to
-for perspective, care and courage.
+Omyear is a personal interactive book for the year between birthdays—a place to
+return to for perspective, encouragement, and renewed confidence. It brings five
+symbolic self-discovery systems together with a person’s real context, turning
+fragmented readings into one coherent, source-linked experience.
 
 ## Inspiration
 
@@ -36,16 +39,23 @@ very few places devoted entirely to remembering who we are. Omyear is for reflec
 curious people who find meaning in both structured knowledge and symbolism. It can be
 a gift that says “I believe in you,” or a gift we choose for ourselves.
 
+Most self-discovery readings are generic, fragmented, or fatalistic. They give people
+separate interpretations and leave them to connect everything on their own. Omyear
+turns five symbolic systems and a person’s chosen real-life context into one coherent,
+caring book—designed to restore perspective and agency rather than prescribe a future.
+
 ## What it does
 
-Omyear creates a personal, birthday-to-birthday book. The reader shares confirmed
-facts, goals, values, birth data, important locations and the questions that are alive
-for them now.
+Omyear is a personal interactive book for the year between birthdays—a place to
+return to for perspective, encouragement, and renewed confidence. The reader shares
+confirmed facts, goals, values, birth data, important locations and the questions
+that are alive for them now.
 
-Code calculates the four underlying symbolic systems. GPT‑5.6 brings the material
-into one coherent editorial voice. The finished experience includes a personal
-portrait, themes for the year, twelve monthly chapters, places, practices and
-reflection prompts.
+Deterministic code calculates numerology, the 22-Arcana Matrix, astrology, Human
+Design and astrocartography. GPT‑5.6 weaves only registered results and the context a
+person chooses to share into one coherent editorial voice. The finished experience
+includes a personal portrait, themes for the year, twelve monthly chapters, places,
+practices and reflection prompts.
 
 The book is designed to be revisited. It does not tell a person what must happen or
 what they must do. It offers another angle, names strengths that may have been
@@ -77,10 +87,15 @@ Cloudflare Pages serves the product, a Cloudflare Worker protects and streams th
 and Vercel runs the Node/Python backend. The private result remains in the current
 browser tab rather than a database.
 
-GPT‑5.6 is the synthesis engine inside the product. Codex was my development partner
-during Build Week. It helped separate the handmade prototype from new work, design
-strict schemas, generalize the calculation engine, implement generation and
-verification, build the bilingual flow, test it and prepare the public submission.
+GPT‑5.6 interprets and connects the registered material inside the product. Codex was
+my development partner during Build Week: it helped turn the original handmade idea
+into a working product by designing the pipeline, schemas, calculations, verification,
+interface and tests, then preparing the public submission.
+
+GPT‑5.6 matters because the difficult part is not producing one more isolated reading.
+It is finding useful connections across a large registered evidence set while keeping
+the result warm, coherent and faithful to the person. The model handles that bounded
+synthesis; code owns the calculations and verification.
 
 I kept the product and editorial decisions: symbolic systems remain prompts for
 reflection rather than scientific or predictive claims; calculations stay
@@ -89,7 +104,7 @@ work.
 
 ## Challenges
 
-The hardest challenge was preserving warmth inside clear boundaries. Four
+The hardest challenge was preserving warmth inside clear boundaries. Five
 self-discovery systems can easily become unrelated reports, and generated prose can
 sound convincing even when it has invented the person inside it. I wanted synthesis
 without fabrication and optimism without fatalism.
@@ -103,7 +118,7 @@ synthetic data, keeping every real recipient's history and photographs private.
 
 - Turned a one-off handmade gift into a repeatable questionnaire-to-book product.
 - Built a complete bilingual generation flow, not a prompt or static mock-up.
-- Combined several symbolic frameworks into one coherent narrative while keeping each
+- Combined five symbolic frameworks into one coherent narrative while keeping each
   generated claim traceable to supplied or calculated material.
 - Completed current GPT‑5.6 production runs in both English and Russian with zero
   source-link or structural errors.
@@ -146,6 +161,33 @@ Codex, GPT‑5.6 Sol, GPT‑5.6 Terra, OpenAI Responses API, Structured Outputs,
 Node.js, Python, Swiss Ephemeris, Cloudflare Workers, Cloudflare Pages, Vercel, HTML
 and CSS.
 
+## Testing instructions
+
+No account, payment, API key or real personal data is required.
+
+1. Open `https://app.omyear.com/?lang=en` for the product promise.
+2. Open `https://app.omyear.com/0811` for Maya's complete synthetic edition.
+3. Open `https://app.omyear.com/try/?lang=en`, select **Use Maya's sample**, confirm
+   permission and generate a new private result.
+4. Open `https://app.omyear.com/pipeline` and the in-book source ledger to inspect how
+   calculations, GPT‑5.6 synthesis and verification remain separated.
+
+The result stays in the current browser tab. English and Russian use the same
+pipeline. The endpoint is rate-limited to one generation per minute per IP.
+
+## Why it fits the judging criteria
+
+- **Technological Implementation:** Codex helped build a non-trivial, source-bounded
+  pipeline with deterministic calculations, parallel GPT‑5.6 Structured Outputs,
+  verification, compilation, tests and protected deployment.
+- **Design:** Omyear is a complete bilingual product experience—from questionnaire
+  and streamed progress to a responsive interactive book—not a prompt demo.
+- **Potential Impact:** it addresses a specific problem for reflective people who
+  receive generic, fragmented or fatalistic readings and want perspective without
+  surrendering agency.
+- **Quality of the Idea:** it turns five usually separate symbolic systems and a
+  person's real context into one caring, traceable book designed to be revisited.
+
 ## Repository license
 
 Omyear is published under `AGPL-3.0-or-later`, matching the license of the
@@ -159,14 +201,15 @@ Omyear is published under `AGPL-3.0-or-later`, matching the license of the
 - Synthetic Maya book: `https://app.omyear.com/0811`
 - How it works: `https://app.omyear.com/pipeline`
 - Repository: `https://github.com/valery-om/omyear`
-- YouTube: `[PUBLIC VIDEO URL]`
+- YouTube: `[ADD PUBLIC YOUTUBE URL AFTER UPLOAD]`
 - Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Gallery order
 
-1. Product promise / Omyear home.
-2. Maya's complete synthetic book.
-3. The story-to-book pipeline and verification boundary.
+1. `devpost-thumbnail-landing-final.png` — the emotional product promise.
+2. `five-systems-desktop-en.png` — the five lenses and technical boundary.
+3. `03-maya-demo.png` — Maya's complete synthetic book.
+4. `02-pipeline.png` — the story-to-book pipeline and verification boundary.
 
 ## Thumbnail
 

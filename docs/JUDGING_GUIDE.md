@@ -4,11 +4,24 @@ Thank you for spending a few minutes with Omyear.
 
 ## The idea in one sentence
 
-Omyear is a personal year book to return to whenever you need your wings back.
+Omyear is a personal interactive book for the year between birthdays—a place to return
+to for perspective, encouragement and renewed confidence.
 
-It turns a person's story and several symbolic self-discovery systems into one warm,
-interactive book for the year between birthdays. It is a reflection companion, not a
-prediction or instruction.
+It brings five symbolic self-discovery systems together with a person's real context,
+turning fragmented readings into one coherent, source-linked experience. It is a
+reflection companion, not a prediction or instruction.
+
+## Why it fits the four judging criteria
+
+- **Technological Implementation:** inspect the seven-stage pipeline, strict schemas,
+  deterministic calculation engine, parallel GPT‑5.6 Structured Outputs, verifier,
+  tests and visible source ledger.
+- **Design:** move from the bilingual questionnaire through streamed progress into a
+  complete responsive book. This is a working product experience, not a prompt demo.
+- **Potential Impact:** Omyear serves reflective people who want perspective and
+  encouragement but are poorly served by generic, fragmented or fatalistic readings.
+- **Quality of the Idea:** five symbolic systems and a person's chosen real-life
+  context become one coherent keepsake designed to be revisited throughout the year.
 
 ## Fastest path — about three minutes
 
@@ -67,3 +80,4 @@ See [`BUILD_WEEK_CHANGELOG.md`](BUILD_WEEK_CHANGELOG.md) for the exact boundary 
 - Maya demo: <https://app.omyear.com/0811>
 - Pipeline: <https://app.omyear.com/pipeline>
 - Repository: <https://github.com/valery-om/omyear>
+- Primary Codex Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
