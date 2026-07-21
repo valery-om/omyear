@@ -1,4 +1,4 @@
-# Omyear demo video — target 2:40
+# Omyear demo video — target 2:42
 
 Record in English. Use only synthetic Maya. Speak naturally and leave a few seconds
 for the interface to breathe. No background music is needed.
@@ -14,16 +14,18 @@ The exact click-by-click recording plan is in
 > more than a birthday message—a place she could return to on a difficult day and
 > remember her strengths, her possibilities, and that someone believes in her.
 
-## 0:22–0:42 — What it is
+## 0:22–0:45 — What it is
 
-**Screen:** Open Maya's cover and table of contents.
+**Screen:** Scroll through **Not a generic reading** into **Five systems · one book
+for the year**. Let the five cards and the code / GPT‑5.6 / source-check strip settle,
+then cut to Maya's cover.
 
 > Omyear is an interactive personal book for the year between birthdays. It brings a
 > person's real context together with numerology, the 22-Arcana Matrix, astrology,
 > Human Design and astrocartography. Five separate readings become one warm,
 > source-linked experience for reflection and encouragement, not prediction.
 
-## 0:42–1:04 — A person before a prompt
+## 0:45–1:05 — A person before a prompt
 
 **Screen:** Open `/try`; use Maya's sample and briefly show the filled questionnaire.
 
@@ -31,7 +33,7 @@ The exact click-by-click recording plan is in
 > birth data, important places and a message of care. Maya is entirely synthetic, and
 > the model is not allowed to invent a biography beyond this material.
 
-## 1:04–1:34 — GPT‑5.6 inside clear boundaries
+## 1:05–1:35 — GPT‑5.6 inside clear boundaries
 
 **Screen:** Start generation, then open `/pipeline` while progress runs.
 
@@ -41,7 +43,7 @@ The exact click-by-click recording plan is in
 > checks reject unknown citations, altered values and incomplete chapters, and a human
 > still keeps the final word.
 
-## 1:34–2:03 — The experience
+## 1:35–2:03 — The experience
 
 **Screen:** Browse Maya's portrait, year theme, two monthly chapters, a practice and
 the places section. Do not scroll too quickly.
@@ -60,7 +62,7 @@ the places section. Do not scroll too quickly.
 > is inspectable, and one cross-framework passage remains visibly marked for human
 > review instead of being silently approved.
 
-## 2:23–2:40 — Codex and close
+## 2:23–2:42 — Codex and close
 
 **Screen:** Show the repository README at **How Codex contributed** or a sanitized
 Codex Build Week task, then return to the home hero.
@@ -71,7 +73,8 @@ Codex Build Week task, then return to the home hero.
 
 ## Recording checklist
 
-- Keep the final public YouTube video under three minutes.
+- Keep the final public YouTube video under three minutes and set its visibility to
+  **Public** before adding it to Devpost.
 - Use spoken English audio and reviewed English captions.
 - Show both Codex's development contribution and GPT‑5.6's product role explicitly.
 - Keep the Codex contribution visible on screen while it is described.

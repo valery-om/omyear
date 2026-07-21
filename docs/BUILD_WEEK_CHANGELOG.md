@@ -33,6 +33,8 @@ included in this repository.
    generation path.
 10. Reproducible offline E2E tests, responsive browser QA, security audits and this
     sanitized public repository.
+11. A bilingual human-first landing page that separates the emotional promise, five
+    symbolic lenses, deterministic code, GPT‑5.6 synthesis and source verification.
 
 ## Why the extension is meaningful
 

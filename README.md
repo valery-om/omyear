@@ -146,8 +146,8 @@ node --env-file=.env.local pipeline/run.mjs \
 
 ## Submission gallery
 
-- [`devpost-thumbnail-landing-final.png`](docs/screenshots/devpost-thumbnail-landing-final.png) — recommended 3:2 thumbnail;
-- [`01-product-home.png`](docs/screenshots/01-product-home.png) — product promise;
+- [`devpost-thumbnail-landing-final.png`](docs/screenshots/devpost-thumbnail-landing-final.png) — recommended 3:2 thumbnail and product promise;
+- [`five-systems-desktop-en.png`](docs/screenshots/five-systems-desktop-en.png) — five lenses and the code/model/source boundary;
 - [`03-maya-demo.png`](docs/screenshots/03-maya-demo.png) — synthetic generated book;
 - [`02-pipeline.png`](docs/screenshots/02-pipeline.png) — sequential algorithm.
 

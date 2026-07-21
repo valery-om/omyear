@@ -1,6 +1,6 @@
 # Omyear screencast runbook
 
-Target duration: **2:45–2:55**. Record in English at 1920×1080 with browser zoom at
+Target duration: **2:42–2:52**. Record in English at 1920×1080 with browser zoom at
 100%. Use the production site and synthetic Maya only.
 
 This is an edited screen recording, not one continuous take. Record the five clips
@@ -23,29 +23,32 @@ cursor still whenever the viewer needs to read.
 6. Make one silent rehearsal. Aim for calm movement and 125–135 spoken words per
    minute.
 
-## Clip 1 — the promise
+## Clip 1 — the promise and the five lenses
 
-### 0:00–0:23
+### 0:00–0:30
 
 **Start:** `https://app.omyear.com/?lang=en`, at the top of the page.
 
 **Actions**
 
 1. Hold the hero still for three seconds.
-2. At 0:12, scroll down just enough to reveal **Made from you / Made to keep / Made
-   with care / Made for reflection**.
-3. At 0:20, cut to the next clip. Do not click a CTA in this take.
+2. At 0:10, scroll through **Made from you / Made to keep / Made with care / Made for
+   reflection** and **Not a generic reading**.
+3. At 0:18, continue to **Five systems · one book for the year**.
+4. Pause on the five cards and the **Calculated by code / Woven by GPT‑5.6 / Checked
+   against sources** strip.
+5. At 0:30, cut to the next clip. Do not click a CTA in this take.
 
 **Narration**
 
 > I made the first Omyear for my best friend, who lives far away. I wanted her to
 > have more than a birthday message: a beautiful place she could return to on a
 > difficult day and remember her strengths, her possibilities, and that someone
-> believes in her.
+> believes in her. That promise comes before the technology.
 
 ## Clip 2 — the book people return to
 
-### 0:23–0:58
+### 0:30–1:00
 
 **Start:** `https://app.omyear.com/0811`, on Maya's cover.
 
@@ -68,7 +71,7 @@ cursor still whenever the viewer needs to read.
 
 ## Clip 3 — from a person to GPT‑5.6
 
-### 0:58–1:38
+### 1:00–1:38
 
 **Start:** `https://app.omyear.com/try/?lang=en`, at the top of the questionnaire.
 
@@ -122,7 +125,7 @@ cursor still whenever the viewer needs to read.
 
 ## Clip 5 — Codex and the close
 
-### 2:22–2:50
+### 2:22–2:48
 
 **Start:** the public GitHub README at **How Codex contributed**.
 
@@ -149,5 +152,5 @@ cursor still whenever the viewer needs to read.
 - Remove the live-generation wait, but keep the click and several seconds of progress.
 - Do not expose API keys, billing pages, personal tabs, local paths or recipient data.
 - Do not use copyrighted music. Silence under the voice is appropriate for Omyear.
-- Export at 1080p, upload as **Public** or **Unlisted**, and test the link while logged
+- Export at 1080p, upload as **Public**, and test the link while logged
   out before adding it to Devpost.

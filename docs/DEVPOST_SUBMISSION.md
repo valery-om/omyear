@@ -1,6 +1,8 @@
 # Devpost submission copy
 
-Copy-ready English text for the OpenAI Build Week submission.
+Copy-ready English text for the OpenAI Build Week submission. This copy is grounded
+in the founder interview and should receive one final read-aloud pass before it is
+submitted, so the finished entry still sounds unmistakably like Valeria.
 
 ## Project name
 
@@ -10,7 +12,7 @@ Omyear
 
 A personal year book to return to whenever you need your wings back.
 
-## Track
+## Category / track
 
 Apps for Your Life
 
@@ -90,6 +92,11 @@ my development partner during Build Week: it helped turn the original handmade i
 into a working product by designing the pipeline, schemas, calculations, verification,
 interface and tests, then preparing the public submission.
 
+GPT‑5.6 matters because the difficult part is not producing one more isolated reading.
+It is finding useful connections across a large registered evidence set while keeping
+the result warm, coherent and faithful to the person. The model handles that bounded
+synthesis; code owns the calculations and verification.
+
 I kept the product and editorial decisions: symbolic systems remain prompts for
 reflection rather than scientific or predictive claims; calculations stay
 deterministic; the public person is synthetic; and the model never approves its own
@@ -154,6 +161,33 @@ Codex, GPT‑5.6 Sol, GPT‑5.6 Terra, OpenAI Responses API, Structured Outputs,
 Node.js, Python, Swiss Ephemeris, Cloudflare Workers, Cloudflare Pages, Vercel, HTML
 and CSS.
 
+## Testing instructions
+
+No account, payment, API key or real personal data is required.
+
+1. Open `https://app.omyear.com/?lang=en` for the product promise.
+2. Open `https://app.omyear.com/0811` for Maya's complete synthetic edition.
+3. Open `https://app.omyear.com/try/?lang=en`, select **Use Maya's sample**, confirm
+   permission and generate a new private result.
+4. Open `https://app.omyear.com/pipeline` and the in-book source ledger to inspect how
+   calculations, GPT‑5.6 synthesis and verification remain separated.
+
+The result stays in the current browser tab. English and Russian use the same
+pipeline. The endpoint is rate-limited to one generation per minute per IP.
+
+## Why it fits the judging criteria
+
+- **Technological Implementation:** Codex helped build a non-trivial, source-bounded
+  pipeline with deterministic calculations, parallel GPT‑5.6 Structured Outputs,
+  verification, compilation, tests and protected deployment.
+- **Design:** Omyear is a complete bilingual product experience—from questionnaire
+  and streamed progress to a responsive interactive book—not a prompt demo.
+- **Potential Impact:** it addresses a specific problem for reflective people who
+  receive generic, fragmented or fatalistic readings and want perspective without
+  surrendering agency.
+- **Quality of the Idea:** it turns five usually separate symbolic systems and a
+  person's real context into one caring, traceable book designed to be revisited.
+
 ## Repository license
 
 Omyear is published under `AGPL-3.0-or-later`, matching the license of the
@@ -167,14 +201,15 @@ Omyear is published under `AGPL-3.0-or-later`, matching the license of the
 - Synthetic Maya book: `https://app.omyear.com/0811`
 - How it works: `https://app.omyear.com/pipeline`
 - Repository: `https://github.com/valery-om/omyear`
-- YouTube: `[PUBLIC VIDEO URL]`
+- YouTube: `[ADD PUBLIC YOUTUBE URL AFTER UPLOAD]`
 - Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Gallery order
 
-1. Product promise / Omyear home.
-2. Maya's complete synthetic book.
-3. The story-to-book pipeline and verification boundary.
+1. `devpost-thumbnail-landing-final.png` — the emotional product promise.
+2. `five-systems-desktop-en.png` — the five lenses and technical boundary.
+3. `03-maya-demo.png` — Maya's complete synthetic book.
+4. `02-pipeline.png` — the story-to-book pipeline and verification boundary.
 
 ## Thumbnail
 

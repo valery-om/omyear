@@ -11,6 +11,18 @@ It brings five symbolic self-discovery systems together with a person's real con
 turning fragmented readings into one coherent, source-linked experience. It is a
 reflection companion, not a prediction or instruction.
 
+## Why it fits the four judging criteria
+
+- **Technological Implementation:** inspect the seven-stage pipeline, strict schemas,
+  deterministic calculation engine, parallel GPT‑5.6 Structured Outputs, verifier,
+  tests and visible source ledger.
+- **Design:** move from the bilingual questionnaire through streamed progress into a
+  complete responsive book. This is a working product experience, not a prompt demo.
+- **Potential Impact:** Omyear serves reflective people who want perspective and
+  encouragement but are poorly served by generic, fragmented or fatalistic readings.
+- **Quality of the Idea:** five symbolic systems and a person's chosen real-life
+  context become one coherent keepsake designed to be revisited throughout the year.
+
 ## Fastest path — about three minutes
 
 ### 1. Meet the product
@@ -68,3 +80,4 @@ See [`BUILD_WEEK_CHANGELOG.md`](BUILD_WEEK_CHANGELOG.md) for the exact boundary 
 - Maya demo: <https://app.omyear.com/0811>
 - Pipeline: <https://app.omyear.com/pipeline>
 - Repository: <https://github.com/valery-om/omyear>
+- Primary Codex Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
