@@ -13,6 +13,7 @@ import { requestOpenAI } from "../lib/openai-provider.mjs";
 import { calculationForSegment, DRAFT_SEGMENTS, mergeDraftSegments, mergeSegmentMetadata, schemaForSegment } from "../lib/segment-draft.mjs";
 import { validateInput } from "../lib/validate.mjs";
 import { verifyDraft } from "../lib/verify.mjs";
+import { PRODUCTION_EDITORIAL_MODEL } from "../../api/generate.mjs";
 
 const pipelineDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const projectRoot = path.dirname(pipelineDir);
@@ -150,6 +151,10 @@ test("segment metadata retains the token details needed for cost auditing", () =
     reasoning_tokens: 13,
     total_tokens: 430,
   });
+});
+
+test("production generation uses the cost-controlled GPT-5.6 tier", () => {
+  assert.equal(PRODUCTION_EDITORIAL_MODEL, "gpt-5.6-luna");
 });
 
 test("OpenAI requests enforce the output cap and a stable prompt cache bucket", async () => {

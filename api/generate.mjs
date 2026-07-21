@@ -17,6 +17,7 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const draftSchema = JSON.parse(fs.readFileSync(path.join(root, "pipeline/schemas/draft.schema.json"), "utf8"));
 const encoder = new TextEncoder();
 const MAX_BODY_BYTES = 64 * 1024;
+export const PRODUCTION_EDITORIAL_MODEL = "gpt-5.6-luna";
 
 function authorized(request) {
   const expected = process.env.BACKEND_SHARED_SECRET || "";
@@ -97,7 +98,7 @@ export default {
                 segment,
                 segmentCalculation.sources.map((source) => source.id),
               ),
-              model: "gpt-5.6-terra",
+              model: PRODUCTION_EDITORIAL_MODEL,
               safetySeed: `${requestId}:${segment.name}`,
               promptCacheKey: `omyear:${segment.name}:v1`,
             });

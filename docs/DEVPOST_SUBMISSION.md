@@ -74,7 +74,7 @@ browser tab.
 
 An Astro website presents the book. Behind it, Python and Swiss Ephemeris handle
 astronomical calculations while Node.js orchestrates the run, builds an immutable
-source registry and calls the OpenAI Responses API. Three parallel `gpt-5.6-terra`
+source registry and calls the OpenAI Responses API. Three parallel `gpt-5.6-luna`
 Structured Output calls create different parts of the book. Code then merges them and
 restores exact dates, numbers, IDs and measured distances before verification.
 
