@@ -169,7 +169,7 @@ export default {
     const url = new URL(request.url);
     const requestOrigin = request.headers.get("Origin");
     const origin = allowedOrigin(requestOrigin, env);
-    const dailyLimit = positiveInteger(env.DAILY_GENERATION_LIMIT, 8);
+    const dailyLimit = positiveInteger(env.DAILY_GENERATION_LIMIT, 6);
     const duplicateWindowSeconds = positiveInteger(env.DUPLICATE_WINDOW_SECONDS, 300);
 
     if (url.pathname === "/health" && request.method === "GET") {

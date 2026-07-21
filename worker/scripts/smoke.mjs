@@ -68,12 +68,12 @@ function post(input, ip) {
 try {
   await waitUntilReady();
   const health = await fetch(`${baseUrl}/health`, { headers: { Origin: origin } }).then((response) => response.json());
-  assert.deepEqual(health.guardrails, { dailyGenerationLimit: 8, duplicateWindowSeconds: 300 });
+  assert.deepEqual(health.guardrails, { dailyGenerationLimit: 6, duplicateWindowSeconds: 300 });
 
   const baseInput = JSON.parse(fs.readFileSync(path.join(projectRoot, "pipeline", "examples", "maya.json"), "utf8"));
   const first = await post(baseInput, "192.0.2.1");
   assert.equal(first.status, 200);
-  assert.equal(first.headers.get("x-omyear-budget-remaining"), "7");
+  assert.equal(first.headers.get("x-omyear-budget-remaining"), "5");
   assert.match(await first.text(), /event: result/);
 
   const sameBook = structuredClone(baseInput);
@@ -82,7 +82,7 @@ try {
   assert.equal(duplicate.status, 429);
   assert.equal((await duplicate.json()).error, "duplicate_request");
 
-  for (let index = 2; index <= 8; index += 1) {
+  for (let index = 2; index <= 6; index += 1) {
     const uniqueInput = structuredClone(baseInput);
     uniqueInput.person.giftMessage = `${baseInput.person.giftMessage} Smoke ${index}.`;
     const response = await post(uniqueInput, `192.0.2.${index + 1}`);

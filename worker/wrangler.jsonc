@@ -9,7 +9,7 @@
     "BACKEND_URL": "https://omyear-backend.vercel.app/api/generate",
     "SITE_ORIGIN": "https://omyear.pages.dev",
     "APP_ORIGIN": "https://app.omyear.com",
-    "DAILY_GENERATION_LIMIT": "8",
+    "DAILY_GENERATION_LIMIT": "6",
     "DUPLICATE_WINDOW_SECONDS": "300"
   },
   "durable_objects": {

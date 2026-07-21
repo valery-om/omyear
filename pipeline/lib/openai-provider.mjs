@@ -29,6 +29,7 @@ export async function requestOpenAI({
   safetySeed = "omyear-demo",
   promptCacheKey = "omyear-editorial-v1",
   maxOutputTokens = Number(process.env.OPENAI_MAX_OUTPUT_TOKENS || 6_000),
+  maxPromptBytes = Number(process.env.OPENAI_MAX_PROMPT_BYTES || 48 * 1024),
   apiKey = process.env.OPENAI_API_KEY,
 }) {
   if (!apiKey) {
@@ -40,6 +41,13 @@ export async function requestOpenAI({
   const outputLimit = Number.isSafeInteger(maxOutputTokens) && maxOutputTokens > 0
     ? maxOutputTokens
     : 6_000;
+  const promptByteLimit = Number.isSafeInteger(maxPromptBytes) && maxPromptBytes > 0
+    ? maxPromptBytes
+    : 48 * 1024;
+  const promptBytes = new TextEncoder().encode(prompt).byteLength;
+  if (promptBytes > promptByteLimit) {
+    throw new Error(`OpenAI prompt exceeds the ${promptByteLimit}-byte safety limit`);
+  }
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
@@ -88,6 +96,8 @@ export async function requestOpenAI({
       createdAt: payload.created_at,
       usage: payload.usage,
       maxOutputTokens: outputLimit,
+      promptBytes,
+      maxPromptBytes: promptByteLimit,
     },
   };
 }

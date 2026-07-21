@@ -35,7 +35,7 @@ included in this repository.
     sanitized public repository.
 11. A bilingual human-first landing page that separates the emotional promise, five
     symbolic lenses, deterministic code, GPT‑5.6 synthesis and source verification.
-12. Production cost controls: capped model output, canonical duplicate detection,
+12. Production cost controls: capped prompt size and model output, canonical duplicate detection,
     per-IP throttling, a strongly consistent daily generation budget and token-only
     usage logging.
 

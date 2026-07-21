@@ -92,7 +92,7 @@ deterministic fields and verifies the complete draft. The pre-generated evidence
 remains the original single-pass `gpt-5.6-sol` run.
 
 The production path also has explicit cost guardrails: each editorial segment has a
-6,000-token output ceiling, the edge gateway accepts at most eight new books per UTC
+48 KB prompt ceiling and a 6,000-token output ceiling, while the edge gateway accepts at most six new books per UTC
 day, and a canonical request fingerprint blocks accidental duplicate generations for
 five minutes. A strongly consistent Durable Object serializes reservations before the
 backend is called, while per-IP rate limiting remains in place. Token totals, including

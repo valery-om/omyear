@@ -178,6 +178,31 @@ test("OpenAI requests enforce the output cap and a stable prompt cache bucket", 
     assert.equal(requestBody.max_output_tokens, 1234);
     assert.equal(requestBody.prompt_cache_key, "omyear:test:v1");
     assert.equal(result.metadata.maxOutputTokens, 1234);
+    assert.equal(result.metadata.promptBytes, 4);
+    assert.equal(result.metadata.maxPromptBytes, 48 * 1024);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("OpenAI requests reject oversized prompts before making a paid call", async () => {
+  const originalFetch = globalThis.fetch;
+  let called = false;
+  globalThis.fetch = async () => {
+    called = true;
+    throw new Error("fetch should not run");
+  };
+  try {
+    await assert.rejects(
+      requestOpenAI({
+        prompt: "12345",
+        schema: { type: "object", additionalProperties: false, properties: {} },
+        apiKey: "test-key",
+        maxPromptBytes: 4,
+      }),
+      /prompt exceeds the 4-byte safety limit/,
+    );
+    assert.equal(called, false);
   } finally {
     globalThis.fetch = originalFetch;
   }
