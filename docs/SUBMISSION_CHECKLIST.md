@@ -9,12 +9,9 @@ requires a Devpost or YouTube action.
 
 ## Critical remaining actions
 
-1. Record and upload the narrated demo to YouTube with **Public** visibility.
-2. Add the YouTube URL to Devpost and replace the placeholder in
-   `DEVPOST_SUBMISSION.md`.
-3. Copy the final fields, upload the four gallery images and submit before the
+1. Copy the final fields, upload the four gallery images and submit before the
    deadline.
-4. Open every submitted link while logged out and make one final founder-voice pass.
+2. Open every submitted link while logged out and make one final founder-voice pass.
 
 ## Devpost project
 
@@ -31,20 +28,20 @@ requires a Devpost or YouTube action.
 - [x] Product: <https://app.omyear.com/?lang=en>
 - [x] Judge test: <https://app.omyear.com/try/?lang=en>
 - [x] Public repository: <https://github.com/valery-om/omyear>
-- [ ] Public YouTube video under three minutes: `[ADD PUBLIC URL]`
+- [x] Public YouTube video under three minutes: <https://www.youtube.com/watch?v=g9BOvbGKLz0>
 - [x] Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Video
 
-- [ ] Shows the working product
-- [ ] Follows the click sequence in `docs/SCREENCAST_RUNBOOK.md`
-- [ ] Includes spoken audio explaining the project
-- [ ] Explicitly explains how GPT‑5.6 is used inside Omyear
-- [ ] Explicitly explains how Codex helped build Omyear
-- [ ] Uses only synthetic Maya data
-- [ ] Contains no copyrighted music, private tabs, secrets or local paths
-- [ ] Publicly visible and tested while logged out of YouTube
-- [ ] Reviewed English captions enabled
+- [x] Shows the working product
+- [x] Follows the click sequence in `docs/SCREENCAST_RUNBOOK.md`
+- [x] Includes spoken audio explaining the project
+- [x] Explicitly explains how GPT‑5.6 is used inside Omyear
+- [x] Explicitly explains how Codex helped build Omyear
+- [x] Uses only synthetic Maya data
+- [x] Contains no copyrighted music, private tabs, secrets or local paths
+- [x] Publicly visible and tested through YouTube's unauthenticated oEmbed endpoint
+- [x] Reviewed English captions uploaded and published in YouTube Studio
 
 ## Repository
 

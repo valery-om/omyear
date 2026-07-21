@@ -204,7 +204,7 @@ Omyear is published under `AGPL-3.0-or-later`, matching the license of the
 - Synthetic Maya book: `https://app.omyear.com/0811`
 - How it works: `https://app.omyear.com/pipeline`
 - Repository: `https://github.com/valery-om/omyear`
-- YouTube: `[ADD PUBLIC YOUTUBE URL AFTER UPLOAD]`
+- YouTube: `https://www.youtube.com/watch?v=g9BOvbGKLz0`
 - Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Gallery order

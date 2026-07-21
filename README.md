@@ -29,10 +29,11 @@ or production data.
 
 No account, payment or private data is required.
 
-1. Open the [product](https://app.omyear.com/?lang=en) to understand the promise.
-2. Read [Maya's Omyear](https://app.omyear.com/0811), a complete synthetic edition.
-3. Use [Create yours](https://app.omyear.com/try/?lang=en) to test the bilingual live flow.
-4. Inspect [How it works](https://app.omyear.com/pipeline) and the in-book source ledger.
+1. Watch the [2:57 product demo](https://www.youtube.com/watch?v=g9BOvbGKLz0).
+2. Open the [product](https://app.omyear.com/?lang=en) to understand the promise.
+3. Read [Maya's Omyear](https://app.omyear.com/0811), a complete synthetic edition.
+4. Use [Create yours](https://app.omyear.com/try/?lang=en) to test the bilingual live flow.
+5. Inspect [How it works](https://app.omyear.com/pipeline) and the in-book source ledger.
 
 Detailed judge instructions are in
 [`docs/JUDGING_GUIDE.md`](docs/JUDGING_GUIDE.md). Local setup takes four commands below.
@@ -160,6 +161,8 @@ node --env-file=.env.local pipeline/run.mjs \
 
 ## Submission materials
 
+- [Public demo video](https://www.youtube.com/watch?v=g9BOvbGKLz0) — the final
+  under-three-minute OpenAI Build Week walkthrough;
 - [`docs/DEVPOST_SUBMISSION.md`](docs/DEVPOST_SUBMISSION.md) — copy-ready project story;
 - [`docs/JUDGING_GUIDE.md`](docs/JUDGING_GUIDE.md) — the shortest path through the product;
 - [`docs/VIDEO_SCRIPT.md`](docs/VIDEO_SCRIPT.md) — the under-three-minute demo script;
