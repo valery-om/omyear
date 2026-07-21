@@ -160,7 +160,7 @@ Omyear is published under `AGPL-3.0-or-later`, matching the license of the
 - How it works: `https://app.omyear.com/pipeline`
 - Repository: `https://github.com/valery-om/omyear`
 - YouTube: `[PUBLIC VIDEO URL]`
-- Codex `/feedback` Session ID: `[SESSION ID]`
+- Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Gallery order
 
