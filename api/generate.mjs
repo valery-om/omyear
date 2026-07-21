@@ -99,6 +99,7 @@ export default {
               ),
               model: "gpt-5.6-terra",
               safetySeed: `${requestId}:${segment.name}`,
+              promptCacheKey: `omyear:${segment.name}:v1`,
             });
             completedSegments += 1;
             event(controller, "progress", { stage: "writing", progress: 42 + completedSegments * 14, completedSegments, totalSegments: DRAFT_SEGMENTS.length });
@@ -108,7 +109,13 @@ export default {
           const modelDraft = mergeDraftSegments(segmentResults);
           const metadata = mergeSegmentMetadata(segmentResults);
           const draft = hydrateDraft(modelDraft, calculation);
-          console.info(JSON.stringify({ requestId, status: "drafted", elapsedMs: Date.now() - startedAt, model: metadata.model }));
+          console.info(JSON.stringify({
+            requestId,
+            status: "drafted",
+            elapsedMs: Date.now() - startedAt,
+            model: metadata.model,
+            usage: metadata.usage,
+          }));
 
           event(controller, "progress", { stage: "verifying", progress: 88 });
           const verification = verifyDraft(draft, calculation);

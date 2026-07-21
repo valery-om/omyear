@@ -15,9 +15,11 @@ The public experience requires no account, payment or private information.
    flow.
 8. Open <https://app.omyear.com/pipeline> for the seven-stage implementation view.
 
-The live endpoint is rate-limited to one generation per minute per IP. Allow up to
-three minutes for a complete book. Questionnaire and result data remain in the current
-tab and are not written to a database.
+The live endpoint is rate-limited to one generation per minute per IP and eight new
+books per UTC day. Identical submissions are held for five minutes to prevent a double
+click from paying twice, and each of the three editorial segments has a 6,000-token
+output ceiling. Allow up to three minutes for a complete book. Questionnaire and result
+data remain in the current tab and are not written to a database.
 
 ## What a successful run demonstrates
 
@@ -45,10 +47,11 @@ Open <http://localhost:4321>.
 
 `npm run check` performs:
 
-- eight deterministic pipeline assertions;
+- ten deterministic pipeline and API-contract assertions;
 - the full offline questionnaire-to-book fixture run;
 - an Astro production build;
 - Cloudflare Worker type-check and deploy dry-run;
+- a local Worker smoke test covering the daily budget and duplicate guard;
 - a public-repository secret, PII and private-file audit;
 - dependency security audits for the root and web packages.
 

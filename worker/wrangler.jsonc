@@ -8,7 +8,17 @@
   "vars": {
     "BACKEND_URL": "https://omyear-backend.vercel.app/api/generate",
     "SITE_ORIGIN": "https://omyear.pages.dev",
-    "APP_ORIGIN": "https://app.omyear.com"
+    "APP_ORIGIN": "https://app.omyear.com",
+    "DAILY_GENERATION_LIMIT": "8",
+    "DUPLICATE_WINDOW_SECONDS": "300"
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "GENERATION_GUARD", "class_name": "GenerationGuard" }
+    ]
+  },
+  "exports": {
+    "GenerationGuard": { "type": "durable-object", "storage": "sqlite" }
   },
   "ratelimits": [
     {

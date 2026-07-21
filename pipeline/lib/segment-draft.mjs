@@ -44,6 +44,10 @@ export function mergeDraftSegments(results) {
 export function mergeSegmentMetadata(results) {
   const usages = results.map((result) => result.metadata.usage || {});
   const sum = (key) => usages.reduce((total, usage) => total + Number(usage[key] || 0), 0);
+  const nestedSum = (parent, key) => usages.reduce(
+    (total, usage) => total + Number(usage[parent]?.[key] || 0),
+    0,
+  );
   return {
     responseId: results[0]?.metadata.responseId ?? null,
     responseIds: results.map((result) => result.metadata.responseId).filter(Boolean),
@@ -52,7 +56,9 @@ export function mergeSegmentMetadata(results) {
     createdAt: results.map((result) => result.metadata.createdAt).filter(Boolean).sort()[0] ?? null,
     usage: {
       input_tokens: sum("input_tokens"),
+      cached_input_tokens: nestedSum("input_tokens_details", "cached_tokens"),
       output_tokens: sum("output_tokens"),
+      reasoning_tokens: nestedSum("output_tokens_details", "reasoning_tokens"),
       total_tokens: sum("total_tokens"),
     },
   };

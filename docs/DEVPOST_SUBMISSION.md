@@ -85,7 +85,10 @@ the original handmade editions.
 
 Cloudflare Pages serves the product, a Cloudflare Worker protects and streams the API,
 and Vercel runs the Node/Python backend. The private result remains in the current
-browser tab rather than a database.
+browser tab rather than a database. Before any paid model call, a strongly consistent
+edge guard reserves one of eight daily live-generation slots and rejects accidental
+duplicates. Each of the three editorial calls also has a 6,000-token output ceiling,
+so the public demo cannot create an unbounded API bill.
 
 GPT‑5.6 interprets and connects the registered material inside the product. Codex was
 my development partner during Build Week: it helped turn the original handmade idea

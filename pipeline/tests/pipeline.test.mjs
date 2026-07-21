@@ -9,7 +9,8 @@ import { generateFixtureDraft } from "../lib/fixture-provider.mjs";
 import { hydrateDraft } from "../lib/hydrate-draft.mjs";
 import { compileBook } from "../lib/compile-book.mjs";
 import { buildDraftPrompt } from "../lib/prompt.mjs";
-import { calculationForSegment, DRAFT_SEGMENTS, mergeDraftSegments, schemaForSegment } from "../lib/segment-draft.mjs";
+import { requestOpenAI } from "../lib/openai-provider.mjs";
+import { calculationForSegment, DRAFT_SEGMENTS, mergeDraftSegments, mergeSegmentMetadata, schemaForSegment } from "../lib/segment-draft.mjs";
 import { validateInput } from "../lib/validate.mjs";
 import { verifyDraft } from "../lib/verify.mjs";
 
@@ -135,4 +136,49 @@ test("parallel draft segments cover the complete strict schema", () => {
     return { draft: Object.fromEntries(segment.keys.map((key) => [key, fixture[key]])) };
   });
   assert.deepEqual(mergeDraftSegments(results), fixture);
+});
+
+test("segment metadata retains the token details needed for cost auditing", () => {
+  const metadata = mergeSegmentMetadata([
+    { metadata: { responseId: "one", model: "gpt-5.6-terra", status: "completed", createdAt: 1, usage: { input_tokens: 100, input_tokens_details: { cached_tokens: 40 }, output_tokens: 50, output_tokens_details: { reasoning_tokens: 5 }, total_tokens: 150 } } },
+    { metadata: { responseId: "two", model: "gpt-5.6-terra", status: "completed", createdAt: 2, usage: { input_tokens: 200, input_tokens_details: { cached_tokens: 70 }, output_tokens: 80, output_tokens_details: { reasoning_tokens: 8 }, total_tokens: 280 } } },
+  ]);
+  assert.deepEqual(metadata.usage, {
+    input_tokens: 300,
+    cached_input_tokens: 110,
+    output_tokens: 130,
+    reasoning_tokens: 13,
+    total_tokens: 430,
+  });
+});
+
+test("OpenAI requests enforce the output cap and a stable prompt cache bucket", async () => {
+  const originalFetch = globalThis.fetch;
+  let requestBody;
+  globalThis.fetch = async (_url, options) => {
+    requestBody = JSON.parse(options.body);
+    return new Response(JSON.stringify({
+      id: "resp_test",
+      model: "gpt-5.6-terra",
+      status: "completed",
+      created_at: 1,
+      output_text: "{}",
+      usage: { input_tokens: 10, output_tokens: 5, total_tokens: 15 },
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  };
+  try {
+    const result = await requestOpenAI({
+      prompt: "test",
+      schema: { type: "object", additionalProperties: false, properties: {} },
+      model: "gpt-5.6-terra",
+      apiKey: "test-key",
+      maxOutputTokens: 1234,
+      promptCacheKey: "omyear:test:v1",
+    });
+    assert.equal(requestBody.max_output_tokens, 1234);
+    assert.equal(requestBody.prompt_cache_key, "omyear:test:v1");
+    assert.equal(result.metadata.maxOutputTokens, 1234);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });

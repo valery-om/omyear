@@ -27,6 +27,8 @@ export async function requestOpenAI({
   schema,
   model = "gpt-5.6-sol",
   safetySeed = "omyear-demo",
+  promptCacheKey = "omyear-editorial-v1",
+  maxOutputTokens = Number(process.env.OPENAI_MAX_OUTPUT_TOKENS || 6_000),
   apiKey = process.env.OPENAI_API_KEY,
 }) {
   if (!apiKey) {
@@ -35,6 +37,9 @@ export async function requestOpenAI({
 
   const { $schema: _schemaDialect, title: _schemaTitle, ...apiSchema } = schema;
   const safetyIdentifier = crypto.createHash("sha256").update(safetySeed).digest("hex");
+  const outputLimit = Number.isSafeInteger(maxOutputTokens) && maxOutputTokens > 0
+    ? maxOutputTokens
+    : 6_000;
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
@@ -44,6 +49,8 @@ export async function requestOpenAI({
     body: JSON.stringify({
       model,
       input: prompt,
+      max_output_tokens: outputLimit,
+      prompt_cache_key: promptCacheKey,
       safety_identifier: safetyIdentifier,
       reasoning: { effort: "low" },
       text: {
@@ -80,6 +87,7 @@ export async function requestOpenAI({
       status: payload.status,
       createdAt: payload.created_at,
       usage: payload.usage,
+      maxOutputTokens: outputLimit,
     },
   };
 }
