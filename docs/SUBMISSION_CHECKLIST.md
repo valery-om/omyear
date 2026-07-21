@@ -20,7 +20,7 @@ Official requirements: <https://openai.devpost.com/rules>
 - [ ] Judge test: <https://app.omyear.com/try/?lang=en>
 - [ ] Public repository: <https://github.com/valery-om/omyear>
 - [ ] Public YouTube video under three minutes: `[ADD URL]`
-- [ ] Codex `/feedback` Session ID: `[ADD ID]`
+- [x] Codex `/feedback` Session ID: `019f7e5e-e8c5-7b92-8071-156ffe666acf`
 
 ## Video
 
