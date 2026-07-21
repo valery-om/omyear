@@ -61,10 +61,10 @@ cursor still whenever the viewer needs to read.
 **Narration**
 
 > Omyear is an interactive personal book for the year between birthdays. It brings a
-> person's story and four symbolic traditions into one warm narrative: a portrait,
-> themes for the year, twelve chapters, places, and small practices. Maya is entirely
-> fictional. The book offers perspective and encouragement; it never tells someone
-> what must happen.
+> person's real context together with five symbolic systems: numerology, the
+> 22-Arcana Matrix, astrology, Human Design, and astrocartography. One coherent book
+> replaces five fragmented readings. Maya is entirely fictional. The book offers
+> perspective and encouragement; it never tells someone what must happen.
 
 ## Clip 3 — from a person to GPT‑5.6
 
@@ -151,4 +151,3 @@ cursor still whenever the viewer needs to read.
 - Do not use copyrighted music. Silence under the voice is appropriate for Omyear.
 - Export at 1080p, upload as **Public** or **Unlisted**, and test the link while logged
   out before adding it to Devpost.
-

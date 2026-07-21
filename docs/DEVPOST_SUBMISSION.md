@@ -16,9 +16,10 @@ Apps for Your Life
 
 ## Short description
 
-Omyear turns a person's story and four symbolic self-discovery systems into a
-beautiful, interactive book for the year between birthdays—a calm place to return to
-for perspective, care and courage.
+Omyear is a personal interactive book for the year between birthdays—a place to
+return to for perspective, encouragement, and renewed confidence. It brings five
+symbolic self-discovery systems together with a person’s real context, turning
+fragmented readings into one coherent, source-linked experience.
 
 ## Inspiration
 
@@ -36,16 +37,23 @@ very few places devoted entirely to remembering who we are. Omyear is for reflec
 curious people who find meaning in both structured knowledge and symbolism. It can be
 a gift that says “I believe in you,” or a gift we choose for ourselves.
 
+Most self-discovery readings are generic, fragmented, or fatalistic. They give people
+separate interpretations and leave them to connect everything on their own. Omyear
+turns five symbolic systems and a person’s chosen real-life context into one coherent,
+caring book—designed to restore perspective and agency rather than prescribe a future.
+
 ## What it does
 
-Omyear creates a personal, birthday-to-birthday book. The reader shares confirmed
-facts, goals, values, birth data, important locations and the questions that are alive
-for them now.
+Omyear is a personal interactive book for the year between birthdays—a place to
+return to for perspective, encouragement, and renewed confidence. The reader shares
+confirmed facts, goals, values, birth data, important locations and the questions
+that are alive for them now.
 
-Code calculates the four underlying symbolic systems. GPT‑5.6 brings the material
-into one coherent editorial voice. The finished experience includes a personal
-portrait, themes for the year, twelve monthly chapters, places, practices and
-reflection prompts.
+Deterministic code calculates numerology, the 22-Arcana Matrix, astrology, Human
+Design and astrocartography. GPT‑5.6 weaves only registered results and the context a
+person chooses to share into one coherent editorial voice. The finished experience
+includes a personal portrait, themes for the year, twelve monthly chapters, places,
+practices and reflection prompts.
 
 The book is designed to be revisited. It does not tell a person what must happen or
 what they must do. It offers another angle, names strengths that may have been
@@ -77,10 +85,10 @@ Cloudflare Pages serves the product, a Cloudflare Worker protects and streams th
 and Vercel runs the Node/Python backend. The private result remains in the current
 browser tab rather than a database.
 
-GPT‑5.6 is the synthesis engine inside the product. Codex was my development partner
-during Build Week. It helped separate the handmade prototype from new work, design
-strict schemas, generalize the calculation engine, implement generation and
-verification, build the bilingual flow, test it and prepare the public submission.
+GPT‑5.6 interprets and connects the registered material inside the product. Codex was
+my development partner during Build Week: it helped turn the original handmade idea
+into a working product by designing the pipeline, schemas, calculations, verification,
+interface and tests, then preparing the public submission.
 
 I kept the product and editorial decisions: symbolic systems remain prompts for
 reflection rather than scientific or predictive claims; calculations stay
@@ -89,7 +97,7 @@ work.
 
 ## Challenges
 
-The hardest challenge was preserving warmth inside clear boundaries. Four
+The hardest challenge was preserving warmth inside clear boundaries. Five
 self-discovery systems can easily become unrelated reports, and generated prose can
 sound convincing even when it has invented the person inside it. I wanted synthesis
 without fabrication and optimism without fatalism.
@@ -103,7 +111,7 @@ synthetic data, keeping every real recipient's history and photographs private.
 
 - Turned a one-off handmade gift into a repeatable questionnaire-to-book product.
 - Built a complete bilingual generation flow, not a prompt or static mock-up.
-- Combined several symbolic frameworks into one coherent narrative while keeping each
+- Combined five symbolic frameworks into one coherent narrative while keeping each
   generated claim traceable to supplied or calculated material.
 - Completed current GPT‑5.6 production runs in both English and Russian with zero
   source-link or structural errors.

@@ -19,8 +19,9 @@ The exact click-by-click recording plan is in
 **Screen:** Open Maya's cover and table of contents.
 
 > Omyear is an interactive personal book for the year between birthdays. It brings a
-> person's story and several symbolic self-discovery systems into one warm narrative.
-> It is made for reflection and encouragement, not prediction.
+> person's real context together with numerology, the 22-Arcana Matrix, astrology,
+> Human Design and astrocartography. Five separate readings become one warm,
+> source-linked experience for reflection and encouragement, not prediction.
 
 ## 0:42–1:04 — A person before a prompt
 
@@ -34,7 +35,7 @@ The exact click-by-click recording plan is in
 
 **Screen:** Start generation, then open `/pipeline` while progress runs.
 
-> Code calculates the underlying systems and gives every input and result a stable
+> Code calculates the five underlying systems and gives every input and result a stable
 > source ID. GPT‑5.6 receives only the relevant records and a strict schema, then
 > synthesizes the different perspectives into one editorial voice. Deterministic
 > checks reject unknown citations, altered values and incomplete chapters, and a human
