@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-07-21T18:52:17Z",
+  "productionUrl": "https://app.omyear.com/try",
+  "syntheticPerson": "Maya",
+  "language": "en",
+  "requestId": "d3d82225-b54b-4b8a-8e8d-8b6cf2b72356",
+  "model": "gpt-5.6-luna",
+  "generationArchitecture": "three parallel strict Structured Output segments with per-segment source ID enums",
+  "responseCount": 3,
+  "completedInMilliseconds": 24399,
+  "usage": {
+    "inputTokens": 22559,
+    "cachedInputTokens": 0,
+    "outputTokens": 8287,
+    "reasoningTokens": 198,
+    "totalTokens": 30846
+  },
+  "estimatedStandardApiCostUsd": 0.0723,
+  "bookChecks": {
+    "months": 12,
+    "sourceRecords": 72,
+    "invalidSourceIds": 0,
+    "missingSourcePaths": 0,
+    "structuralErrors": 0,
+    "contentWarnings": 0,
+    "verificationStatus": "needs_human_review"
+  },
+  "notes": [
+    "The run used the public production gateway after deployment of commit 4293d97.",
+    "The estimate uses the standard GPT-5.6 Luna rates available on the capture date: $1 per 1M input tokens and $6 per 1M output tokens.",
+    "Questionnaire content and generated editorial text are intentionally omitted."
+  ]
+}

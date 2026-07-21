@@ -64,6 +64,7 @@ directories are ignored by Git.
 
 - `evidence/gpt-5.6-run.json` — sanitized model and response metadata for Maya.
 - `evidence/live-bilingual-runs.json` — sanitized current GPT‑5.6 production QA in English and Russian.
+- `evidence/live-luna-run.json` — sanitized GPT‑5.6 Luna production QA and usage snapshot.
 - `web/src/data/people/maya-demo.json` — the complete synthetic book and provenance.
 
 The included evidence demo contains 72 registered records, cites 53 and has no unknown
@@ -73,3 +74,8 @@ for human review.
 The current bilingual production runs resolved to `gpt-5.6-terra`, completed in 27.6
 and 33.6 seconds, and returned zero source-link or structural errors. The Russian
 verifier surfaced one content warning for human review rather than hiding it.
+
+The post-migration English Maya run resolved to `gpt-5.6-luna`, completed in 24.4
+seconds, returned 12 months and 72 registered sources, and produced zero source-link,
+structural or content-warning errors. Its sanitized token totals and estimated cost are
+recorded in `evidence/live-luna-run.json`.

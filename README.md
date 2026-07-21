@@ -177,6 +177,11 @@ Fresh production questionnaire runs also completed with `gpt-5.6-terra`: English
 or structural errors. Sanitized metadata is in
 [`evidence/live-bilingual-runs.json`](evidence/live-bilingual-runs.json).
 
+After moving the protected live route to `gpt-5.6-luna`, a fresh English Maya run
+completed in 24.4 seconds with 12 months, 72 registered sources and zero source-link,
+structural or content-warning errors. Its estimated standard API cost was $0.0723.
+Sanitized metadata is in [`evidence/live-luna-run.json`](evidence/live-luna-run.json).
+
 ```bash
 npm run test
 npm run build
