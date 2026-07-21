@@ -125,9 +125,13 @@ test("parallel draft segments cover the complete strict schema", () => {
   assert.deepEqual(covered, [...schema.required].sort());
   const fixture = generateFixtureDraft(input, calculation);
   const results = DRAFT_SEGMENTS.map((segment) => {
-    const segmentSchema = schemaForSegment(schema, segment);
+    const segmentCalculation = calculationForSegment(calculation, segment);
+    const allowedSourceIds = segmentCalculation.sources.map((source) => source.id);
+    const segmentSchema = schemaForSegment(schema, segment, allowedSourceIds);
     assert.deepEqual(segmentSchema.required, segment.keys);
-    assert.ok(calculationForSegment(calculation, segment).sources.length < calculation.sources.length);
+    assert.ok(segmentCalculation.sources.length < calculation.sources.length);
+    assert.deepEqual(segmentSchema.$defs.sourceIds.items.enum, allowedSourceIds);
+    assert.equal(segmentSchema.$defs.sourceIds.items.enum.includes("invented.source"), false);
     return { draft: Object.fromEntries(segment.keys.map((key) => [key, fixture[key]])) };
   });
   assert.deepEqual(mergeDraftSegments(results), fixture);

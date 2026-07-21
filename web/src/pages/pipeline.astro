@@ -12,7 +12,7 @@ const stages = [
   { n: "03", label: "REGISTER", title: "Every fact gets an address", text: "Inputs and calculations become immutable source records such as calc.period.4 or input.goal.rest. The model can cite only these IDs.", artifact: `${provenance.sourceCount} source records` },
   { n: "04", label: "WRITE · GPT-5.6", title: "Creativity inside a boundary", text: "GPT-5.6 receives the source registry, editorial constraints and a JSON Schema. Every interpretive object must return its exact sourceIds.", artifact: "draft.json" },
   { n: "05", label: "VERIFY", title: "Trust, then check", text: "A deterministic verifier rejects unknown citations and missing sections, checks all 12 periods and practices, and flags certainty or sensitive language.", artifact: "verification.json" },
-  { n: "06", label: "REVIEW", title: "A human keeps the last word", text: "Cross-framework synthesis and low-confidence passages stay visible. The pipeline cannot label a draft ready for delivery without editorial approval.", artifact: `${verification.humanReview.flaggedPaths.length} review flags` },
+  { n: "06", label: "REVIEW", title: "A human keeps the last word", text: "Cross-framework synthesis and low-confidence passages stay visible. The pipeline cannot label a draft ready for delivery without editorial approval.", artifact: `${verification.humanReview.flaggedPaths.length} review ${verification.humanReview.flaggedPaths.length === 1 ? "flag" : "flags"}` },
   { n: "07", label: "PUBLISH", title: "One dataset, one living book", text: "The approved draft compiles into the existing Omyear book format and Astro builds the private, responsive reading experience.", artifact: "/0811" },
 ];
 ---

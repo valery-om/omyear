@@ -16,13 +16,17 @@ export const DRAFT_SEGMENTS = [
   },
 ];
 
-export function schemaForSegment(schema, segment) {
+export function schemaForSegment(schema, segment, allowedSourceIds = []) {
+  const definitions = structuredClone(schema.$defs);
+  if (allowedSourceIds.length > 0) {
+    definitions.sourceIds.items.enum = [...allowedSourceIds];
+  }
   return {
     type: "object",
     additionalProperties: false,
     required: segment.keys,
     properties: Object.fromEntries(segment.keys.map((key) => [key, schema.properties[key]])),
-    $defs: schema.$defs,
+    $defs: definitions,
   };
 }
 
